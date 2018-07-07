@@ -10,7 +10,7 @@ module.exports = function () {
 	function menaceTheoriste(entries, next) {
 		http.get('http://menace-theoriste.fr/feed/', function (res) {
 			var data = '',
-					limit = 10;
+				limit = 8;
 
 			res.on('data', function (chunk) {
 				data += chunk;
@@ -87,7 +87,7 @@ module.exports = function () {
 	function charlatans(entries, next) {
 		http.get('http://charlatans.info/news/spip.php?page=backend', function (res) {
 			var data = '',
-					limit = 10;
+				limit = 8;
 
 			res.on('data', function (chunk) {
 				data += chunk;
@@ -161,7 +161,7 @@ module.exports = function () {
 	function astroscept(entries, next) {
 		https.get('https://astroscept.com/feed/', function (res) {
 			var data = '',
-			limit = 10;
+				limit = 8;
 
 			res.on('data', function (chunk) {
 				data += chunk;
@@ -211,7 +211,7 @@ module.exports = function () {
 	function sciencetonnante(entries, next) {
 		https.get('https://sciencetonnante.wordpress.com/feed/', function (res) {
 			var data = '',
-			limit = 10;
+				limit = 8;
 
 			res.on('data', function (chunk) {
 				data += chunk;
@@ -261,7 +261,7 @@ module.exports = function () {
 	function cortecs(entries, next) {
 		https.get('https://cortecs.org/feed/', function (res) {
 			var data = '',
-			limit = 10;
+				limit = 8;
 
 			res.on('data', function (chunk) {
 				data += chunk;
@@ -337,7 +337,7 @@ module.exports = function () {
 	function sciencePop(entries, next) {
 		https.get('https://sciencepop.fr/feed/', function (res) {
 			var data = '',
-			limit = 10;
+				limit = 8;
 
 			res.on('data', function (chunk) {
 				data += chunk;
@@ -390,7 +390,7 @@ module.exports = function () {
 	function penserCritique(entries, next) {
 		https.get('https://www.penser-critique.be/feed/', function (res) {
 			var data = '',
-				limit = 10;
+				limit = 8;
 
 			res.on('data', function (chunk) {
 				data += chunk;
@@ -464,7 +464,7 @@ module.exports = function () {
 	function curiologie(entries, next) {
 		http.get('http://curiologie.fr/feed/', function (res) {
 			var data = '',
-				limit = 10;
+				limit = 8;
 
 			res.on('data', function (chunk) {
 				data += chunk;
@@ -517,7 +517,7 @@ module.exports = function () {
 	function theiereCosmique(entries, next) {
 		https.get('https://theierecosmique.com/feed/', function (res) {
 			var data = '',
-				limit = 10;
+				limit = 8;
 
 			res.on('data', function (chunk) {
 				data += chunk;
@@ -593,7 +593,7 @@ module.exports = function () {
 	function bunkerD(entries, next) {
 		http.get('http://www.bunkerd.fr/feed/', function (res) {
 			var data = '',
-				limit = 10;
+				limit = 8;
 
 			res.on('data', function (chunk) {
 				data += chunk;
@@ -664,7 +664,7 @@ module.exports = function () {
 	function hoaxBuster(entries, next) {
 		http.get('http://www.hoaxbuster.com/rss.xml', function (res) {
 			var data = '',
-				limit = 10;
+				limit = 8;
 
 			res.on('data', function (chunk) {
 				data += chunk;

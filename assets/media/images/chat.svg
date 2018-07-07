@@ -1,17 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="1423.5 13.5 21.887 27.072">
-  <defs>
-    <style>
-      .cls-1 {
-        fill: none;
-        stroke: #666;
-        stroke-linecap: round;
-        stroke-linejoin: round;
-        stroke-miterlimit: 10;
-      }
-    </style>
-  </defs>
-  <g id="Groupe_83" data-name="Groupe 83" transform="translate(1423.9 13.9)">
-    <path id="Tracé_110" data-name="Tracé 110" class="cls-1" d="M2.741,20.987A2.664,2.664,0,0,1,.1,18.346V2.741A2.664,2.664,0,0,1,2.741.1H18.346a2.664,2.664,0,0,1,2.641,2.641V18.346a2.664,2.664,0,0,1-2.641,2.641H7.3"/>
-    <path id="Tracé_111" data-name="Tracé 111" class="cls-1" d="M4.872,43.6,4.2,48.786,9.434,43.6" transform="translate(-2.131 -22.613)"/>
-  </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="1423.5 13.5 21.887 27.072"><defs><style>.cls-1{fill:none;stroke:#666;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10}</style></defs><g id="Groupe_83" data-name="Groupe 83" transform="translate(1423.9 13.9)"><path id="Tracé_110" data-name="Tracé 110" class="cls-1" d="M2.741 20.987A2.664 2.664 0 0 1 .1 18.346V2.741A2.664 2.664 0 0 1 2.741.1h15.605a2.664 2.664 0 0 1 2.641 2.641v15.605a2.664 2.664 0 0 1-2.641 2.641H7.3"/><path id="Tracé_111" data-name="Tracé 111" class="cls-1" d="M4.872 43.6L4.2 48.786 9.434 43.6" transform="translate(-2.131 -22.613)"/></g></svg>

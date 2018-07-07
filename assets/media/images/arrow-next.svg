@@ -1,15 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="1333.315 2032.08 15.863 16.269">
-  <defs>
-    <style>
-      .cls-1 {
-        fill: none;
-        stroke: #9d9d9d;
-        stroke-width: 0.5px;
-      }
-    </style>
-  </defs>
-  <g id="Group_432" data-name="Group 432" transform="translate(894.214 1494)">
-    <path id="Path_506" data-name="Path 506" class="cls-1" d="M409,1414.167h15.682" transform="translate(30.101 -868.037)"/>
-    <path id="Path_507" data-name="Path 507" class="cls-1" d="M0,7.51,7.963,0l7.963,7.51" transform="translate(454.62 538.252) rotate(90)"/>
-  </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="1333.315 2032.08 15.863 16.269"><defs><style>.cls-1{fill:none;stroke:#9d9d9d;stroke-width:.5px}</style></defs><g id="Group_432" data-name="Group 432" transform="translate(894.214 1494)"><path id="Path_506" data-name="Path 506" class="cls-1" d="M409 1414.167h15.682" transform="translate(30.101 -868.037)"/><path id="Path_507" data-name="Path 507" class="cls-1" d="M0 7.51L7.963 0l7.963 7.51" transform="rotate(90 -41.816 496.436)"/></g></svg>
