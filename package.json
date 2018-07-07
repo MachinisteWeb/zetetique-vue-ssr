@@ -49,34 +49,27 @@
     "vue-router": "2.7.x",
     "vue-server-renderer": "2.3.x"
   },
-  "devDependencies": {
-    "browser-sync": "2.18.x"
-  },
   "files": [
     "assets/*",
     "controllers/*",
     "models/*",
+    "modules/*",
     "views/*",
     "bundles.json",
     "components.json",
     "LICENSE",
-    "package-lock.json",
+    "optimizations.js",
     "package.json",
+    "package-lock.json",
     "README.md",
-    "routes.en-us.json",
     "routes.json",
-    "server.en-us.js",
-    "server.js",
     "statics.js",
+    "stylus.js",
     "stylus.json",
-    "webconfig.en-us.json",
     "webconfig.json",
-    "webconfig.production.en-us.json",
-    "webconfig.production.json",
-    "webconfig.staging.en-us.json",
-    "webconfig.staging.json"
+    "webconfig.production.json"
   ],
-  "homepage": "https://github.com/Orchard-ID/Orchard-Website#readme",
+  "homepage": "https://github.com/Haeresis/zetetique-vue-ssr#readme",
   "engines": {
     "node": ">=4.0.0"
   }
