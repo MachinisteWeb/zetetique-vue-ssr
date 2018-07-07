@@ -1,0 +1,61 @@
+{
+	"edit-ckeditor": {
+		"view": "components/edit-ckeditor.htm",
+		"model": "components/edit-ckeditor.js",
+		"client": true
+	},
+	"edit-attr": {
+		"view": "components/edit-attr.htm",
+		"model": "components/edit-attr.js"
+	},
+	"edit-wrapper-attr": {
+		"view": "components/edit-wrapper-attr.htm",
+		"model": "components/edit-wrapper-attr.js"
+	},
+	"edit-inline": {
+		"view": "components/edit-inline.htm",
+		"model": "components/edit-inline.js"
+	},
+	"edit-block": {
+		"view": "components/edit-block.htm",
+		"model": "components/edit-block.js"
+	},
+	"edit-global": {
+		"view": "components/edit-global.htm",
+		"model": "components/edit-global.js",
+		"module": "javascripts/modules/edit-global.js",
+		"client": true
+	},
+	"popup-alert": {
+		"view": "components/popup-alert.htm",
+		"model": "components/popup-alert.js",
+		"client": true
+	},
+	"popup-confirm": {
+		"view": "components/popup-confirm.htm",
+		"model": "components/popup-confirm.js",
+		"client": true
+	},
+	"the-navigation": {
+		"view": "components/the-navigation.htm",
+		"model": "components/the-navigation.js",
+		"module": "javascripts/modules/the-navigation.js"
+	},
+	"the-header": {
+		"view": "components/the-header.htm",
+		"model": "components/the-header.js"
+	},
+	"the-title": {
+		"view": "components/the-title.htm",
+		"model": "components/the-title.js"
+	},
+	"the-chat": {
+		"view": "components/the-chat.htm",
+		"model": "components/the-chat.js",
+		"module": "javascripts/modules/the-chat.js"
+	},
+	"anim-height": {
+		"view": "animations/anim-height.htm",
+		"model": "animations/anim-height.js"
+	}
+}

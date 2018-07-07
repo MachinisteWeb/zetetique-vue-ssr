@@ -1,0 +1,344 @@
+.the-chat
+	font-size .8em
+	position fixed
+	right 20px
+	bottom 20px
+	text-align right
+	z-index 10
+
+	&--image
+		position absolute
+		background-color #fee140
+		top 0
+		right -48px
+		border-radius 50%
+		width 40px
+		height 40px
+
+		&--letter
+			color $textColorReversed
+			font-size 1.6rem
+			position absolute
+			top 50%
+			left 50%
+			transform translate(-50%, -50%)
+
+		img
+			max-width 100%
+			height auto
+
+	&--start
+		box-shadow 0 0 10px 2px #aaaaaa
+		width 50px
+		height 50px
+		border 0
+		border-radius 8px
+		background-color $fff
+		opacity 1
+		padding 12px 8px 8px
+		text-align center
+		transition background-color .5s ease, stroke .5s ease
+
+		.cls-1
+			fill none
+			stroke #666
+			stroke-linecap round
+			stroke-linejoin round
+			stroke-miterlimit 10
+
+		&.is-selected
+			background-color $highlightBackgroundColor
+			.cls-1
+				stroke #fff
+
+	@media (min-width 768px)
+		right 70px
+
+	h1, h2, p
+		margin 0 0 4px
+
+	&--sendbox
+	&--special
+		button
+			padding .6rem
+			box-sizing border-box
+			border 1px solid #16A664
+			opacity 1
+			background-color #16A664
+			color $textColorReversed
+			transition color .2s ease, background-color .2s ease
+			border-radius 8px
+			&:hover
+				background-color $textColorReversed
+				color #16A664
+
+	&--special
+		position relative
+		input
+			background-color $backgroundColor
+			border 0
+			border-radius 8px
+			padding 8px
+			margin 4px 0
+			outline -webkit-focus-ring-color auto 0
+			width calc(100% - 64px)
+			box-sizing border-box
+			border-top-right-radius 0
+			border-bottom-right-radius 0
+		button
+			width 64px
+			position absolute
+			bottom 4px
+			right 0
+			height calc(100% - 8px)
+			border-top-left-radius 0
+			border-bottom-left-radius 0
+
+	&--user
+		position absolute
+		bottom -20px
+		left 8px
+
+	&--message
+		position relative
+		list-style-type none
+		box-sizing border-box
+		background-color #f7f7f7
+		width 80%
+		margin 8px 8px 32px 8px
+		border-radius 8px
+		border-top-right-radius 0
+		padding 16px
+
+		&.is-reversed
+			border-top-right-radius 8px
+			border-top-left-radius 0
+			margin-left 20%
+
+			& ^[0]--image
+				background-color $hotColor
+				right auto
+				left -48px
+
+			&  ^[0]--user
+				left auto
+				right 8px
+
+	&--channel
+		display inline-block
+		padding 2px
+		-webkit-border-radius 4px
+		border-radius 4px
+		margin 2px
+		border 1px solid #F00
+		color #F00
+		cursor pointer
+
+		&.is-current
+			color #fff
+			background-color #F00
+
+		&.is-active
+			border 1px solid #080
+			color #080
+			&.is-current
+				color #fff
+				background-color #080
+
+	&--channelbox
+	&--messagebox
+		overflow auto
+		ul
+			padding 0
+			margin 0
+			transition max-height .5s ease
+
+	&--messagebox
+		position absolute
+		font-size 1.8rem
+		width 100%
+		bottom 70px
+		padding 16px
+		top 72px
+		transition top .5s ease
+		@media (min-height 700px)
+			top 160px
+		ul
+			font-size 1.2rem
+			max-height 250px
+			^[1].is-small ^[2..2]
+				max-height 200px
+
+	&--channelbox
+		font-size 1.2rem
+		position absolute
+		top 0
+		left 0
+		width 100%
+		height 160px
+		background-color $backgroundColor
+
+		h2, h3
+			font-size 1.6rem
+			padding 0 8px
+
+		ul
+			padding 8px
+
+		&--overview
+			color $textColorReversed
+			background $hotColor
+			background -moz-linear-gradient(45deg, $hotColor 0%, $coldColor 100%)
+			background -webkit-linear-gradient(45deg, $hotColor 0%, $coldColor 100%)
+			background linear-gradient(45deg, $hotColor 0%, $coldColor 100%)
+			padding 8px
+			text-align left
+
+			h2
+				padding 0
+				transition font-size .5s ease, margin-bottom .5s ease
+				font-size 1.6rem
+				margin-bottom 0
+
+				@media (min-height 700px) && (min-width 400px)
+					font-size 2.4rem
+
+		&--remove
+			opacity .5
+			cursor pointer
+			background-color #F00
+			color #FFF
+			font-weight bold
+			padding 0 4px
+			-webkit-border-radius 50%
+			border-radius 50%
+			&:hover
+				opacity 1
+
+	&.to-right
+		& ^[0]--chatbox
+			left 0
+			right auto
+
+	&.to-bottom
+		& ^[0]--chatbox
+			top 100%
+			bottom auto
+
+	&--overview
+		color $textColorReversed
+		background $hotColor
+		background -moz-linear-gradient(45deg, $hotColor 0%, $coldColor 100%)
+		background -webkit-linear-gradient(45deg, $hotColor 0%, $coldColor 100%)
+		background linear-gradient(45deg, $hotColor 0%, $coldColor 100%)
+		padding 8px
+		text-align left
+		position absolute
+		top 0
+		width 100%
+		height 72px
+		transition height .5s ease, padding .5s ease
+
+		@media (min-height 700px)
+			text-align center
+			padding 32px
+			height 160px
+
+		h1
+			transition font-size .5s ease, margin-bottom .5s ease
+			font-size 1.6rem
+			margin-bottom 4px
+
+			@media (min-height 700px) && (min-width 400px)
+				font-size 2.4rem
+
+			@media (min-height 700px)
+				margin-bottom 20px
+
+	&--chatbox
+		box-sizing border-box
+		position absolute
+		bottom 0
+		right 0
+		background-color #fff
+		text-align left
+		border-radius 8px
+		box-shadow 0 0 10px 2px #aaaaaa
+		overflow hidden
+		margin-bottom 20px
+		margin-top 20px
+		width 270px
+		height 300px
+		transition height .5s ease, bottom .5s ease, width .5s ease
+		@media (min-width 400px)
+			width 370px
+		@media (min-height 500px)
+			bottom 100%
+			height 400px
+		@media (min-height 600px)
+			height 500px
+		@media (min-height 700px)
+			height 600px
+		@media (min-height 800px)
+			height 700px
+
+	&--sendarea
+		input
+			margin-top 8px
+			box-sizing border-box
+			border 0
+			background-color transparent;
+			padding .10rem 0 .6rem
+			display block
+			width 100%
+			outline -webkit-focus-ring-color auto 0
+
+		textarea
+			box-sizing border-box
+			width 100%
+			height 54px
+			border 0
+			border-left 1px solid #95989a
+			border-bottom 1px solid #95989a
+			background-color transparent;
+			padding 8px 4px
+			font-family Regular
+			outline -webkit-focus-ring-color auto 0
+
+	&--sendbox
+		background-color #f7f7f7
+		padding 8px
+		position absolute
+		bottom 0
+		width 100%
+		border-bottom-left-radius 8px
+		border-bottom-right-radius 8px
+		height 70px
+
+		button
+			width 28%
+
+		&.as-textarea
+			& ^[0]--sendarea
+				box-sizing border-box
+				float left
+				width 65%
+				padding-right 8px
+
+		&--controls
+			box-sizing border-box
+			font-size 1rem
+
+			&--reply
+				margin-bottom 6px
+
+			&--options
+				label
+					padding-top 8px
+					padding-left 20px
+					position relative
+
+			&--withenter
+				position absolute
+				top 6px
+				left 0

@@ -1,0 +1,27 @@
+{
+	"javascripts": {
+		"javascripts/vendors/jsoneditor.fr-fr.{version}.min.js": ["javascripts/vendors/jsoneditor.fr-fr.js"],
+		"javascripts/vendors/jsoneditor.en-us.{version}.min.js": ["javascripts/vendors/jsoneditor.en-us.js"],
+		"javascripts/common.{version}.min.js": [
+			"javascripts/config.js",
+			"javascripts/vendors/cookieconsent.js",
+			"javascripts/vendors/ga.min.js",
+			"../node_modules/underscore/underscore-min.js",
+			"../node_modules/jshashes/hashes.min.js",
+			"javascripts/vendors/imagesloaded.min.js",
+			"javascripts/vendors/masonry.min.js",
+			"../node_modules/velocity-animate/velocity.min.js",
+			"../node_modules/ckeditor/ckeditor.js",
+			"../node_modules/socket.io-client/dist/socket.io.js",
+			"node-atlas/socket.io.js",
+			"../node_modules/vue/dist/vue.min.js",
+			"../node_modules/vue-router/dist/vue-router.min.js",
+			"javascripts/common.js"
+		]
+	},
+	"stylesheets": {
+		"stylesheets/common.{version}.min.css": [
+			"stylesheets/common.css"
+		]
+	}
+}

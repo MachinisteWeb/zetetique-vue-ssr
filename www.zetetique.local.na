@@ -1,0 +1,6 @@
+var NA = require('node-atlas');
+
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+
+global.NA = new NA();
+global.NA.run();

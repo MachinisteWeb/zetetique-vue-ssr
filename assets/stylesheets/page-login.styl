@@ -1,0 +1,136 @@
+.page-login
+	overflow hidden
+	@media (min-width 768px)
+		position absolute
+		top 0
+		left 0
+		width 100%
+		height 100%
+
+	&--navigation
+		box-sizing border-box
+		position absolute
+		left 3.2rem
+		top 2rem
+		font-size 1.8rem
+
+		@media (min-width 768px)
+			font-size 1.2rem
+
+		.is-selected
+			display none
+			@media (min-width 768px)
+				display inline
+				a
+					font-weight bold
+
+		ul
+			margin 0
+			padding 0
+			list-style-type none
+
+		li
+			@media (min-width 768px)
+				&:nth-child(1)::after
+					content " -"
+			display inline-block
+
+	&--logo
+		box-sizing border-box
+		padding-top 20px
+		display none
+
+		img
+			max-width 180px
+			display block
+			margin 0 auto
+			padding 0 3.0rem
+
+		@media (min-width 768px)
+			padding-top 0
+			position absolute
+			top 47%
+			left 28%
+			width 25%
+			transform translate(-50%, -50%)
+			display block
+
+			img
+				padding 0
+				max-width none
+
+	&--content
+		box-sizing border-box
+		padding 7rem 0rem 2rem
+
+		h1
+			font-family inherit
+			font-weight lighter
+			font-size 4rem
+			line-height 1em
+			color #000
+			padding 0 3rem 2.4rem
+			&::after
+				content ""
+				display block
+				border-top 1px solid #000
+				width 2rem
+				margin-top 1.4rem
+
+		p
+		form
+			font-size 2rem
+			padding 0 3.0rem 2.4rem
+
+		form
+			margin-bottom 3rem
+
+		@media (min-width 768px)
+			position absolute
+			top 47%
+			left 72%
+			width 32%
+			transform translate(-50%, -50%)
+
+			h1
+				padding 0 0 2.4rem
+
+			p
+				padding 0 0 2.4rem
+
+			form
+				padding 0
+
+	&--infos
+		box-sizing border-box
+		font-size 1.2rem
+
+		padding 0 3.0rem
+
+		@media (min-width 768px)
+			padding 0
+			position absolute
+			left 3.2rem
+			bottom 2rem
+
+		&--identity
+		&--contacts
+		&--networks
+			margin 0
+			padding 0
+			list-style-type none
+			float left
+			margin-top 2.4em
+			margin-right 2.4rem
+
+		&--contacts
+			margin-right 1rem
+			@media (min-width 768px)
+				margin-right 2.4rem
+
+		&--networks
+			clear left
+			margin-bottom 2rem
+			@media (min-width 768px)
+				clear none
+				margin-bottom 0

@@ -1,0 +1,22 @@
+<div class="page-about">
+	<article class="page-about--content">
+		<h1>
+			<edit-inline
+				v-model="specific.title"
+				:global="global" />
+		</h1>
+		<edit-block
+			v-model="specific.content"
+			:global="global" />
+	</article>
+		<edit-global
+			v-if="global.isClient && global.me.id"
+			ref="edit"
+			v-bind:global="global"
+			v-bind:common="common"
+			v-bind:file="$route.name"
+			v-bind:meta="meta"
+			v-bind:body="specific"
+			v-bind:current="common.edit.local"
+			v-bind:options="options"></edit-global>
+</div>

@@ -1,0 +1,327 @@
+<div class="page-home">
+	<div class="page-home--background"
+		:style="{ 'background-image': 'url(' + specific.background + ')' }"
+		:class="{ 'as-x-100': globalItemIndex === 1, 'as-x-200': globalItemIndex === 2 }"></div>
+	<div class="page-home--content">
+		<div class="page-home--content--inner">
+			<h1>
+				<edit-inline
+					v-model="specific.title"
+					:global="global" />
+			</h1>
+			<div class="page-home--intro"
+				:class="{ 'is-displayed': globalItemIndex === 0 }">
+				<div class="page-home--intro--content"
+					:class="{ 'is-overflow': globalItemIndex !== 0 }">
+					<div class="page-home--intro--header"
+						:style="(widthIntro) ? 'width:' + widthIntro : ''">
+						<edit-inline
+							v-model="specific.title"
+							:global="global" />
+					</div>
+					<div class="page-home--intro--main"
+						:style="(widthIntro) ? 'width:' + widthIntro : ''">
+						<the-title></the-title>
+						<div class="page-home--intro--main--inner">
+							<edit-block
+								v-model="specific.content"
+								:global="global" />
+						</div>
+					</div>
+					<div class="page-home--intro--footer"
+						:style="(widthIntro) ? 'width:' + widthIntro : ''">
+						<ul>
+							<li v-for="(contact, index) in common.navigation.information.contacts">
+								<edit-inline
+									v-model="common.navigation.information.contacts[index]"
+									:global="global" />
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="page-home--intro--image">
+					<img class="page-home--intro--image--inner" src="media/images/logo_high.png" alt="Coup critique">
+				</div>
+			</div>
+			<div class="page-home--overview"
+				:class="{ 'is-displayed': globalItemIndex === 1 }">
+				<div class="page-home--overview--image">
+					<transition-group
+						name="fade-in-out"
+						tag="div">
+						<div class="page-home--overview--image--item as-cafe"
+							v-show="resourcesItemIndex === 0"
+							key="cafe"
+							:class="{ 'is-displayed': resourcesItemIndex === 0 }"></div>
+						<div class="page-home--overview--image--item as-brain"
+							v-show="resourcesItemIndex === 1"
+							key="brain"
+							:class="{ 'is-displayed': resourcesItemIndex === 1 }"></div>
+						<div class="page-home--overview--image--item as-speak"
+							v-show="resourcesItemIndex === 2"
+							key="speak"
+							:class="{ 'is-displayed': resourcesItemIndex === 2 }"></div>
+						<div class="page-home--overview--image--item as-word"
+							v-show="resourcesItemIndex === 3"
+							key="word"
+							:class="{ 'is-displayed': resourcesItemIndex === 3 }"></div>
+					</transition-group>
+				</div>
+				<div class="page-home--overview--content"
+					:class="{ 'is-overflow': globalItemIndex !== 1 }">
+					<div class="page-home--overview--header"
+						:style="(widthOverview) ? 'width:' + widthOverview : ''">
+						<edit-inline
+							v-model="specific.overview.title"
+							:global="global" />
+						<nav>
+							<ul>
+								<li
+									v-for="(item, index) in specific.overview.main"
+									@click="selectResourcesItem(index)"
+									:class="{ 'is-selected': resourcesItemIndex === index }">
+									<edit-inline
+										v-model="specific.overview.main[index].title"
+										:global="global" />
+								</li>
+							</ul>
+						</nav>
+					</div>
+					<div class="page-home--overview--main"
+						:style="(widthOverview) ? 'width:' + widthOverview : ''">
+						<div class="page-home--overview--main--inner">
+							<transition-group
+								name="fade-in-out"
+								tag="div">
+								<div class="page-home--overview--cafe"
+									key="cafe" v-show="resourcesItemIndex === 0"
+									:class="{ 'is-displayed': resourcesItemIndex === 0 }">
+									<h2>
+										<edit-inline
+											v-model="specific.overview.main[0].title"
+											:global="global" />
+									</h2>
+									<hr>
+									<edit-block
+										v-model="specific.overview.main[0].content"
+										:global="global" />
+								</div>
+								<div class="page-home--overview--brain"
+									key="brain" v-show="resourcesItemIndex === 1"
+									:class="{ 'is-displayed': resourcesItemIndex === 1 }">
+									<h2>
+										<edit-inline
+											v-model="specific.overview.main[1].title"
+											:global="global" />
+									</h2>
+									<hr>
+									<edit-block
+										v-model="specific.overview.main[1].content"
+										:global="global" />
+								</div>
+								<div class="page-home--overview--speak"
+									key="speak"
+									v-show="resourcesItemIndex === 2"
+									:class="{ 'is-displayed': resourcesItemIndex === 2 }">
+									<h2>
+										<edit-inline
+											v-model="specific.overview.main[2].title"
+											:global="global" />
+									</h2>
+									<hr>
+									<edit-block
+										v-model="specific.overview.main[2].content"
+										:global="global" />
+								</div>
+								<div class="page-home--overview--word"
+									key="word"
+									v-show="resourcesItemIndex === 3"
+									:class="{ 'is-displayed': resourcesItemIndex === 3 }">
+									<h2>
+										<edit-inline
+											v-model="specific.overview.main[3].title"
+											:global="global" />
+									</h2>
+									<hr>
+									<edit-block
+										v-model="specific.overview.main[3].content"
+										:global="global" />
+								</div>
+							</transition-group>
+						</div>
+					</div>
+					<div class="page-home--overview--footer"
+						:style="(widthOverview) ? 'width:' + widthOverview : ''">
+						<nav>
+							<img alt="En savoir plus" src="media/images/previous-arrow.svg" width="16"
+								@click="previousResourcesItem">
+							<img alt="En savoir plus" src="media/images/next-arrow.svg" width="16"
+								@click="nextResourcesItem">
+						</nav>
+					</div>
+				</div>
+				<div class="page-home--overview--end"></div>
+			</div>
+			<div class="page-home--projects"
+				:class="{ 'is-displayed': globalItemIndex === 2 }">
+				<div class="page-home--projects--image">
+					<transition-group
+						name="fade-in-out"
+						tag="div">
+						<div class="page-home--projects--image--item as-news"
+							v-show="projectsItemIndex === 0"
+							key="news"
+							:class="{ 'is-displayed': projectsItemIndex === 0 }"></div>
+						<div class="page-home--projects--image--item as-facebook"
+							v-show="projectsItemIndex === 1"
+							key="facebook"
+							:class="{ 'is-displayed': projectsItemIndex === 1 }"></div>
+						<div class="page-home--projects--image--item as-web"
+							v-show="projectsItemIndex === 2"
+							key="web"
+							:class="{ 'is-displayed': projectsItemIndex === 2 }"></div>
+						<div class="page-home--projects--image--item as-credits"
+							v-show="projectsItemIndex === 3"
+							key="credits"
+							:class="{ 'is-displayed': projectsItemIndex === 3 }"></div>
+					</transition-group>
+				</div>
+				<div class="page-home--projects--content"
+					:class="{ 'is-overflow': globalItemIndex !== 2 }">
+					<div class="page-home--projects--header"
+						:style="(widthProjects) ? 'width:' + widthProjects : ''">
+						<edit-inline
+							v-model="specific.projects.title"
+							:global="global" />
+						<nav>
+							<ul>
+								<li
+									v-for="(item, index) in specific.projects.main"
+									@click="selectProjectsItem(index)"
+									:class="{ 'is-selected': projectsItemIndex === index }">
+									<edit-inline
+										v-model="specific.projects.main[index].title"
+										:global="global" />
+								</li>
+							</ul>
+						</nav>
+					</div>
+					<div class="page-home--projects--main"
+						:style="(widthProjects) ? 'width:' + widthProjects : ''">
+						<div class="page-home--projects--main--inner">
+							<transition-group
+								name="fade-in-out"
+								tag="div">
+								<div class="page-home--projects--item"
+									v-show="projectsItemIndex === 0"
+									key="project-1"
+									:class="{ 'is-displayed': projectsItemIndex === 0 }">
+									<h2>
+										<edit-inline
+											v-model="specific.projects.main[0].title"
+											:global="global" />
+									</h2>
+									<hr>
+									<edit-block
+										v-model="specific.projects.main[0].content"
+										:global="global" />
+								</div>
+								<div class="page-home--projects--item"
+									v-show="projectsItemIndex === 1"
+									key="project-2"
+									:class="{ 'is-displayed': projectsItemIndex === 1 }">
+									<h2>
+										<edit-inline
+											v-model="specific.projects.main[1].title"
+											:global="global" />
+									</h2>
+									<hr>
+									<edit-block
+										v-model="specific.projects.main[1].content"
+										:global="global" />
+								</div>
+								<div class="page-home--projects--item"
+									v-show="projectsItemIndex === 2"
+									key="project-3"
+									:class="{ 'is-displayed': projectsItemIndex === 2 }">
+									<h2>
+										<edit-inline
+											v-model="specific.projects.main[2].title"
+											:global="global" />
+									</h2>
+									<hr>
+									<edit-block
+										v-model="specific.projects.main[2].content"
+										:global="global" />
+								</div>
+								<div class="page-home--projects--item"
+									v-show="projectsItemIndex === 3"
+									key="project-3"
+									:class="{ 'is-displayed': projectsItemIndex === 3 }">
+									<h2>
+										<edit-inline
+											v-model="specific.projects.main[3].title"
+											:global="global" />
+									</h2>
+									<hr>
+									<edit-block
+										v-model="specific.projects.main[3].content"
+										:global="global" />
+								</div>
+							</transition-group>
+						</div>
+					</div>
+					<div class="page-home--projects--footer"
+						:style="(widthProjects) ? 'width:' + widthProjects : ''">
+						<nav>
+							<img alt="En savoir plus" src="media/images/previous-arrow.svg" width="16"
+								@click="previousProjectsItem">
+							<img alt="En savoir plus" src="media/images/next-arrow.svg" width="16"
+								@click="nextProjectsItem">
+						</nav>
+					</div>
+				</div>
+				<div class="page-home--projects--end"></div>
+			</div>
+		</div>
+	</div>
+	<aside class="page-home--next"
+		@click="nextGlobalItem">
+		<div class="page-home--next--title">
+			<span class="page-home--next--title--rotate">
+				<span class="a"
+					@click="globalItemIndex = 0">
+					{{ specific.title }}
+				</span>
+			</span>
+		</div>
+		<div class="page-home--next--menu">
+			<span class="page-home--next--menu--rotate">
+				<img src="media/images/arrow-next.svg" width="16" height="16" alt="Suite">
+			</span>
+		</div>
+		<div class="page-home--next--location">
+			<span class="page-home--next--location--rotate">
+				<span
+					v-if="globalItemIndex === 0"
+					v-html="specific.subtitle"></span>
+				<span
+					v-if="globalItemIndex === 1"
+					v-html="specific.overview.title"></span>
+				<span
+					v-if="globalItemIndex === 2"
+					v-html="specific.projects.title"></span>
+			</span>
+		</div>
+	</aside>
+	<edit-global
+		v-if="global.isClient && global.me.id"
+		ref="edit"
+		:global="global"
+		:common="common"
+		:file="$options.name.replace(/page-/, '')"
+		:meta="meta"
+		:body="specific"
+		:current="common.edit.local"
+		:options="options"></edit-global>
+</div>

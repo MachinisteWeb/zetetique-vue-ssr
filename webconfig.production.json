@@ -1,0 +1,24 @@
+{
+	"cache": true,
+	"socketServerOptions": {
+		"transports": ["polling"]
+	},
+	"httpSecure": true,
+	"httpPort": 7748,
+	"urlPort": 443,
+	"urlHostname": "www.coup-critique.com",
+	"languageCode": "fr-fr",
+	"variation": "common.json",
+	"variationsRelativePath": "../data/zetetique/variations/",
+	"controller": "common.js",
+	"view": "layout.htm",
+	"bundles": "bundles.json",
+	"statics": "statics.js",
+	"routes": "routes.json",
+	"_components": "components.json",
+	"_robots": "index, follow",
+	"_data": "../data/zetetique/",
+	"_smtp": "smtp.json",
+	"_ua": "UA-121782972-1",
+	"_min": true
+}

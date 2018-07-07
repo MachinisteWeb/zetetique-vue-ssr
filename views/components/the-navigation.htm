@@ -1,0 +1,108 @@
+<nav class="the-navigation"
+	:class="{ 'is-opened': global.navigation }">
+	<h1 v-html="common.navigation.title"></h1>
+	<div class="the-navigation--information">
+		<h2 class="the-navigation--information--title">
+			<edit-inline
+				v-model="common.navigation.information.title"
+				:global="global" /><br>
+		</h2>
+		<div class="the-navigation--information--identity">
+			<edit-inline
+				v-model="common.navigation.information.identity"
+				:global="global" />
+		</div>
+		<ul class="the-navigation--information--contacts">
+			<li v-for="(contact, index) in common.navigation.information.contacts">
+				<edit-inline
+					v-model="common.navigation.information.contacts[index]"
+					:global="global" />
+			</li>
+		</ul>
+	</div>
+	<div class="the-navigation--menu">
+		<div class="the-navigation--main">
+			<h2 v-html="common.navigation.main.title"></h2>
+			<ul>
+				<li v-for="(link, index) in common.navigation.main.links">
+					<edit-wrapper-attr :global="global">
+						<router-link
+							:to="link.href"
+							v-html="link.content" />
+						<template slot="attrs">
+							<edit-attr
+								v-model="common.navigation.main.links[index].content"
+								:label="'Content: '"
+								:global="global" />
+							<edit-attr
+								v-model="common.navigation.main.links[index].href"
+								:label="'Link: '"
+								:global="global" />
+						</template>
+					</edit-wrapper-attr>
+				</li>
+			</ul>
+		</div>
+		<div class="the-navigation--networks">
+			<h2 v-html="common.navigation.networks.title"></h2>
+			<ul class="home--infos--networks">
+				<li v-for="(link, index) in common.navigation.networks.links">
+					<edit-inline
+						v-model="common.navigation.networks.links[index]"
+						:global="global" />
+				</li>
+			</ul>
+		</div>
+	</div>
+	<nav class="the-navigation--language">
+		<h2 v-html="common.navigation.languages.title"></h2>
+		<!--<ul>
+			<li :class="{ 'is-selected': meta.menu[0] }">
+				<edit-inline
+					v-model="common.navigation.languages.links[0]"
+					:global="global" />
+			</li>
+			<li :class="{ 'is-selected': meta.menu[1] }">
+				<edit-inline
+					v-model="common.navigation.languages.links[1]"
+					:global="global" />
+			</li>
+		</ul>-->
+		<div>
+			<edit-wrapper-attr
+				:global="global">
+				<router-link
+					:to="common.navigation.main.extras[0].href"
+					v-html="common.navigation.main.extras[0].content" />
+				<template slot="attrs">
+					<edit-attr
+						v-model="common.navigation.main.extras[0].content"
+						:label="'Content: '"
+						:global="global" />
+					<edit-attr
+						v-model="common.navigation.main.extras[0].href"
+						:label="'Link: '"
+						:global="global" />
+				</template>
+			</edit-wrapper-attr>
+		</div>
+		<div>
+			<edit-wrapper-attr
+				:global="global">
+				<router-link
+					:to="common.navigation.main.extras[1].href"
+					v-html="common.navigation.main.extras[1].content" />
+				<template slot="attrs">
+					<edit-attr
+						v-model="common.navigation.main.extras[1].content"
+						:label="'Content: '"
+						:global="global" />
+					<edit-attr
+						v-model="common.navigation.main.extras[1].href"
+						:label="'Link: '"
+						:global="global" />
+				</template>
+			</edit-wrapper-attr>
+		</div>
+	</nav>
+</nav>

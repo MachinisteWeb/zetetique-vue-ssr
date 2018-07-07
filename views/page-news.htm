@@ -1,0 +1,98 @@
+<section class="page-news">
+	<div class="page-news--breadcrumb">
+		<nav>
+			<edit-inline
+				v-model="specific.title"
+				:global="global" />
+		</nav>
+	</div>
+	<div class="page-news--content">
+		<header class="page-news--content--header">
+			<h1>
+				<edit-inline
+					v-model="specific.title"
+					:global="global" />
+			</h1>
+			<hr>
+		</header>
+		<div class="page-news--content--inner">
+			<div class="page-news--content--board">
+				<div class="page-news--content--news"
+					:data-fetch-news="JSON.stringify(global.news)">
+					<ul class="page-news--content--outer">
+						<li class="page-news--content--news--item"
+							v-for="(news, index) in global.news"
+							:key="news.title">
+							<h3 @click="goTo(index)">
+								<small>par <strong>{{ news.website }}</strong>
+								le <strong>{{ padLeft(new Date(news.publish.date).getDate()) }}/{{ padLeft(new Date(news.publish.date).getMonth() + 1) }}/{{ new Date(news.publish.date).getFullYear() }}</strong></small>
+							</h3>
+							<h2 @click="goTo(index)">{{ news.title }}</h2>
+							<div class="page-news--content--news--item--detail"
+								v-if="news.image"
+								@click="goTo(index)">
+								<img :src="news.image" :alt="news.title">
+							</div>
+							<p class="page-news--content--news--tag"
+							 	@click="goTo(index)">
+								<small>
+									<strong>
+										<edit-inline
+											v-model="specific.newsTag"
+											:global="global" />
+									</strong> : {{ news.category }}
+								</small>
+							</p>
+							<div class="page-news--content--news--item--inner">
+								<div class="page-news--content--news--description"
+									v-html="news.description"
+							 		@click="goTo(index)"></div>
+								<p class="page-news--content--news--go-to">
+									<a class="button" :href="news.links.link" target="_blank">
+										<edit-inline
+											v-model="specific.newsLink"
+											:global="global" />
+									</a>
+								</p>
+								<p class="page-news--content--news--comment"
+									v-if="news.comments.link">
+									<a :href="news.comments.link" target="_blank">
+										<edit-inline
+											v-model="specific.newsComment"
+											:global="global" />
+									</a>
+								</p>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<nav class="page-news--content--nav">
+				<edit-block
+					v-model="specific.description"
+					:global="global" />
+				<hr>
+				<h2>
+					<edit-inline
+						v-model="specific.categories"
+						:global="global" />
+				</h2>
+				<ul>
+					<li v-for="(source, index) in sources">
+						<a :href="source.links.website" target="_blank">{{ source.website }}</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+	<edit-global
+		v-if="global.isClient && global.me.id"
+		ref="edit"
+		v-bind:global="global"
+		v-bind:common="common"
+		v-bind:file="$options.name.replace(/page-/, '')"
+		v-bind:meta="meta"
+		v-bind:body="specific"
+		v-bind:current="common.edit.local"
+		v-bind:options="options"></edit-global>
+</section>

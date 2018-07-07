@@ -1,0 +1,104 @@
+.the-navigation
+	display flex
+	position fixed
+	top 0
+	width 100%
+	height 100%
+	left calc(-100% + 49px)
+	padding 16px 16px 16px 66px
+	background $hotColor
+	background -moz-linear-gradient(45deg, $hotColor 0%, $coldColor 100%)
+	background -webkit-linear-gradient(45deg, $hotColor 0%, $coldColor 100%)
+	background linear-gradient(45deg, $hotColor 0%, $coldColor 100%)
+	flex-direction column
+	justify-content space-between
+	transition left .5s ease, width .5s ease
+	z-index 12
+
+	@media (min-width 520px)
+		padding 32px 32px 32px 82px
+
+	@media (min-width 768px)
+		width 70%
+		left calc(-70% + 49px)
+
+	&--menu h2
+	&--language h2
+	h1
+		display none
+
+	&.is-opened
+		z-index 10
+		left 0
+
+	&--information
+		display block
+		flex-direction row
+		justify-content center
+
+		@media (min-width 520px)
+			display flex
+
+		&--title
+			display none
+			@media (min-width 768px)
+				display block
+
+		&--identity
+			@media (max-width 520px)
+				margin-bottom 16px
+
+		&--title
+		&--identity
+		&--contacts
+			@media (min-width 520px)
+				margin 0 24px
+
+			color $textColorReversed
+
+			a
+				color $highlightLinkColorReversed
+
+	&--menu
+		position relative
+		padding-bottom 32px
+
+	&--networks
+		display none
+		position absolute
+		top 100%
+		left 0
+
+		@media (min-height 572px)
+			display block
+
+		a
+			color $highlightLinkColorReversed
+
+	&--main
+		font-size 3.5rem
+		line-height 1
+
+		.router-link-exact-active
+			font-weight bold
+			cursor text
+			letter-spacing 0.04rem
+		a
+			color $highlightLinkColorReversed
+
+	&--language
+		ul
+			display flex
+			flex-direction row
+			justify-content flex-start
+		li + li
+			&::before
+				content "-"
+				display inline-block
+				margin 0 4px
+				color $highlightLinkColorReversed
+		a
+			font-size 1.4rem
+			color $highlightLinkColorReversed
+			^[1] .is-selected ^[2..2]
+				font-weight bold

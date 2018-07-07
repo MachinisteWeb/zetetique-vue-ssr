@@ -1,0 +1,48 @@
+<aside class="edit-global"
+	key="edit"
+	:class="{ 'is-opened': state, 'is-global': options && options.global }">
+	<button class="edit-global--save"
+		v-if="options.dirty"
+		@click="save"
+		v-html="common.edit.save"></button>
+	<button class="edit-global--start"
+		@mousedown="isMoved"
+		@mouseup="toggleEdit">
+		<span
+			v-show="!state"
+			v-html="current"></span>
+		<span
+			v-show="state"
+			v-html="common.edit.close"></span>
+	</button>
+	<anim-height>
+		<div class="edit-global--editbox"
+			v-show="state"
+			key="box">
+			<div class="edit-global--tabs">
+				<span class="edit-global--editbox--set-body"
+					:class="{ 'is-current': tab === 'body' }"
+					@click="tab = 'body'"
+					v-html="common.edit.data"></span>
+				<span class="edit-global--editbox--set-meta"
+					:class="{ 'is-current': tab === 'meta' }"
+					@click="tab = 'meta'"
+					v-html="common.edit.metadata"></span>
+			</div>
+			<div class="edit-global--editbox--body"
+				v-show="tab === 'body'"></div>
+			<div class="edit-global--editbox--meta"
+				v-show="tab === 'meta'"></div>
+		</div>
+	</anim-height>
+	<popup-confirm
+		ref="confirm"
+		:displayed="confirmUpdateJSON"
+		:current="common.edit.updateJSON"
+		@close="confirmUpdateJSON = false" />
+	<popup-alert
+		ref="alert"
+		:displayed="alertLostJSON"
+		:current="common.edit.lostJSON"
+		@close="alertLostJSON = false" />
+</aside>

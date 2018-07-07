@@ -1,0 +1,58 @@
+.popup-alert
+	position fixed
+	top 0
+	left 0
+	display none
+	height 100%
+	width 100%
+	background rgba(255, 255, 255, 0.8)
+	text-align left
+	z-index 2
+
+	&.is-displayed
+		display block
+
+	&--outer
+		position absolute
+		top 50%
+		left 50%
+		transform translate(-50%, -50%)
+		background $hotColor
+		background -moz-linear-gradient(-45deg, $hotColor 0%, $coldColor 100%)
+		background -webkit-linear-gradient(-45deg, $hotColor 0%,$coldColor 100%)
+		background linear-gradient(135deg, $hotColor 0%, $coldColor 100%)
+		width 100%
+
+	&--inner
+		box-sizing border-box
+		max-width 768px
+		margin 0 auto
+		padding 0 8px
+
+	&.popup-alert p
+		padding-bottom 8px
+		font-size inherit
+		font-size 1.8rem
+		font-weight lighter
+		color #4f4f4f
+		font-family Regular, Arial, sans-serif
+		letter-spacing 0.04rem
+		color #fff
+
+	&.popup-alert h1
+		margin-top 16px
+		padding-bottom 8px
+		font-family inherit
+		font-weight lighter
+		font-size 3.2rem
+		line-height 1em
+		color #fff
+		&::after
+			content ""
+			display block
+			border-top 1px solid #fff
+			width 2rem
+			margin-top 1.4rem
+
+	&--actions
+		margin-bottom 2em

@@ -1,0 +1,19 @@
+<aside class="popup-confirm"
+	:class="{ 'is-displayed': displayed }">
+	<div class="popup-confirm--outer">
+		<div class="popup-confirm--inner">
+			<h1 class="popup-confirm--title"
+				v-html="current.title"></h1>
+			<div class="popup-confirm--message"
+				v-html="current.message"></div>
+			<div class="popup-confirm--actions">
+				<button class="popup-confirm--ok"
+					@click="update"
+					v-html="current.ok"></button>
+				<button class="popup-confirm--nok"
+					@click="close"
+					v-html="current.nok"></button>
+			</div>
+		</div>
+	</div>
+</aside>

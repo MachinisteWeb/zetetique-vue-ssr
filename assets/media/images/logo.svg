@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="187 -1469 315.4 217.2">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#linear-gradient);
+      }
+
+      .cls-2 {
+        fill: url(#linear-gradient-2);
+      }
+
+      .cls-3 {
+        fill: url(#linear-gradient-3);
+      }
+
+      .cls-4 {
+        fill: url(#linear-gradient-4);
+      }
+
+      .cls-5 {
+        fill: url(#linear-gradient-5);
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="-0.585" y1="0.5" x2="1.94" y2="0.5" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ff3f74"/>
+      <stop offset="0.999" stop-color="#fee140"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="-1.533" y1="0.5" x2="2.034" y2="0.5" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-3" x1="-1.37" y1="0.5" x2="1.818" y2="0.5" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-4" x1="0.074" y1="0.5" x2="5.364" y2="0.5" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-5" x1="-3.377" y1="0.5" x2="0.842" y2="0.5" xlink:href="#linear-gradient"/>
+  </defs>
+  <g id="Groupe_401" data-name="Groupe 401" transform="translate(187 -1469)">
+    <g id="Groupe_396" data-name="Groupe 396">
+      <path id="Tracé_364" data-name="Tracé 364" class="cls-1" d="M91.4,91.4,73.7,73.7a84.015,84.015,0,0,1,118.8,0L174.8,91.4a58.907,58.907,0,0,0-83.4,0Z"/>
+    </g>
+    <g id="Groupe_397" data-name="Groupe 397">
+      <path id="Tracé_365" data-name="Tracé 365" class="cls-2" d="M133.1,217.2v-25a59.066,59.066,0,0,0,59.1-59.1h25a84.16,84.16,0,0,1-84.1,84.1Z"/>
+    </g>
+    <g id="Groupe_398" data-name="Groupe 398">
+      <path id="Tracé_366" data-name="Tracé 366" class="cls-3" d="M209.6,56.7A107.157,107.157,0,0,0,133.1,25V0a131.808,131.808,0,0,1,94.1,39Z"/>
+    </g>
+    <g id="Groupe_399" data-name="Groupe 399">
+      <path id="Tracé_367" data-name="Tracé 367" class="cls-4" d="M25,133.1H0A131.808,131.808,0,0,1,39,39L56.7,56.7A107.1,107.1,0,0,0,25,133.1Z"/>
+    </g>
+    <g id="Groupe_400" data-name="Groupe 400">
+      <path id="Tracé_368" data-name="Tracé 368" class="cls-5" d="M315.4,133.1h-25A156.285,156.285,0,0,0,244.3,21.9L262,4.3A181.108,181.108,0,0,1,315.4,133.1Z"/>
+    </g>
+  </g>
+</svg>

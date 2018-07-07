@@ -1,0 +1,41 @@
+<div class="layout"
+	:class="{ 'as-loaded-page': global.isClient && !global.isWaiting }">
+	<div class="main-content">
+		<transition :name="global.routerTransition">
+			<router-view
+				ref="router"
+				key="router"
+				:common="common"
+				:global="global"
+				@specific="value => { specific = value }"></router-view>
+		</transition>
+	</div>
+	<the-navigation
+		ref="navigation"
+		:common="common"
+		:global="global"
+		:meta="meta"></the-navigation>
+	<the-header
+		ref="main-header"
+		:common="common"
+		:global="global"
+		:specific="specific"></the-header>
+	<div class="loading"
+		v-html="common.loading"></div>
+	<the-chat
+		v-show="global.me.id"
+		v-if="global.isClient"
+		ref="chat"
+		:common="common"
+		:global="global"></the-chat>
+	<edit-global
+		v-if="global.isClient && global.me.id"
+		ref="edit"
+		:global="global"
+		:common="common"
+		:file="'common'"
+		:meta="meta"
+		:body="common"
+		:current="common.edit.global"
+		:options="options"></edit-global>
+</div>

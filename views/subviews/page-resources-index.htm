@@ -1,0 +1,83 @@
+<div class="page-resources--content" :class="{ 'is-displayed': global.isClient }">
+	<div class="page-resources--content--outer">
+		<div class="page-resources--content--inner">
+			<div class="page-resources--content--cafe"
+				@click="goTo('cafe')">
+				<div class="page-resources--content--cafe--image"></div>
+				<div class="page-resources--content--cafe--content">
+					<div class="page-resources--content--cafe--content--inner">
+						<h2>
+							<edit-inline
+								v-model="specific.overview.main[0].title"
+								:global="global" />
+						</h2>
+						<hr>
+						<edit-block
+							v-model="specific.overview.main[0].content"
+							:global="global" />
+					</div>
+				</div>
+			</div>
+			<div class="page-resources--content--brain"
+				@click="goTo('brain')">
+				<div class="page-resources--content--brain--image"></div>
+				<div class="page-resources--content--brain--content">
+					<div class="page-resources--content--brain--content--inner">
+						<h2>
+							<edit-inline
+								v-model="specific.overview.main[1].title"
+								:global="global" />
+						</h2>
+						<hr>
+						<edit-block
+							v-model="specific.overview.main[1].content"
+							:global="global" />
+					</div>
+				</div>
+			</div>
+			<div class="page-resources--content--speak"
+				@click="goTo('speak')">
+				<div class="page-resources--content--speak--image"></div>
+				<div class="page-resources--content--speak--content">
+					<div class="page-resources--content--speak--content--inner">
+						<h2>
+							<edit-inline
+								v-model="specific.overview.main[2].title"
+								:global="global" />
+						</h2>
+						<hr>
+						<edit-block
+							v-model="specific.overview.main[2].content"
+							:global="global" />
+					</div>
+				</div>
+			</div>
+			<div class="page-resources--content--word"
+				@click="goTo('word')">
+				<div class="page-resources--content--word--image"></div>
+				<div class="page-resources--content--word--content">
+					<div class="page-resources--content--word--content--inner">
+						<h2>
+							<edit-inline
+								v-model="specific.overview.main[3].title"
+								:global="global" />
+						</h2>
+						<hr>
+						<edit-block
+							v-model="specific.overview.main[3].content"
+							:global="global" />
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="page-resources--information">
+		<ul class="page-resources--information--contacts">
+			<li v-for="(contact, index) in common.navigation.information.contacts">
+				<edit-inline
+					v-model="common.navigation.information.contacts[index]"
+					:global="global" />
+			</li>
+		</ul>
+	</div>
+</div>

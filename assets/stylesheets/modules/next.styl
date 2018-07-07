@@ -1,0 +1,59 @@
+.next
+	display none
+	position absolute
+	top 0
+	right 0
+	width 49px
+	height 100%
+	border-left 1px solid $borderColor
+	background-color $backgroundColor
+	flex-direction column
+	flex-wrap wrap
+	justify-content space-between
+	overflow hidden
+
+	@media (min-width 768px)
+		display flex
+
+	&--title
+		padding 24px 0
+		font-size 1.2rem
+		color $linkColor
+		overflow hidden
+		display flex
+		flex-direction column
+		flex 0 1 200px
+
+		&--rotate
+			color $highlightLinkColor
+			display inline-block
+			overflow hidden
+			text-align right
+			width 150px
+			line-height 1
+			margin-left 30px
+			transform rotate(-90deg) translateX(calc(-100% + 10px))
+			transform-origin: bottom left;
+
+	&--menu
+		padding 24px 0
+		text-align center
+
+	&--location
+		padding 24px 0
+		font-size 1.2rem
+		color $linkColor
+		overflow hidden
+		display flex
+		flex-direction column-reverse
+		flex 0 1 200px
+
+		&--rotate
+			color $highlightLinkColor
+			display inline-block
+			overflow hidden
+			width 150px
+			line-height 1
+			margin-left 30px
+			transform rotate(-90deg)
+			transform-origin: bottom left;

@@ -1,0 +1,395 @@
+.page-home
+	position absolute
+	top 0
+	left 0
+	width 100%
+	height 100%
+
+	&--background
+		position absolute
+		top 0
+		left 0
+		width 100%
+		height 100%
+		background-size cover
+		background-position 0 0
+		transition background-position 1s ease
+
+		&.as-x-100
+			background-position 100px 0
+
+		&.as-x-200
+			background-position 200px 0
+
+	h1
+		display none
+
+	hr
+		background-color $highlightTextColor
+		height 1px
+		border 0
+		margin 0 auto 0 0
+		width 24px
+		margin 24px 0
+
+	&--content
+		position absolute
+		top 0
+		left 0
+		width 100%
+		height 100%
+
+		@media (min-width 768px)
+			width calc(100% - 50px)
+
+		&--inner
+			position absolute
+			top 0
+			left 0
+			width 100%
+			height 100%
+			display flex
+			width 100%
+
+	&--intro
+	&--overview
+	&--projects
+		flex-grow 1
+		flex-basis 0
+		overflow hidden
+
+		transition 1s flex-basis
+
+		&--content
+			&.is-overflow
+				overflow hidden
+
+		&.is-displayed
+			flex-basis 100%
+
+	&--intro
+		display flex
+		flex-direction row
+		justify-content space-between
+
+		&--content
+		&--image
+			flex-grow 1
+
+		&--image
+			flex-basis 40%
+			position relative
+
+			&--inner
+				display none
+				@media (min-width: 768px)
+					display inline-block
+					position absolute
+					top 50%
+					left 50%
+					transform translate(-50%, -50%);
+
+			@media (max-width: 767px)
+				flex-basis 50px
+				order 1
+
+		&--content
+			overflow-y auto
+			flex-basis 60%
+			padding 24px 8px
+			background-color $backgroundColor
+			display flex
+			flex-direction column
+			justify-content space-between
+
+			@media (max-width: 767px)
+				flex-basis calc(100% - 50px)
+				order 2
+
+		&--main
+			display flex
+			flex-direction row
+			justify-content space-between
+			flex-wrap wrap
+			opacity 0
+			transition opacity 1.5s ease, top 1s ease
+			transition-delay .8s
+			position relative
+			top -20px
+
+			^[0..1].is-displayed &
+				opacity 1
+				top 0
+
+			h2
+				display block
+				.edit-inline span:first-child:not(.is-editable)
+					display none
+
+			.the-title
+				flex-grow 1
+				flex-basis 40%
+				padding 0 8px
+
+				&--second
+					display block
+					margin-left 1.8rem
+
+				@media (min-width 1240px)
+					font-size 5rem
+
+					&--logo
+						background-position: center -0.5rem;
+						background-size 8.4rem
+						width 6rem
+						height 6.6rem
+
+					&--second
+						margin-left 2.4rem
+
+			p
+				padding-bottom 24px
+
+			&--inner
+				padding 50px 8px 0
+				font-size 2rem
+				flex-grow 1
+				flex-basis 60%
+
+		&--header
+		&--footer
+			display none
+			@media (min-width 768px)
+				display block
+			font-size 1.2rem
+			padding 0 8px
+
+	&--overview
+	&--projects
+		display flex
+		flex-direction row
+		justify-content space-between
+
+		&--header
+		&--footer
+			display none
+			@media (min-width 768px)
+				display block
+
+		&--content
+		&--image
+		&--end
+			flex-grow 1
+
+		&--image
+			position relative
+			flex-basis 40%
+
+			&--item
+				position absolute
+				top 0
+				left 0
+				width 100%
+				height 100%
+				opacity 0
+				overflow-y auto
+
+				&.as-cafe
+				&.as-brain
+				&.as-speak
+				&.as-word
+				&.as-news
+				&.as-facebook
+				&.as-web
+				&.as-credits
+					background-size cover
+					background-position center center
+					z-index 2
+
+				&.as-cafe
+					background-image url('../media/images/team.jpg')
+
+				&.as-brain
+					background-image url('../media/images/know-how.jpg')
+
+				&.as-speak
+					background-image url('../media/images/culture.jpg')
+
+				&.as-word
+					background-image url('../media/images/others.jpg')
+
+				&.as-news
+					background-image url('../media/images/actualites.jpg')
+
+				&.as-facebook
+					background-image url('../media/images/facebook.jpg')
+
+				&.as-web
+					background-image url('../media/images/more.jpg')
+
+				&.as-credits
+					background-image url('../media/images/credit.jpg')
+
+				&.is-displayed
+					opacity 1
+					z-index 1
+
+			@media (max-width: 767px)
+				flex-basis 50px
+
+
+		&--content
+			flex-basis 30%
+			background-color $backgroundColor
+			display flex
+			flex-direction column
+			justify-content space-between
+
+			h2
+				color $highlightTextColor
+				font-size 4rem
+			p
+				font-size 2rem
+				padding-bottom 24px
+
+			@media (max-width: 767px)
+				flex-basis calc(100% - 50px)
+
+		&--end
+			flex-basis 10%
+
+			@media (max-width: 767px)
+				flex-basis 0
+
+		&--header
+			padding 24px
+			font-size 1.2rem
+
+			ul
+				color $linkColor
+				margin-left 16px
+
+			li span
+				cursor pointer
+
+				transition letter-spacing .5s ease
+
+				&:hover
+					letter-spacing .08rem
+
+			.is-selected
+				position relative
+
+				&::before
+					position absolute
+					top 0
+					left -16px
+					content "—"
+
+				span
+					color $textColor
+					cursor initial
+
+					&:hover
+						letter-spacing .04rem
+
+		&--footer
+			padding 24px
+			img
+				margin-right 16px
+				cursor pointer
+
+		&--main
+			opacity 0
+			transition opacity 1.5s ease, top 1s ease
+			transition-delay .8s
+			position relative
+			top -20px
+
+			^[0..1].is-displayed &
+				opacity 1
+				top 0
+
+			&--inner
+				position relative
+
+		&--item
+		&--cafe
+		&--brain
+		&--speak
+		&--word
+			background-color $backgroundColor
+			position absolute
+			top 0
+			left 0
+			width 100%
+			height 100%
+			padding 24px
+			opacity 0
+			z-index 2
+			&.is-displayed
+				position relative
+				z-index 1
+				opacity 1
+
+	&--next
+		display none
+		position absolute
+		top 0
+		right 0
+		width 49px
+		height 100%
+		border-left 1px solid $borderColor
+		background-color $backgroundColor
+		flex-direction column
+		flex-wrap wrap
+		justify-content space-between
+		overflow hidden
+		cursor pointer
+
+		@media (min-width 768px)
+			display flex
+
+		&--title
+			padding 24px 0
+			font-size 1.2rem
+			color $linkColor
+			overflow hidden
+			display flex
+			flex-direction column
+			flex 0 1 200px
+
+			&--rotate
+				color $highlightLinkColor
+				display inline-block
+				overflow hidden
+				text-align right
+				width 150px
+				line-height 1
+				margin-left 30px
+				transform rotate(-90deg) translateX(calc(-100% + 10px))
+				transform-origin: bottom left;
+
+		&--menu
+			padding 24px 0
+			text-align center
+			width 100%
+
+		&--location
+			padding 24px 0
+			font-size 1.2rem
+			color $linkColor
+			overflow hidden
+			display flex
+			flex-direction column-reverse
+			flex 0 1 200px
+
+			&--rotate
+				color $highlightLinkColor
+				display inline-block
+				overflow hidden
+				width 150px
+				line-height 1
+				margin-left 30px
+				transform rotate(-90deg)
+				transform-origin bottom left

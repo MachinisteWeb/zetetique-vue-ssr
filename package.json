@@ -1,0 +1,83 @@
+{
+  "name": "coup-critique-website",
+  "version": "0.15.0",
+  "description": "Site web de la pensée critique",
+  "main": "server.js",
+  "scripts": {
+    "start": "node www.coup-critique.com.na"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Orchard-ID/Orchard-Website.git"
+  },
+  "keywords": [
+    "orchard id",
+    "website",
+    "nodejs",
+    "node-atlas"
+  ],
+  "author": "Bruno Lesieur",
+  "contributors": [
+    {
+      "name": "Alban Allée",
+      "email": "a.allee@orchard-id.com"
+    },
+    {
+      "name": "Bruno Lesieur",
+      "email": "b.lesieur@orchard-id.com"
+    },
+    {
+      "name": "Romain Laurier",
+      "email": "r.laurier@orchard-id.com"
+    }
+  ],
+  "license": "GPL-2.0",
+  "bugs": {
+    "url": "https://github.com/Orchard-ID/Orchard-Website/issues"
+  },
+  "dependencies": {
+    "ckeditor": "4.6.x",
+    "connect-redis": "3.3.x",
+    "jquery": "3.2.x",
+    "jshashes": "1.0.x",
+    "node-atlas": "^2.0.0-beta62",
+    "nodemailer": "4.0.x",
+    "socket.io": "2.0.x",
+    "underscore": "1.8.x",
+    "velocity-animate": "1.5.x",
+    "vue": "2.3.x",
+    "vue-router": "2.7.x",
+    "vue-server-renderer": "2.3.x"
+  },
+  "devDependencies": {
+    "browser-sync": "2.18.x"
+  },
+  "files": [
+    "assets/*",
+    "controllers/*",
+    "models/*",
+    "views/*",
+    "bundles.json",
+    "components.json",
+    "LICENSE",
+    "package-lock.json",
+    "package.json",
+    "README.md",
+    "routes.en-us.json",
+    "routes.json",
+    "server.en-us.js",
+    "server.js",
+    "statics.js",
+    "stylus.json",
+    "webconfig.en-us.json",
+    "webconfig.json",
+    "webconfig.production.en-us.json",
+    "webconfig.production.json",
+    "webconfig.staging.en-us.json",
+    "webconfig.staging.json"
+  ],
+  "homepage": "https://github.com/Orchard-ID/Orchard-Website#readme",
+  "engines": {
+    "node": ">=4.0.0"
+  }
+}

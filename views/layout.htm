@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="<?= (languageCode) ? languageCode : 'fr-fr' ?>" data-version="<?= webconfig.version ?>">
+	<head>
+		<meta charset="utf-8" />
+		<base href="<?= urlBasePath ?>/" />
+		<title><? if (routeParameters._parent) { ?>
+			<?- specific.meta.subtitles[routeKey.split('_')[0]] ?>
+		<? } else { ?>
+			<?- specific.meta.title ?>
+		<? } ?></title>
+
+		<meta name="description" content="<?- routeParameters._parent ? specific.meta.subdescriptions[routeKey.split('_')[0]] : specific.meta.description ?>">
+		<meta name="robots" content="<?= webconfig._robots ?>" />
+
+		<meta property="article:author" content="<?= common.meta.author ?>" />
+
+		<meta name="og:url" content="<?= urlBasePath ?>/">
+		<meta name="og:locale" content="<?= (languageCode) ? languageCode : 'fr-fr' ?>">
+		<meta name="og:type" content="website">
+		<meta name="og:title" content="<?- routeParameters._parent ? specific.meta.subtitles[routeKey.split('_')[0]] : specific.meta.title ?> — <?- common.meta.title ?>">
+		<meta name="og:description" content="<?- routeParameters._parent ? specific.meta.subdescriptions[routeKey.split('_')[0]] : specific.meta.description ?>">
+		<meta name="og:image" content="<?= (!specific.meta.isRemote) ? urlBasePath + '/' : '' ?><?- routeParameters._parent ? specific.meta.subimages[routeKey.split('_')[0]] : specific.meta.image ?>">
+
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content="<?- routeParameters._parent ? specific.meta.subtitles[routeKey.split('_')[0]] : specific.meta.title ?> — <?- common.meta.title ?>" />
+		<meta name="twitter:description" content="<?- routeParameters._parent ? specific.meta.subdescriptions[routeKey.split('_')[0]] : specific.meta.description ?>" />
+		<meta name="twitter:image" content="<?= (!specific.meta.isRemote) ? urlBasePath + '/' : '' ?><?- routeParameters._parent ? specific.meta.subimages[routeKey.split('_')[0]] : specific.meta.image ?>" />
+
+		<meta name="viewport" content="initial-scale=1.0" />
+
+		<link rel="apple-touch-icon" sizes="180x180" href="media/apple-icon-180x180.png">
+		<link rel="icon" type="image/png" sizes="192x192" href="media/android-icon-192x192.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="media/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="96x96" href="media/favicon-96x96.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="media/favicon-16x16.png">
+
+		<link rel="icon" type="image/png" sizes="16x16" href="media/favicon-16x16.png">
+
+		<? if (webconfig._min) { ?>
+		<link rel="stylesheet" href="stylesheets/common.<?= webconfig.version ?>.min.css">
+		<? } else { ?>
+		<link rel="stylesheet" href="stylesheets/common.css">
+		<? } ?>
+	</head>
+	<body data-ua='<?= webconfig._ua ?>'
+		data-cookie-href='<?= common.body.cookies.href ?>'
+		data-cookie-link='<?= common.body.cookies.link ?>'
+		data-cookie-dismiss='<?= common.body.cookies.dismiss ?>'
+		data-cookie-message='<?= common.body.cookies.message ?>'>
+		<!--vue-ssr-outlet-->
+		<? if (webconfig._min) { ?>
+		<script src="javascripts/common.<?= webconfig.version ?>.min.js"></script>
+		<? } else { ?>
+		<script src="javascripts/config.js"></script>
+		<script src="socket.io/socket.io.js"></script>
+		<script src="node-atlas/socket.io.js"></script>
+		<script src="javascripts/vendors/cookieconsent.js"></script>
+		<script src="javascripts/vendors/jshashes.js"></script>
+		<script src="javascripts/vendors/imagesloaded.min.js"></script>
+		<script src="javascripts/vendors/masonry.min.js"></script>
+		<script src="javascripts/vendors/velocity.js"></script>
+		<script src="javascripts/vendors/ckeditor/ckeditor.js"></script>
+		<script src="javascripts/vendors/vue.js"></script>
+		<script src="javascripts/vendors/vue.router.js"></script>
+		<script src="javascripts/common.js"></script>
+		<? } ?>
+	</body>
+</html>

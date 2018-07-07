@@ -1,0 +1,17 @@
+.loading
+	position fixed;
+	top 0
+	right 0
+	@media (min-width 768px)
+		right 50px
+	opacity 1
+	font-size 3rem
+	margin 20px 20px
+	transition opacity .5s ease, top 2s ease-in
+	z-index 10
+	text-align right
+	text-shadow -1px -1px 1px rgba(0, 0, 0, .2), 1px 1px 1px rgba(0, 0, 0, .2), 1px -1px 1px rgba(0, 0, 0, .2), -1px 1px 1px rgba(0, 0, 0, .2)
+
+	.as-loaded-page ^[0]
+		opacity 0
+		top -200px

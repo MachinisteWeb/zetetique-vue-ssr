@@ -1,0 +1,108 @@
+<section class="page-cards">
+	<div class="page-cards--content">
+		<header class="page-cards--content--header">
+			<h1>
+				<edit-inline
+					v-model="meta.subtitles[routeName]"
+					:global="global" />
+			</h1>
+			<hr>
+		</header>
+		<div class="page-cards--content--inner"
+			:class="asClass">
+			<div class="page-cards--content--board">
+				<div class="page-cards--content--cards">
+					<ul class="page-cards--content--outer">
+						<li class="page-cards--content--cards--item"
+							v-for="(card, index) in specific[routeName].cards">
+							<h2 @click="goTo(index)">#<edit-inline
+									v-model="specific[routeName].cards[index].number"
+									:global="global" /> —
+								<edit-inline
+									v-model="specific[routeName].cards[index].title"
+									:global="global" /></h2>
+							<div class="page-cards--content--cards--item--detail"
+								:style="{ height: card.height + 'px' }"
+								@click="goTo(index)">
+								<iframe :style="{ width: '232px', height: (card.height * 2) + 'px' }" width="217px" height="217px" :src="card.url" frameborder="0"></iframe>
+							</div>
+							<div class="page-cards--content--cards--item--inner">
+								<p class="page-cards--content--cards--description"
+									@click="goTo(index)">
+									<edit-inline
+											v-model="specific[routeName].cards[index].description"
+											:global="global" />
+								</p>
+								<div class="page-cards--content--cards--go-to">
+									<edit-wrapper-attr :global="global">
+										<router-link class="button"
+											:to="'../..' + path + card.number + '/'">{{ specific.cardMain }}</router-link>
+										<template slot="attrs">
+											<edit-attr
+												v-model="specific.cardMain"
+												:label="'Content: '"
+												:global="global" />
+										</template>
+									</edit-wrapper-attr>
+								</div>
+								<div class="page-cards--content--cards--image">
+									<edit-wrapper-attr :global="global">
+										{{ specific.cardText }}
+										<a :href="card.image" target="_blank">
+											{{ specific.cardImage }}
+										</a>/<a :href="card.url" target="_blank">
+											{{ specific.cardLink }}
+										</a> —
+										<a :href="card.facebook" target="_blank">
+											{{ specific.cardFacebook }}
+										</a>
+										<template slot="attrs">
+											<edit-attr
+												v-model="specific.cardText"
+												:label="'Text: '"
+												:global="global" />
+											<edit-attr
+												v-model="specific.cardImage"
+												:label="'Image: '"
+												:global="global" />
+											<edit-attr
+												v-model="specific.cardLink"
+												:label="'HTML: '"
+												:global="global" />
+											<edit-attr
+												v-model="specific.cardFacebook"
+												:label="'Comment: '"
+												:global="global" />
+										</template>
+									</edit-wrapper-attr>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<nav class="page-cards--content--nav">
+				<edit-block
+					v-model="specific[routeName].description"
+					:global="global" />
+				<hr>
+				<h2>
+					<edit-inline
+						v-model="specific.links"
+						:global="global" />
+				</h2>
+				<ul>
+					<li v-for="(card, index) in specific[routeName].cards">
+						<router-link
+							:to="'../..' + path + card.number">#<edit-inline
+							v-model="specific[routeName].cards[index].number"
+							:global="global" /> —
+						<edit-inline
+							v-model="specific[routeName].cards[index].title"
+							:global="global" /></router-link>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</section>

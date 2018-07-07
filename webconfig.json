@@ -1,0 +1,27 @@
+{
+	"stylus": {
+		"files": "stylus.json",
+		"autoprefix": true
+	},
+	"socketServerOptions": {
+		"transports": ["polling"]
+	},
+	"optimizations": "optimizations.json",
+	"httpSecure": true,
+	"httpPort": 7776,
+	"urlPort": 443,
+	"urlHostname": "www.zetetique.local",
+	"languageCode": "fr-fr",
+	"variation": "common.json",
+	"controller": "common.js",
+	"view": "layout.htm",
+	"variationsRelativePath": "../data/zetetique/variations/",
+	"bundles": "bundles.json",
+	"statics": "statics.js",
+	"routes": "routes.json",
+	"_components": "components.json",
+	"_robots": "noindex, nofollow",
+	"_data": "../data/zetetique/",
+	"_smtp": "smtp.json",
+	"_min": false
+}

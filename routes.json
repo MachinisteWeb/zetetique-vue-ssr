@@ -1,0 +1,92 @@
+{
+	"home_fr-fr": {
+		"url": "/",
+		"view": "page-home",
+		"variation": "home.json"
+	},
+	"news_fr-fr": {
+		"url": "/actualites/",
+		"view": "page-news",
+		"controller": "news.js",
+		"variation": "news.json"
+	},
+	"resources_fr-fr": {
+		"url": "/fiches/",
+		"view": "page-resources",
+		"variation": "resources.json",
+		"_children": [{
+			"key": false,
+			"view": "page-resources-index"
+		}, {
+			"key": "cafe_fr-fr",
+			"view": "page-cards"
+		}, {
+			"key": "brain_fr-fr",
+			"view": "page-cards"
+		}, {
+			"key": "speak_fr-fr",
+			"view": "page-cards"
+		}, {
+			"key": "word_fr-fr",
+			"view": "page-cards"
+		}]
+	},
+	"card_fr-fr": {
+		"url": "/fiches/:category/:number/",
+		"view": "page-card",
+		"controller": "card.js",
+		"variation": "card.json"
+	},
+	"cafe_fr-fr": {
+		"url": "/fiches/cafe-critique/",
+		"view": "page-resources",
+		"variation": "resources.json",
+		"_parent": "resources_fr-fr"
+	},
+	"brain_fr-fr": {
+		"url": "/fiches/mon-cerveau-et-moi/",
+		"view": "page-resources",
+		"variation": "resources.json",
+		"_parent": "resources_fr-fr"
+	},
+	"speak_fr-fr": {
+		"url": "/fiches/a-qui-tu-causes/",
+		"view": "page-resources",
+		"variation": "resources.json",
+		"_parent": "resources_fr-fr"
+	},
+	"word_fr-fr": {
+		"url": "/fiches/le-mot-du-jour/",
+		"view": "page-resources",
+		"variation": "resources.json",
+		"_parent": "resources_fr-fr"
+	},
+	"contact_fr-fr": {
+		"url": "/participer/",
+		"view": "page-contact",
+		"controller": "contact.js",
+		"variation": "contact.json"
+	},
+	"login_fr-fr": {
+		"url": "/espace-membres/",
+		"view": "page-login",
+		"controller": "login.js",
+		"variation": "login.json"
+	},
+	"cookies_fr-fr": {
+		"url": "/cookies/",
+		"view": "page-about",
+		"variation": "cookies.json"
+	},
+	"proxy_fr-fr": {
+		"url": "/proxy/",
+		"controller": "proxy.js",
+		"mimeType": "application/json"
+	},
+	"error_fr-fr": {
+		"url": "/*",
+		"view": "page-error",
+		"variation": "error.json",
+		"statusCode": 404
+	}
+}

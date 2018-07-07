@@ -1,0 +1,58 @@
+.cc-window
+	opacity 1
+	transition opacity 1s ease
+	background-color $backgroundColor
+	border-radius 8px
+	-webkit-box-shadow 0 0 10px 2px #aaa
+	        box-shadow 0 0 10px 2px #aaa
+
+	&.cc-invisible
+		opacity 0
+
+.cc-compliance
+	margin 0
+	padding .8em 1.8em
+	height 100%
+	position absolute
+	top 0
+	right 0
+	width 120px
+	background $hotColor
+	background -moz-linear-gradient(45deg, $hotColor 0%, $coldColor 100%)
+	background -webkit-linear-gradient(45deg, $hotColor 0%, $coldColor 100%)
+	background linear-gradient(45deg, $hotColor 0%, $coldColor 100%)
+
+.cc-dismiss
+	position absolute
+	top 50%
+	left 50%
+	transform translate(-50%, -50%)
+	color $textColorReversed
+	font-weight bold
+
+.cc-revoke
+.cc-window
+	position fixed
+	overflow hidden
+	box-sizing border-box
+	font-size 1.4rem
+	line-height 1.5em
+	display -ms-flexbox
+	z-index 9999
+
+.cc-message
+	display inline-block
+	float left
+	width calc(100% - 120px)
+	padding 16px
+
+.cc-window.cc-banner
+	width calc(100% - 32px)
+
+.cc-banner.cc-bottom
+	left 16px
+	right 16px
+	bottom 16px
+
+.cc-theme-edgeless.cc-window
+	padding 0

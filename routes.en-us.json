@@ -1,0 +1,72 @@
+{
+	"home_en-us": {
+		"url": "/",
+		"view": "page-home",
+		"variation": "home.json"
+	},
+	"news_en-us": {
+		"url": "/news/",
+		"view": "page-news",
+		"controller": "news.js",
+		"variation": "news.json"
+	},
+	"resources_en-us": {
+		"url": "/our-resources/",
+		"view": "page-resources",
+		"variation": "resources.json",
+		"_children": [{
+			"key": false,
+			"view": "page-resources-index"
+		}, {
+			"key": "know-how_en-us",
+			"view": "page-know-how"
+		}, {
+			"key": "cafe_en-us",
+			"view": "page-cafe"
+		}, {
+			"key": "culture_en-us",
+			"view": "page-culture"
+		}]
+	},
+	"cafe_en-us": {
+		"url": "/our-resources/cafe/",
+		"view": "page-resources",
+		"variation": "resources.json",
+		"_parent": "resources_en-us"
+	},
+	"know-how_en-us": {
+		"url": "/our-resources/know-how/",
+		"view": "page-resources",
+		"variation": "resources.json",
+		"_parent": "resources_en-us"
+	},
+	"culture_en-us": {
+		"url": "/our-resources/values/",
+		"view": "page-resources",
+		"variation": "resources.json",
+		"_parent": "resources_en-us"
+	},
+	"contact_en-us": {
+		"url": "/contact-us/",
+		"view": "page-contact",
+		"controller": "contact.js",
+		"variation": "contact.json"
+	},
+	"login_en-us": {
+		"url": "/members-area/",
+		"view": "page-login",
+		"controller": "login.js",
+		"variation": "login.json"
+	},
+	"cookies_fr-fr": {
+		"url": "/cookies/",
+		"view": "page-about",
+		"variation": "cookies.json"
+	},
+	"error_en-us": {
+		"url": "/*",
+		"view": "page-error",
+		"variation": "error.json",
+		"statusCode": 404
+	}
+}

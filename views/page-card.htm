@@ -1,0 +1,52 @@
+<div class="page-card">
+	<article class="page-card--article"
+		v-html="global.card.html"></article>
+	<aside class="page-card--aside">
+		<strong>
+			<edit-inline
+				v-model="specific.title"
+				:global="global" />
+		</strong>
+		<edit-block
+			v-model="specific.content"
+			:global="global" />
+	</aside>
+	<iframe class="page-card--iframe" width="100%" height="100%" :src="global.card.url" frameborder="0"
+		:data-fetch-card="JSON.stringify(global.card)"
+		:class="{ 'is-loaded': isLoaded }"></iframe>
+	<aside class="page-card--controls">
+		<a href=""></a>
+	</aside>
+	<aside class="page-card--next"
+		@click="backToCards">
+		<div class="page-card--next--title">
+			<span class="page-card--next--title--rotate">
+				<span class="a">
+					{{ number }} — {{ global.card.title }}
+				</span>
+			</span>
+		</div>
+		<div class="page-card--next--menu">
+			<span class="page-card--next--menu--rotate">
+				<img src="media/images/arrow-next.svg" width="16" height="16" alt="Suite">
+			</span>
+		</div>
+		<div class="page-card--next--location">
+			<span class="page-card--next--location--rotate">
+				<span class="a">
+					{{ category }}
+				</span>
+			</span>
+		</div>
+	</aside>
+	<edit-global
+		v-if="global.isClient && global.me.id"
+		ref="edit"
+		v-bind:global="global"
+		v-bind:common="common"
+		v-bind:file="$options.name.replace(/page-/, '')"
+		v-bind:meta="meta"
+		v-bind:body="specific"
+		v-bind:current="common.edit.local"
+		v-bind:options="options"></edit-global>
+</div>

@@ -1,0 +1,138 @@
+<div class="page-contact">
+	<div class="page-contact--background"></div>
+	<div class="page-contact--content">
+		<div class="page-contact--content--inner">
+			<h1>
+				<edit-inline
+					v-model="specific.title"
+					:global="global" />
+			</h1>
+			<div class="page-contact--intro">
+				<div class="page-contact--intro--content">
+					<div class="page-contact--intro--header">
+						<edit-inline
+							v-model="specific.title"
+							:global="global" />
+					</div>
+					<div class="page-contact--intro--main">
+						<h2>
+							<edit-inline
+								v-model="specific.subtitle"
+								:global="global" />
+						</h2>
+						<div class="page-contact--intro--main--inner">
+							<anim-height>
+								<div
+									v-if="!isSent"
+									key="step-1">
+									<edit-block
+										v-model="specific.content.step1"
+										:global="global" />
+									<form class="page-contact--form" action="" method="post">
+										<div class="field email"
+											:class="{ empty: email === '' || email === undefined, invalid: !isEmail(email) && email !== undefined }">
+											<label for="contact-form--email"
+												v-html="specific.email.label.content"></label>
+											<input type="text" name="email" id="contact-form--email" class="contact-form--email"
+												v-model="email"
+												:placeholder="specific.email.label.placeholder">
+											<div class="errors"
+												v-if="email === '' && email !== undefined"
+												v-html="specific.email.error.empty"></div>
+											<div class="errors"
+												v-if="!isEmail(email) && email != undefined && email !== ''"
+												v-html="specific.email.error.badFormat"></div>
+										</div>
+
+										<div class="field message"
+											:class="{ empty: message === '' || message === undefined, invalid: !message && message !== undefined }">
+											<label for="contact-form--message" class="label-textarea"
+												v-html="specific.message.label.content"></label>
+											<textarea type="text" name="message" id="contact-form--message" class="contact-form--message"
+												:placeholder="specific.message.label.placeholder"
+												v-model="message"></textarea>
+											<div class="errors"
+												v-if="message === '' && message !== undefined"
+												v-html="specific.message.error.empty"></div>
+										</div>
+
+										<div class="submit">
+											<edit-wrapper-attr :global="global">
+												<label>
+													<button class="contact-form--button"
+														:class="{ invalid: !isSendable() }"
+														v-html="specific.button.label.content"
+														@click.prevent="sendMessage"></button>
+												</label>
+												<template slot="attrs">
+													<edit-attr
+														v-model="specific.email.label.placeholder"
+														:label="'Email: '"
+														:global="global" />
+													<edit-attr
+														v-model="specific.message.label.placeholder"
+														:label="'Message: '"
+														:global="global" />
+													<edit-attr
+														v-model="specific.button.label.content"
+														:label="'Send: '"
+														:global="global" />
+												</template>
+											</edit-wrapper-attr>
+											<span class="errors"
+												v-if="error">
+												<span class="empty"
+													v-html="specific.button.error.sendFailure"></span>
+											</span>
+										</div>
+									</form>
+								</div>
+								<div
+									v-else
+									key="step-2">
+									<edit-block
+										v-model="specific.content.step2"
+										:global="global" />
+									<form class="page-contact--form" action="" method="post">
+										<button class="contact-form--more"
+											@click.prevent="moreDetails"
+											v-html="specific.more.label.content"></button>
+									</form>
+									<edit-block
+										v-model="specific.or"
+										:global="global" />
+									<p class="a"
+										@click="newMessage">
+										<edit-inline
+											v-model="specific.link.content"
+											:global="global" />
+									</p>
+								</div>
+							</anim-height>
+						</div>
+					</div>
+					<div class="page-contact--intro--footer">
+						<ul>
+							<li v-for="(contact, index) in common.navigation.information.contacts">
+								<edit-inline
+									v-model="common.navigation.information.contacts[index]"
+									:global="global" />
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="page-contact--intro--image"></div>
+			</div>
+		</div>
+	</div>
+	<edit-global
+		v-if="global.isClient && global.me.id"
+		ref="edit"
+		:global="global"
+		:common="common"
+		:file="$options.name.replace(/page-/, '')"
+		:meta="meta"
+		:body="specific"
+		:current="common.edit.local"
+		:options="options"></edit-global>
+</div>

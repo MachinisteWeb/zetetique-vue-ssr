@@ -1,0 +1,76 @@
+.the-header
+	position absolute
+	top 0
+	left 0
+	width 49px
+	height 100%
+	border-right 1px solid $borderColor
+	background-color $backgroundColor
+	display flex
+	flex-direction column
+	flex-wrap wrap
+	justify-content space-between
+	overflow hidden
+	transition background-color .5s ease, border-color .5s ease
+	cursor pointer
+	z-index 13
+
+	&.is-opened
+		border-color $borderColorReversed
+		background-color transparent
+		z-index 10
+
+	&--title
+		display flex
+		flex 0 1 200px
+
+		img
+			flex-direction column
+			margin-top 6px
+			cursor pointer
+
+	&--menu
+		padding 24px 0
+
+		&--rotate
+			margin-left 12px
+			margin-top 5px
+			flex 0 1 auto
+			display inline-block
+			text-align center
+			width 24px
+			&::after
+			&::before
+			span
+				margin 8px 0
+				content ""
+				display block
+				height 1px
+				overflow hidden
+				background $borderColor
+
+				.is-opened ^[0..3]
+					background $highlightLinkColorReversed
+
+	&--location
+		padding 24px 0
+		font-size 1.2rem
+		color $linkColor
+		overflow hidden
+		display flex
+		flex-direction column-reverse
+		flex 0 1 200px
+
+		.a
+			color $highlightLinkColor
+			.is-opened ^[0..2]
+				color $highlightLinkColorReversed
+
+		&--rotate
+			display inline-block
+			overflow hidden
+			width 150px
+			line-height 1
+			margin-left 30px
+			transform rotate(-90deg)
+			transform-origin: bottom left;

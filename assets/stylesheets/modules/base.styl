@@ -1,0 +1,178 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video
+	-webkit-overflow-scrolling auto
+	-ms-overflow-style -ms-autohiding-scrollbar
+	box-sizing inherit
+	margin 0
+	padding 0
+	border 0
+	font-size 100%
+	font inherit
+	vertical-align baseline
+	&:before
+	&:after
+		box-sizing inherit
+
+em
+	font-style italic
+
+strong
+	font-weight bold
+
+html
+body
+	-webkit-font-smoothing antialiased
+	background-color $backgroundColor
+	color $textColor
+	height 100%
+	width 100%
+
+html
+	font-size 62.5%
+	box-sizing border-box
+
+body
+	-webkit-tap-highlight-color rgba(0,0,0,0)
+	line-height 1.4
+	font-size 1.4rem
+	font-weight lighter
+	font-family Regular, Arial, sans-serif
+	letter-spacing .04rem
+
+ol, ul
+	list-style none
+
+blockquote, q
+	quotes none
+
+blockquotebefore, blockquoteafter,
+qbefore, qafter
+	content ''
+	content none
+
+table
+	border-collapse collapse
+	border-spacing 0
+
+.a
+a
+	cursor pointer
+	color $linkColor
+	text-decoration none
+	transition letter-spacing .5s ease
+
+	&:hover
+		text-decoration none
+		letter-spacing .08rem
+
+.arrow
+	max-width 3.2rem
+	vertical-align middle
+	margin 0 0.8rem
+
+.layout
+	position absolute
+	top 0
+	left 0
+	height 100%
+	width 100%
+
+.main-content
+	position absolute
+	top 0
+	height 100%
+	left 50px
+	width calc(100% - 50px)
+	overflow hidden
+
+.errors
+	color #d9534f
+	font-size .6em
+
+button, .button
+	transition opacity .5s ease
+	font-family inherit
+	font-size inherit
+	color inherit
+	border 1px solid #95989A
+	background-color inherit
+	padding .6rem 2rem
+	opacity .8
+	background-color #FFF
+	cursor pointer
+	&:hover
+		opacity 1
+	&.invalid
+		opacity .2
+		cursor not-allowed
+	&:focus
+		outline -webkit-focus-ring-color auto 0
+
+.field
+	position relative
+	label
+		box-sizing border-box
+		transition top .5s ease, opacity .5s ease
+		opacity 1
+		position absolute
+		font-family inherit
+		top 0
+		font-size 1.2rem
+		&.label-textarea
+			z-index 2
+			top -2px
+			padding-left 8px
+
+	textarea
+	input
+		box-sizing border-box
+		transition color 1s ease, border-color 1s ease, padding .5s ease
+		border 0
+		border-bottom 1px solid #95989A
+		font-family inherit
+		font-size inherit
+		padding 1.4rem 0 0.2rem
+		margin-bottom 1.6rem
+		display block
+		width 100%
+		&:focus
+			outline -webkit-focus-ring-color auto 0
+			color #00a00c
+			border-color #00a00c
+
+	textarea
+		padding 12px 8px
+		border-left 1px solid #95989A
+		min-height 200px
+
+	button
+		margin-top 1.8rem
+
+	&.empty
+		label
+			top 10px
+			opacity 0
+		input
+			padding .8rem 0
+	.errors
+		position absolute
+		top calc(100% + 2px)
+		right 0
+
+.invalid
+	input
+		&:focus
+			outline -webkit-focus-ring-color auto 0
+			color #d9534f
+			border-color #d9534f

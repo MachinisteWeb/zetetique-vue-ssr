@@ -1,0 +1,14 @@
+<span class="edit-block textoi"><!--
+	--><span
+		v-if="!global.me.id || !global.isEditable"
+		v-html="value"></span><!--
+	--><edit-ckeditor
+		v-if="global.isClient && global.me.id && global.isEditable"
+		:value="value"
+		:class="{ 'is-editable': global.isEditable, 'is-inline': true }"
+		:types="'inline'"
+		:mode="1"
+		:config="config"
+		:empty="empty"
+		@input="value => { output = value }"/><!--
+--></span>

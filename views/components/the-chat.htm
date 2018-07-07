@@ -1,0 +1,142 @@
+<aside class="the-chat">
+	<button class="the-chat--start"
+		:class="{ 'is-selected': state }"
+		@mousedown="isMoved"
+		@mouseup="toggleChat">
+		<svg xmlns="http://www.w3.org/2000/svg" viewBox="1423.5 13.5 21.887 27.072" width="20">
+			<g id="Groupe_83" data-name="Groupe 83" transform="translate(1423.9 13.9)">
+				<path id="Tracé_110" data-name="Tracé 110" class="cls-1" d="M2.741,20.987A2.664,2.664,0,0,1,.1,18.346V2.741A2.664,2.664,0,0,1,2.741.1H18.346a2.664,2.664,0,0,1,2.641,2.641V18.346a2.664,2.664,0,0,1-2.641,2.641H7.3"/>
+				<path id="Tracé_111" data-name="Tracé 111" class="cls-1" d="M4.872,43.6,4.2,48.786,9.434,43.6" transform="translate(-2.131 -22.613)"/>
+			</g>
+		</svg>
+	</button>
+	<anim-height>
+		<div class="the-chat--chatbox"
+			v-if="state"
+			key="chat">
+			<header class="the-chat--overview">
+				<h1 v-html="common.chat.title"></h1>
+				<div v-html="common.chat.description"></div>
+			</header>
+			<div class="the-chat--channelbox"
+				v-if="global.me.id"
+				key="channels">
+				<div class="the-chat--channelbox--overview">
+					<h2 v-html="common.chat.admin.title"></h2>
+				</div>
+				<ul>
+					<li class="the-chat--channel"
+						v-for="channel in channels"
+						:class="{ 'is-active': channel.state, 'is-current': currentChannel === channel.name }">
+						<span class="the-chat--channelbox--state"
+							@click="changeChannel(channel.name)">
+							{{ (global.me.firstname && global.sessionID === channel.name) ? global.me.firstname : ((channel.user) ? channel.user : channel.name.substring(0, 8)) }}
+						</span>
+						<span class="the-chat--channelbox--remove"
+							v-if="!channel.state" @click="removeChannel(channel.name)">
+							X
+						</span>
+					</li>
+				</ul>
+				<popup-alert
+					ref="alert"
+					:displayed="alertDeleteChannel"
+					:current="common.chat.admin.removeAlert"
+					 @close="alertDeleteChannel = false" />
+				<h2 v-if="global.sessionID === currentChannel">
+					<span v-html="common.chat.admin.me"></span>
+					({{ currentChannel.substring(0, 8) }}) !
+				</h2>
+				<h3 v-else>
+					<span v-html="common.chat.admin.others"></span>
+					{{ currentChannel.substring(0, 8) }}
+				</h3>
+			</div>
+			<div class="the-chat--messagebox"
+				:class="{ 'is-small': global.me.id }">
+				<div v-if="messages.length > 0">
+					<ul>
+						<li class="the-chat--message"
+							v-for="(message, index) in messages"
+							:class="{ 'is-reversed': !message.auth && !message.special }">
+							<div class="the-chat--image">
+								<img src="media/icon-chat.png" alt="Coup critique"
+									v-if="message.special" />
+								<div class="the-chat--image--letter"
+									v-if="!message.special">
+									{{ ((message.user) ? message.user.substring(0, 1) : (name) ? name.substring(0, 1) : '?') }}
+								</div>
+							</div>
+							<div class="the-chat--user">
+								{{ (message.special) ? "Coup critique" : ((message.user) ? message.user : (name) ? name : common.me) }}
+								.
+								<time v-html="dateLine[index]"></time>
+							</div>
+							<div v-html="message.message"></div>
+							<div class="the-chat--special"
+								v-if="message.special === 'name' && !nameExist && !global.me.id">
+								<input type="text"
+									:placeholder="common.chat.information.firstname"
+									v-model="name"
+									@keyup.enter="sendName">
+								<button
+									@click="sendName"
+									v-html="common.chat.validate"></button>
+							</div>
+							<div class="the-chat--special"
+								v-if="message.special === 'email' && !emailExist && !global.me.id">
+								<input type="text"
+									:placeholder="common.chat.information.email"
+									v-model="email" />
+								{{ common.separator }}
+								<input type="text"
+									:placeholder="common.chat.information.phone"
+									v-model="phone" />
+								<button
+									@click="sendEmail"
+									v-html="common.chat.validate"></button>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div v-else>
+					<p v-html="common.chat.start"></p>
+				</div>
+			</div>
+			<footer class="the-chat--sendbox"
+				:class="{ 'as-textarea': !enterState }">
+				<div class="the-chat--sendarea">
+					<p>
+						<span class="the-chat--typearea"
+							v-if="enterState">
+							<input id="the-chat--textarea" class="the-chat--textarea"
+								v-model="message"
+								:placeholder="common.chat.send.placeholder"
+								@keyup.enter="sendMessage">
+						</span>
+						<span v-else class="the-chat--typearea">
+							<textarea id="the-chat--textarea" class="the-chat--textarea"
+								v-model="message"
+								:placeholder="common.chat.send.placeholder"></textarea>
+						</span>
+					</p>
+				</div>
+				<div class="the-chat--sendbox--controls">
+					<div class="the-chat--sendbox--controls--options">
+						<div>
+							<button class="the-chat--sendbox--controls--reply"
+								v-if="!enterState"
+								@click="sendMessage"
+								v-html="common.chat.send.button"></button>
+						</div>
+						<label for="the-chat--sendbox--controls--withenter">
+							<input type="checkbox" name="withenter" id="the-chat--sendbox--controls--withenter" class="the-chat--sendbox--controls--withenter"
+								v-model="enterState" />
+							<span v-html="common.chat.multilineTip"></span>
+						</label>
+					</div>
+				</div>
+			</footer>
+		</div>
+	</anim-height>
+</aside>

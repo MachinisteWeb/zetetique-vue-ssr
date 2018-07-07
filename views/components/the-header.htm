@@ -1,0 +1,24 @@
+<header class="the-header"
+	@click="toggleMenu"
+	:class="{ 'is-opened': global.navigation }">
+	<h1 class="the-header--title">
+		<span class="the-header--title--rotate">
+			<router-link to="/">
+				<img class="a" src="media/images/logo_white.png" width="48" height="48" alt="Coup critique"
+					v-if="global.navigation" />
+				<img class="a" src="media/images/logo_white.png" width="48" height="48" alt="Coup critique"
+					v-if="!global.navigation" />
+			</router-link>
+		</span>
+	</h1>
+	<div class="the-header--menu">
+		<span class="the-header--menu--rotate">
+			<span>Ouvir/Fermer</span>
+		</span>
+	</div>
+	<div class="the-header--location">
+		<span class="the-header--location--rotate">
+			<span class="a">{{ specific.title }}</span>
+		</span>
+	</div>
+</header>

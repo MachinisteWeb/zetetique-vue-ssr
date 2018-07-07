@@ -1,0 +1,92 @@
+<div class="page-login">
+	<header class="page-login--logo">
+		<h1><img src="media/images/logo.svg" alt="Coup critique"></h1>
+	</header>
+	<div class="page-login--content">
+		<h1>
+			<edit-inline
+				v-model="specific.title"
+				:global="global" />
+		</h1>
+		<anim-height>
+			<div
+				v-if="!global.me.id"
+				key="logout">
+				<edit-block
+					v-model="specific.content.unauthenticated"
+					:global="global" />
+				<form class="page-login--form" action="" method="post">
+					<div class="field email"
+						:class="{ empty: email === '' || email === undefined, invalid: !isEmail(email) && email !== undefined }">
+						<label for="login-form--email"
+							v-html="specific.email.label.content"></label>
+						<input type="text" name="email" id="login-form--email" class="login-form--email"
+							:placeholder="specific.email.label.placeholder"
+							v-model="email">
+						<div class="errors"
+							v-if="email === '' && email !== undefined"
+							v-html="specific.email.error.empty"></div>
+						<div class="errors"
+							v-if="!isEmail(email) && email != undefined && email !== ''"
+							v-html="specific.email.error.badFormat"></div>
+					</div>
+					<div class="field password"
+						:class="{ empty: password === '' || password === undefined, invalid: !password && password !== undefined }">
+						<label for="login-form--password"
+							v-html="specific.password.label.content"></label>
+						<input type="password" name="password" id="login-form--password" class="login-form--password"
+							:placeholder="specific.password.label.placeholder"
+							v-model="password">
+						<div class="errors"
+							v-if="password === '' && password !== undefined"
+							v-html="specific.password.error.empty"></div>
+					</div>
+					<div class="submit">
+						<label>
+							<button :class="{ invalid: !isAuthenticable() }" class="login-form--button"
+								v-html="specific.button.label.content" @click.prevent="doAuthentication"></button>
+						</label>
+						<span class="errors"
+							v-if="error">
+							<span class="empty"
+								v-html="specific.button.error.authFailure"></span>
+						</span>
+					</div>
+				</form>
+			</div>
+			<div
+				v-else
+				key="login">
+				<edit-block
+					v-model="specific.content.authenticated"
+					:global="global" />
+				<form class="page-login--form" action="" method="post">
+					<edit-wrapper-attr :global="global">
+						<button class="login-form--cancel"
+							@click.prevent="doUnauthentication"
+							v-html="specific.cancel.label.content"></button>
+						<template slot="attrs">
+							<edit-attr
+								:label="'Logged: '" v-model="specific.button.label.content" :global="global" />
+							<edit-attr
+								:label="'Not logged: '" v-model="specific.cancel.label.content" :global="global" />
+						</template>
+					</edit-wrapper-attr>
+				</form>
+			</div>
+		</anim-height>
+		<edit-block
+			v-model="specific.link"
+			:global="global" />
+	</div>
+	<edit-global
+		v-if="global.isClient && global.me.id"
+		ref="edit"
+		:global="global"
+		:common="common"
+		:file="$options.name.replace(/page-/, '')"
+		:meta="meta"
+		:body="specific"
+		:current="common.edit.local"
+		:options="options"></edit-global>
+</div>

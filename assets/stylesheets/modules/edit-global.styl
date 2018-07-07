@@ -1,0 +1,129 @@
+.text-justify
+	text-align justify
+.text-center
+	text-align center
+
+.edit-global
+	display none
+	font-size .8em
+	position fixed
+	bottom 155px
+	right 70px
+	text-align right
+	z-index 11
+	@media (min-width 768px)
+		display block
+
+	&.is-opened
+		z-index 1000
+
+	&.is-global
+		bottom 90px
+
+	&--tabs
+		padding 8px
+		background-color #16A664
+		border-top-left-radius 8px
+		border-top-right-radius 8px
+
+	&--save
+	&--start
+		vertical-align bottom
+		box-shadow 0 0 10px 2px #aaaaaa
+		width 50px
+		height 50px
+		border 0
+		border-radius 8px
+		background-color $fff
+		opacity 1
+		padding 12px 8px 8px
+		text-align center
+		transition background-color .5s ease, stroke .5s ease
+
+	&--save
+		background-color $highlightBackgroundColor
+		font-weight bold
+		color $textColorReversed
+		margin-right 8px
+
+	&--editbox
+		box-shadow 0 0 10px 2px #aaaaaa
+		margin-bottom 16px
+		position absolute
+		width 470px
+		background-color #fff
+		height 300px
+		text-align left
+		bottom 100%
+		right 0
+		border-radius 8px
+
+		&--set-meta
+		&--set-body
+			display inline-block
+			cursor pointer
+			color #4DBB89
+			padding 4px 8px
+			font-weight bold
+
+			&.is-current
+				color $textColorReversed
+
+	&.to-right
+		& ^[0]--editbox
+			left 0
+			right auto
+
+	&.to-bottom
+		& ^[0]--editbox
+			top 100%
+			bottom auto
+
+div.jsoneditor-outer.jsoneditor-outer
+	height 260px
+
+div.jsoneditor.jsoneditor
+	border 0
+	border-bottom-left-radius 8px
+	border-bottom-right-radius 8px
+
+.edit-block .edit-ckeditor.is-inline > div
+	display block
+
+.edit-ckeditor
+	&.is-editable > div:not(.cke_focus)
+		background-color rgba(238, 236, 248, 0.8)
+		img
+			opacity .5
+	&.is-inline > div
+		display inline-block
+
+.is-attr
+	background-color rgba(193,244,180,0.8)
+	display inline-block
+	position relative
+	.attr-list
+		font-weight lighter
+		font-size 1.2rem
+		box-shadow 0 0 10px 2px #e0e0e0
+		text-align left
+		color #000
+		min-width 200px
+		background-color transparent
+		display none
+		position absolute
+		top 100%
+		left -8px
+		padding 8px 8px 4px 8px
+		background #FFF
+		border-radius 8px
+		font-size 14px
+		.edit-attr
+			display block
+			white-space nowrap
+			border-bottom 1px solid #ccc
+			margin-bottom 8px
+	&:hover
+		z-index 2
+		.attr-list
+			display block

@@ -1,0 +1,9 @@
+<span class="edit-attr textoi"
+	v-if="global.isClient && global.me.id && global.isEditable">{{ label }}<!--
+	--><edit-ckeditor
+		:value="value"
+		:class="{ 'is-editable': global.isEditable, 'is-inline': true }"
+		:types="'inline'"
+		:config="config"
+		@input="value => { output = value }"/><!--
+--></span>

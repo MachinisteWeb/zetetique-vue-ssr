@@ -1,0 +1,12 @@
+{
+	"images": {
+		"media/images/android-icon-192x192.png": "media/images/",
+		"media/images/apple-icon-180x180.png": "media/images/",
+		"media/images/favicon-16x16.png": "media/images/",
+		"media/images/favicon-32x32.png": "media/images/",
+		"media/images/favicon-96x96.png": "media/images/",
+		"media/images/icon-chat.png": "media/images/",
+		"media/images/logo_white.png": "media/images/"
+	}
+}
+

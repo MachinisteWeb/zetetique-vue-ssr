@@ -1,0 +1,42 @@
+<div class="page-resources">
+	<div class="page-resources--breadcrumb">
+		<nav>
+			<span
+				:class="{ 'is-selected': $route.name === 'resources' }"
+				@click="goTo('resources')">
+				<edit-inline
+					v-model="specific.overview.title"
+					:global="global" />
+			</span>
+			<ul>
+				<li v-for="(item, index) in specific.overview.main"
+					:class="{ 'is-selected': $route.name === breadcrumb[index] }"
+					@click="goTo(breadcrumb[index])">
+					<edit-inline
+						v-model="specific.overview.main[index].title"
+						:global="global" />
+				</li>
+			</ul>
+		</nav>
+	</div>
+	<transition :name="global.routerTransition">
+		<router-view
+			key="router"
+			ref="router"
+			:common="common"
+			:global="global"
+			:specific="specific"
+			:meta="meta"
+			:route-name="global.webconfig.routeName || $route.name"></router-view>
+	</transition>
+	<edit-global
+		v-if="global.isClient && global.me.id"
+		ref="edit"
+		:global="global"
+		:common="common"
+		:file="$options.name.replace(/page-/, '')"
+		:meta="meta"
+		:body="specific"
+		:current="common.edit.local"
+		:options="options"></edit-global>
+</div>

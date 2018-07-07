@@ -1,0 +1,108 @@
+.page-contact
+	position absolute
+	top 0
+	left 0
+	width 100%
+	height 100%
+
+	&--background
+		position absolute
+		top 0
+		left 0
+		width 100%
+		height 100%
+		background-image url('../media/images/verger.jpg')
+		background-size cover
+		background-position 400px 0
+
+	h1
+		display none
+
+	form
+		margin-bottom 3rem
+
+	hr
+		background-color $highlightTextColor
+		height 1px
+		border 0
+		margin 0 auto 0 0
+		width 24px
+		margin 24px 0
+
+	&--content
+		overflow-y auto
+		position absolute
+		top 0
+		left 0
+		width 100%
+		height 100%
+
+		&--inner
+			position absolute
+			top 0
+			left 0
+			width 100%
+			height 100%
+			display flex
+			width 100%
+
+	&--intro
+		flex-grow 1
+		flex-basis 100%
+		display flex
+		flex-direction row
+		justify-content space-between
+
+		&--content
+		&--image
+			flex-grow 1
+
+		&--image
+			flex-basis 40%
+
+			@media (max-width: 767px)
+				flex-basis 50px
+				order 1
+
+		&--content
+			overflow-y auto
+			flex-basis 60%
+			padding 24px 16px
+			background-color $backgroundColor
+			display flex
+			flex-direction column
+			justify-content space-between
+
+			@media (max-width: 767px)
+				flex-basis calc(100% - 50px)
+				order 2
+
+		&--main
+			display flex
+			flex-direction row
+			justify-content space-between
+			flex-wrap wrap
+
+			h2
+				flex-grow 1
+				flex-basis 40%
+				color $highlightTextColor
+				font-size 5rem
+				padding 0 8px
+
+			p
+				padding-bottom 24px
+
+			&--inner
+				padding 50px 8px 0
+				font-size 2rem
+				flex-grow 1
+				flex-basis 60%
+
+		&--header
+		&--footer
+			display none
+			@media (min-width 768px)
+				display block
+			padding 0 8px
+			font-size 1.2rem
