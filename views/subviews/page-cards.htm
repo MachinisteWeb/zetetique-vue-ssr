@@ -15,7 +15,7 @@
 					<ul class="page-cards--content--outer">
 						<li class="page-cards--content--cards--item"
 							v-for="(card, index) in specific[routeName].cards">
-							<h2 @click="goTo(index)">#<edit-inline
+							<h2 @click="goTo(card.number)">#<edit-inline
 									v-model="specific[routeName].cards[index].number"
 									:global="global" /> —
 								<edit-inline
@@ -23,12 +23,12 @@
 									:global="global" /></h2>
 							<div class="page-cards--content--cards--item--detail"
 								:style="{ height: card.height + 'px' }"
-								@click="goTo(index)">
+								@click="goTo(card.number)">
 								<iframe :style="{ width: '232px', height: (card.height * 2) + 'px' }" width="217px" height="217px" :src="card.url" frameborder="0"></iframe>
 							</div>
 							<div class="page-cards--content--cards--item--inner">
 								<p class="page-cards--content--cards--description"
-									@click="goTo(index)">
+									@click="goTo(card.number)">
 									<edit-inline
 											v-model="specific[routeName].cards[index].description"
 											:global="global" />

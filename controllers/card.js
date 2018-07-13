@@ -30,7 +30,7 @@ function getCard(locals, params, next) {
 exports.changeVariations = function (next, locals) {
 	getCard(locals, locals.params, function (locals) {
 		locals.specific.meta.title = locals.global.card.number + ' — ' + locals.global.card.title;
-		locals.specific.meta.image = locals.global.card.image;
+		locals.specific.meta.image = 'https://images.weserv.nl/?url=' + encodeURIComponent(locals.global.card.image.replace(/https:\/\//g, ''));
 		locals.specific.meta.description = locals.global.card.description;
 		next(locals);
 	});

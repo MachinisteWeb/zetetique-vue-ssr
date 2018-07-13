@@ -47,8 +47,9 @@ module.exports = function (template, mixin) {
 		},
 		methods: {
 			goTo: function (index) {
-				var win = window.open(this.specific[this.routeName].cards[index].url, '_blank');
-				win.focus();
+				if (!this.global.isEditable) {
+					this.$router.push({ path: '../..' + this.path + index + '/' });
+				}
 			},
 			formatCards: function () {
 				this.$nextTick(function () {

@@ -38,14 +38,11 @@ module.exports = function () {
 								date: new Date(node.getElementsByTagName('pubdate')[0].innerHTML)
 							},
 							links: {
-								permalink: node.getElementsByTagName('guid')[0].innerHTML,
-								link: node.getElementsByTagName('comments')[0].innerHTML.replace(/#respond/g, ''),
+								link: node.getElementsByTagName('comments')[0].innerHTML.replace(/#comments/g, '').replace(/#respond/g, ''),
 								website: 'http://menace-theoriste.fr/'
 							},
 							comments: {
-								link: node.getElementsByTagName('comments')[0].innerHTML,
-								feed: node.getElementsByTagName('wfw:commentrss')[0].innerHTML,
-								number: node.getElementsByTagName('slash:comments')[0].innerHTML
+								link: node.getElementsByTagName('comments')[0].innerHTML
 							}
 						};
 						entries.push(entry);
@@ -57,9 +54,13 @@ module.exports = function () {
 								});
 								res.on('end', function () {
 									var dom = new jsdom.JSDOM(imageContent),
-										image = dom.window.document.querySelector('meta[property="og:image"]')
+										image = dom.window.document.querySelector('meta[property="og:image"]');
 
 									image = image && image.getAttribute('content');
+
+									if (image && image.indexOf('http://') !== -1) {
+										image = 'https://images.weserv.nl/?url=' + encodeURIComponent(image.replace(/http:\/\//g, ''));
+									}
 
 									callback(null, image);
 								});
@@ -74,6 +75,60 @@ module.exports = function () {
 							entries[offset + index].image = images[index];
 						}
 					});
+					if (next) {
+						next(entries);
+					}
+				});
+			});
+		}).on("error", function (error) {
+			console.log(error);
+		});
+	}
+
+	function espritCritique(entries, next) {
+		https.get('https://www.esprit-critique.org/feed/', function (res) {
+			var data = '',
+				limit = 8;
+
+			res.on('data', function (chunk) {
+				data += chunk;
+			});
+
+			res.on('end', function () {
+				var dom = new jsdom.JSDOM(data),
+					nodes = dom.window.document.getElementsByTagName('item'),
+					fetchImages = [],
+					offset = entries.length;
+
+				Array.prototype.forEach.call(nodes, function (node, index) {
+					var entry = {};
+					if (index < limit) {
+						entry = {
+							title: node.getElementsByTagName('title')[0].innerHTML.replace(/&amp;/g, '&'),
+							description: node.getElementsByTagName('description')[0].innerHTML.replace(/<!--\[CDATA\[<p-->/g, '<p>')
+								.replace(/<a class="moretag" href="https:\/\/www.esprit-critique.org\/.+<\/a><p><\/p>/g, '...</p>')
+								.replace(/<p>L’article(.+)est apparu en premier sur(.+)<\/p>/g, '</p>')
+								.replace(/]]&gt;/g, ''),
+							website: 'A·S·T·E·C',
+							image: 'https://www.esprit-critique.org/wp-content/uploads/2016/05/cropped-cropped-cropped-fond1-2-2-3.jpg',
+							category: node.getElementsByTagName('category')[0].innerHTML.replace(/<!--\[CDATA\[([-_ A-Za-z\u00C0-\u017F]+)\]\]-->/g, '$1'),
+							publish: {
+								author: node.getElementsByTagName('dc:creator')[0].innerHTML.replace(/<!--\[CDATA\[([-_ A-Za-z\u00C0-\u017F]+)\]\]-->/g, '$1'),
+								date: new Date(node.getElementsByTagName('pubdate')[0].innerHTML)
+							},
+							links: {
+								link: node.getElementsByTagName('comments')[0].innerHTML.replace(/#comments/g, '').replace(/#respond/g, ''),
+								website: 'https://www.esprit-critique.org/'
+							},
+							comments: {
+								link: node.getElementsByTagName('comments')[0].innerHTML
+							}
+						};
+						entries.push(entry);
+					}
+				});
+
+				async.parallel(fetchImages, function() {
 					if (next) {
 						next(entries);
 					}
@@ -136,6 +191,10 @@ module.exports = function () {
 										image = dom.window.document.querySelector('.imagegauchenews img');
 
 									image = image && 'http://charlatans.info/news/' + image.getAttribute('src');
+
+									if (image && image.indexOf('http://') !== -1) {
+										image = 'https://images.weserv.nl/?url=' + encodeURIComponent(image.replace(/http:\/\//g, ''));
+									}
 
 									callback(null, image);
 								});
@@ -478,6 +537,10 @@ module.exports = function () {
 					var categories = '',
 						image = node.getElementsByTagName('description')[0].innerHTML.replace(/<!--\[CDATA\[<img width="[0-9]+" height="[0-9]+" src="/g, '').replace(/\?fit=.+/g, '');
 
+						if (image && image.indexOf('http://') !== -1) {
+							image = 'https://images.weserv.nl/?url=' + encodeURIComponent(image.replace(/http:\/\//g, ''));
+						}
+
 					Array.prototype.forEach.call(node.getElementsByTagName('category'), function (category) {
 						if (category.innerHTML !== '<!--[CDATA[Non classé]]-->') {
 							categories += category.innerHTML.replace(/<!--\[CDATA\[/g, '').replace(/]]-->/g, '') + ' - ';
@@ -603,7 +666,7 @@ module.exports = function () {
 				var dom = new jsdom.JSDOM(data),
 					nodes = dom.window.document.getElementsByTagName('item'),
 					fetchImages = [],
-					offset = entries.length;;
+					offset = entries.length;
 
 				Array.prototype.forEach.call(nodes, function (node, index) {
 					if (index < limit) {
@@ -637,6 +700,10 @@ module.exports = function () {
 										image = dom.window.document.querySelector('meta[property="og:image"]');
 
 									image = image && image.getAttribute('content');
+
+									if (image && image.indexOf('http://') !== -1) {
+										image = 'https://images.weserv.nl/?url=' + encodeURIComponent(image.replace(/http:\/\//g, ''));
+									}
 
 									callback(null, image);
 								});
@@ -714,6 +781,10 @@ module.exports = function () {
 
 									image = image && image.getAttribute('content');
 
+									if (image && image.indexOf('http://') !== -1) {
+										image = 'https://images.weserv.nl/?url=' + encodeURIComponent(image.replace(/http:\/\//g, ''));
+									}
+
 									callback(null, image);
 								});
 							});
@@ -758,19 +829,21 @@ module.exports = function () {
 	}
 
 	menaceTheoriste(entries, function (entries) {
-		hoaxBuster(entries, function (entries) {
-			theiereCosmique(entries, function (entries) {
-				charlatans(entries, function (entries) {
-					cortecs(entries, function (entries) {
-						sciencetonnante(entries, function (entries) {
-							astroscept(entries, function (entries) {
-								sciencePop(entries, function (entries) {
-									penserCritique(entries, function (entries) {
-										curiologie(entries, function (entries) {
-											bunkerD(entries, function (entries) {
-												entriesSort(entries, function (entries) {
-													entriesSave(entries, function () {
-														console.log('News updated');
+		espritCritique(entries, function (entries) {
+			hoaxBuster(entries, function (entries) {
+				theiereCosmique(entries, function (entries) {
+					charlatans(entries, function (entries) {
+						cortecs(entries, function (entries) {
+							sciencetonnante(entries, function (entries) {
+								astroscept(entries, function (entries) {
+									sciencePop(entries, function (entries) {
+										penserCritique(entries, function (entries) {
+											curiologie(entries, function (entries) {
+												bunkerD(entries, function (entries) {
+													entriesSort(entries, function (entries) {
+														entriesSave(entries, function () {
+															console.log('News updated');
+														});
 													});
 												});
 											});

@@ -78,11 +78,6 @@
 		"view": "page-about",
 		"variation": "cookies.json"
 	},
-	"proxy_fr-fr": {
-		"url": "/proxy/",
-		"controller": "proxy.js",
-		"mimeType": "application/json"
-	},
 	"error_fr-fr": {
 		"url": "/*",
 		"view": "page-error",
