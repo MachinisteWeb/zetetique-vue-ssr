@@ -47,6 +47,7 @@
 		justify-content space-between
 		overflow hidden
 		cursor pointer
+		z-index 12
 
 		display none
 		@media (min-width 768px)
@@ -99,3 +100,118 @@
 				margin-left 30px
 				transform rotate(-90deg)
 				transform-origin: bottom left
+
+.page-card--share-buttons {
+	position: fixed;
+	right: 10px;
+	bottom: 0;
+	z-index 11
+}
+.page-card--share-buttons a {
+	margin: 8px;
+	display: block;
+	position: relative;
+	left: 0;
+}
+.page-card--share-buttons .share-btn-email,
+.page-card--share-buttons .share-btn-branded {
+	display: none;
+}
+
+.page-card--share-buttons .fa {
+	width: 20px;
+	display: inline-block;
+	text-align: center;
+}
+
+a.share-btn:visited,
+a.share-btn {
+	margin: 0;
+	box-sizing: border-box;
+	position: relative;
+	display: inline-block;
+	font-family: sans-serif;
+	color: #333;
+	padding: 4px;
+	text-transform: none;
+	background-color: #F3F3F3;
+	border: 0;
+	border-top-left-radius: .5em;
+	border-top-right-radius: .5em;
+	font-family: sans-serif;
+	font-size: 1.2rem;
+	letter-spacing: 1px;
+	-webkit-transition: all .3s ease;
+	transition: all .3s ease;
+}
+a.share-btn:focus,
+a.share-btn:active,
+a.share-btn:hover {
+	color: #333;
+	background-color: #fff;
+	-moz-box-shadow: 0 0 10px 2px #e0e0e0;
+		 box-shadow: 0 0 10px 2px #e0e0e0;
+}
+
+a.share-btn.share-btn-branded.share-btn-twitter:hover {
+	color: #fff;
+	background: #55acee;
+}
+a.share-btn.share-btn-branded.share-btn-facebook:hover {
+	color: #fff;
+	background: #3b5998;
+}
+a.share-btn.share-btn-branded.share-btn-googleplus:hover {
+	color: #fff;
+	background: #d73925;
+}
+a.share-btn.share-btn-branded.share-btn-viadeo:hover {
+	color: #fff;
+	background: #F4982B;
+}
+a.share-btn.share-btn-branded.share-btn-linkedin:hover {
+	color: #fff;
+	background: #0976b4;
+}
+a.share-btn.share-btn-branded.share-btn-pinterest:hover {
+	color: #fff;
+	background: #b61d23;
+}
+a.share-btn.share-btn-email:hover {
+	color: #fff;
+	background: #FFCC00;
+}
+
+@media (min-width: 768px) {
+	.page-card--share-buttons {
+		right: -20px;
+		top: 50%;
+		bottom: auto;
+		-webkit-transform: translateY(-50%);
+		   -moz-transform: translateY(-50%);
+			-ms-transform: translateY(-50%);
+			 -o-transform: translateY(-50%);
+				transform: translateY(-50%);
+	}
+
+	a.share-btn {
+		display: block;
+		margin-top: 10px;
+		margin-bottom: 10px;
+		-webkit-border-top-right-radius: 0;
+				border-top-right-radius: 0;
+		-webkit-border-top-left-radius: .5em;
+				border-top-left-radius: .5em;
+		-webkit-border-bottom-left-radius: .5em;
+				border-bottom-left-radius: .5em;
+	}
+
+	.page-card--share-buttons a:hover {
+		left: -68px;
+	}
+
+	.page-card--share-buttons .share-btn-email,
+	.page-card--share-buttons .share-btn-branded {
+		display: block;
+	}
+}

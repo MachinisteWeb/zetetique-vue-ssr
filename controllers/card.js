@@ -29,7 +29,14 @@ function getCard(locals, params, next) {
 
 exports.changeVariations = function (next, locals) {
 	getCard(locals, locals.params, function (locals) {
-		locals.specific.meta.title = locals.global.card.number + ' — ' + locals.global.card.title;
+		var choices = {
+			'cafe-critique': 'Café critique',
+			'mon-cerveau-et-moi': 'Mon Cerveau et Moi',
+			'a-qui-tu-causes': 'À Qui tu Causes ?',
+			'le-mot-du-jour': 'Le Mot du Jour'
+		};
+
+		locals.specific.meta.title = locals.global.card.title + ' — ' + choices[locals.params.category] + ' #' + locals.global.card.number;
 		locals.specific.meta.image = 'https://images.weserv.nl/?url=' + encodeURIComponent(locals.global.card.image.replace(/https:\/\//g, ''));
 		locals.specific.meta.description = locals.global.card.description;
 		next(locals);

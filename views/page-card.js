@@ -28,6 +28,9 @@ module.exports = function (template, specific, mixin, options) {
 			path: function () {
 				return (this.global.webconfig.params) ? this.global.webconfig.params.category : this.$route.params.category;
 			},
+			image: function () {
+				return encodeURIComponent(this.global.card.image);
+			},
 			category: function () {
 				var choices = {
 					'cafe-critique': 'Café critique',
@@ -58,8 +61,8 @@ module.exports = function (template, specific, mixin, options) {
 				setTimeout(function () {
 					vm.isLoaded = true;
 
-					if (vm.global.isClient) {
-						document.title = vm.number + ' — ' + vm.global.card.title + ' — ' + 'Coup Critique';
+					if (vm.global.isClient && vm.global.card.title) {
+						document.title = vm.global.card.title + ' — ' + vm.category + ' #' + vm.number + ' — ' + 'Coup Critique';
 					}
 				}, 300);
 			},

@@ -21,6 +21,7 @@
 	},
 	"stylesheets": {
 		"stylesheets/common.{version}.min.css": [
+			"stylesheets/fontawesome.css",
 			"stylesheets/common.css"
 		]
 	}
