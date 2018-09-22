@@ -1,8 +1,5 @@
 {
 	"cache": true,
-	"socketServerOptions": {
-		"transports": ["polling"]
-	},
 	"httpSecure": true,
 	"httpPort": 7748,
 	"urlPort": 443,
