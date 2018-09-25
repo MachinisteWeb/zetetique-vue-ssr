@@ -3,7 +3,7 @@
 Code source du site Coup Critique en Vue + Vue Router + Vue Server Renderer + NodeAtlas (JavaScript / Node.js).
 
 [Node.js]: https://nodejs.org/en/ "Node.js"
-[NodeAtlas]: https//node-atlas.js.org/ "NodeAtlas"
+[NodeAtlas]: https://node-atlas.js.org/ "NodeAtlas"
 [npm]: https://www.npmjs.com/ "Node Package Manager"
 [Git]: https://git-scm.com/ "Git"
 
