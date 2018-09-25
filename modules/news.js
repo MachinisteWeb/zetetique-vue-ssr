@@ -28,6 +28,7 @@ module.exports = function () {
 			throw options.url;
 		}
 
+
 		fetcher.get(options.url, function (res) {
 			var imageContent = '';
 
@@ -200,6 +201,301 @@ module.exports = function () {
 							.replace(/\n]]&gt;/g, '')
 							.replace(/<p><\/p>/g, '')
 							.replace(/<p>Cet article(.+)est apparu en premier sur(.+)<\/p>/g, '</p>');
+			},
+			next: function (err, extractData, fetchedData) {
+				next(null, extractData);
+			}
+		});
+	}
+
+	function defakator(next) {
+		exploitRssContent({
+			website: 'Defakator',
+			protocol: 'https',
+			url: 'https://www.youtube.com/feeds/videos.xml?channel_id=UCU0FhLr6fr7U9GOn6OiQHpQ',
+			websiteUrl: 'https://www.youtube.com/user/UCU0FhLr6fr7U9GOn6OiQHpQ/featured',
+			image: 'https://yt3.ggpht.com/Dcc5cOZuKONGJGd6YUW0-NOhUjvJ55S6cT3ONO4wh9gcHU22_vFYqo9qnKuIWObCSnpMEov5jMg=w2560-fcrop64=1,00005a57ffffa5a8-nd-c0xffffffff-rj-k-no',
+			imageProtocol: 'https',
+			limit: 8,
+			targetAllItems: function (globalDom) {
+				return globalDom.window.document.getElementsByTagName('entry');
+			},
+			targetEachDate: function (node) {
+				return new Date(node.getElementsByTagName('published')[0].innerHTML);
+			},
+			targetEachDescription: function (node) {
+				var content = node.getElementsByTagName('media:description')[0].innerHTML.split(/\r|\n/g)[0] || node.getElementsByTagName('media:description')[0].innerHTM;
+				return content;
+			},
+			targetEachLink: function (node) {
+				return node.getElementsByTagName('link')[0].getAttribute('href');
+			},
+			targetEachComment: function (node) {
+				return node.getElementsByTagName('link')[0].getAttribute('href');
+			},
+			targetEachCategory: function (node) {
+				return 'Youtube';
+			},
+			targetEachImage: function (node) {
+				var image = node.getElementsByTagName('media:thumbnail')[0];
+
+				if (image && image.getAttribute('url')) {
+					return image.getAttribute('url');
+				}
+
+				return '';
+			},
+			next: function (err, extractData, fetchedData) {
+				next(null, extractData);
+			}
+		});
+	}
+
+	function troncheBiais(next) {
+		exploitRssContent({
+			website: 'La Tronche en Biais',
+			protocol: 'https',
+			url: 'https://www.youtube.com/feeds/videos.xml?channel_id=UCq-8pBMM3I40QlrhM9ExXJQ',
+			websiteUrl: 'https://www.youtube.com/user/TroncheEnBiais/featured',
+			image: 'https://yt3.ggpht.com/R9lPriy76OEsNoI0f7RJ7tjLnastZpHNW2MB3DcNFkCCjI0ZgUOF2bvU4g1tCkEp9j095ROb=w2560-fcrop64=1,00005a57ffffa5a8-nd-c0xffffffff-rj-k-no',
+			imageProtocol: 'https',
+			limit: 8,
+			targetAllItems: function (globalDom) {
+				return globalDom.window.document.getElementsByTagName('entry');
+			},
+			targetEachDate: function (node) {
+				return new Date(node.getElementsByTagName('published')[0].innerHTML);
+			},
+			targetEachDescription: function (node) {
+				var content = node.getElementsByTagName('media:description')[0].innerHTML.split(/\r|\n/g)[0] || node.getElementsByTagName('media:description')[0].innerHTM;
+				return content;
+			},
+			targetEachLink: function (node) {
+				return node.getElementsByTagName('link')[0].getAttribute('href');
+			},
+			targetEachComment: function (node) {
+				return node.getElementsByTagName('link')[0].getAttribute('href');
+			},
+			targetEachCategory: function (node) {
+				return 'Youtube';
+			},
+			targetEachImage: function (node) {
+				var image = node.getElementsByTagName('media:thumbnail')[0];
+
+				if (image && image.getAttribute('url')) {
+					return image.getAttribute('url');
+				}
+
+				return '';
+			},
+			next: function (err, extractData, fetchedData) {
+				next(null, extractData);
+			}
+		});
+	}
+
+	function mondeRiant(next) {
+		exploitRssContent({
+			website: 'Un Monde Riant',
+			protocol: 'https',
+			url: 'https://www.youtube.com/feeds/videos.xml?channel_id=UC8T_vTz76WUsudvxPk6SLEw',
+			websiteUrl: 'https://www.youtube.com/user/TheBigpeha/featured',
+			image: 'https://yt3.ggpht.com/6awNwD9iUneQdWcfAmJ2Cv61OAyZWYfrOZptmu2pnghXEaxued5EldeeJ2ANukBP5ur6OHsG=w2560-fcrop64=1,00005a57ffffa5a8-nd-c0xffffffff-rj-k-no',
+			imageProtocol: 'https',
+			limit: 8,
+			targetAllItems: function (globalDom) {
+				return globalDom.window.document.getElementsByTagName('entry');
+			},
+			targetEachDate: function (node) {
+				return new Date(node.getElementsByTagName('published')[0].innerHTML);
+			},
+			targetEachDescription: function (node) {
+				var content = node.getElementsByTagName('media:description')[0].innerHTML.split(/\r|\n/g)[0] || node.getElementsByTagName('media:description')[0].innerHTM;
+				return content;
+			},
+			targetEachLink: function (node) {
+				return node.getElementsByTagName('link')[0].getAttribute('href');
+			},
+			targetEachComment: function (node) {
+				return node.getElementsByTagName('link')[0].getAttribute('href');
+			},
+			targetEachCategory: function (node) {
+				return 'Youtube';
+			},
+			targetEachImage: function (node) {
+				var image = node.getElementsByTagName('media:thumbnail')[0];
+
+				if (image && image.getAttribute('url')) {
+					return image.getAttribute('url');
+				}
+
+				return '';
+			},
+			next: function (err, extractData, fetchedData) {
+				next(null, extractData);
+			}
+		});
+	}
+
+	function hygieneMentale(next) {
+		exploitRssContent({
+			website: 'Hygiène Mentale',
+			protocol: 'https',
+			url: 'https://www.youtube.com/feeds/videos.xml?channel_id=UCMFcMhePnH4onVHt2-ItPZw',
+			websiteUrl: 'https://www.youtube.com/user/fauxsceptique/featured',
+			image: 'https://yt3.ggpht.com/s1FBgYGVHYhWtMjeMpmIax0-El4OawhPpEyZG7962v-RWPvATgkRxSq7j6xBMlzy9vXX3GoWqK4=w2560-fcrop64=1,00005a57ffffa5a8-nd-c0xffffffff-rj-k-no',
+			imageProtocol: 'https',
+			limit: 8,
+			targetAllItems: function (globalDom) {
+				return globalDom.window.document.getElementsByTagName('entry');
+			},
+			targetEachDate: function (node) {
+				return new Date(node.getElementsByTagName('published')[0].innerHTML);
+			},
+			targetEachDescription: function (node) {
+				var content = node.getElementsByTagName('media:description')[0].innerHTML.split(/\r|\n/g)[0] || node.getElementsByTagName('media:description')[0].innerHTM;
+				return content;
+			},
+			targetEachLink: function (node) {
+				return node.getElementsByTagName('link')[0].getAttribute('href');
+			},
+			targetEachComment: function (node) {
+				return node.getElementsByTagName('link')[0].getAttribute('href');
+			},
+			targetEachCategory: function (node) {
+				return 'Youtube';
+			},
+			targetEachImage: function (node) {
+				var image = node.getElementsByTagName('media:thumbnail')[0];
+
+				if (image && image.getAttribute('url')) {
+					return image.getAttribute('url');
+				}
+
+				return '';
+			},
+			next: function (err, extractData, fetchedData) {
+				next(null, extractData);
+			}
+		});
+	}
+
+	function mrSamTV(next) {
+		exploitRssContent({
+			website: 'Mr. Sam - Point d\'interrogation',
+			protocol: 'https',
+			url: 'https://www.youtube.com/feeds/videos.xml?channel_id=UCh2YBKhYIy-_LtfCIn2Jycg',
+			websiteUrl: 'https://www.youtube.com/user/SamuelBuisseret/featured',
+			image: 'https://yt3.ggpht.com/Yq-5ofi9GzxYjQNb-SlKY_dWFHbId-K9QlaHUApxA7qL6QVZZVLVomobCPK3XzVuLC3se4Tu=w2560-fcrop64=1,00005a57ffffa5a8-nd-c0xffffffff-rj-k-no',
+			imageProtocol: 'https',
+			limit: 8,
+			targetAllItems: function (globalDom) {
+				return globalDom.window.document.getElementsByTagName('entry');
+			},
+			targetEachDate: function (node) {
+				return new Date(node.getElementsByTagName('published')[0].innerHTML);
+			},
+			targetEachDescription: function (node) {
+				var content = node.getElementsByTagName('media:description')[0].innerHTML.split(/\r|\n/g)[0] || node.getElementsByTagName('media:description')[0].innerHTM;
+				return content;
+			},
+			targetEachLink: function (node) {
+				return node.getElementsByTagName('link')[0].getAttribute('href');
+			},
+			targetEachComment: function (node) {
+				return node.getElementsByTagName('link')[0].getAttribute('href');
+			},
+			targetEachCategory: function (node) {
+				return 'Youtube';
+			},
+			targetEachImage: function (node) {
+				var image = node.getElementsByTagName('media:thumbnail')[0];
+
+				if (image && image.getAttribute('url')) {
+					return image.getAttribute('url');
+				}
+
+				return '';
+			},
+			next: function (err, extractData, fetchedData) {
+				next(null, extractData);
+			}
+		});
+	}
+
+	function ebbh(next) {
+		exploitRssContent({
+			website: 'Evidence Based Bonne Humeur',
+			protocol: 'https',
+			url: 'https://fetchrss.com/rss/5baa33198a93f86a678b4567827093705.xml',
+			websiteUrl: 'https://www.facebook.com/RoMEBBH/',
+			image: 'https://i.pinimg.com/564x/ca/c2/de/cac2defef244980e06aa6144f5875940.jpg',
+			imageProtocol: 'https',
+			limit: 8,
+			targetEachDescription: function (node) {
+				return node.getElementsByTagName('description')[0].innerHTML
+							.replace(/<!--\[CDATA\[/g, '<p>')
+							.replace(/<[/ -]*br[/ -]*>/g, '')
+							.replace(/<img src=(.*)>/g, '')
+							.replace(/<span style="font-size:12px; color: gray;">(.+)]]&gt;/g, '</p>');
+			},
+			targetEachLink: function (node) {
+				return node.getElementsByTagName('guid')[0].innerHTML;
+			},
+			targetEachComment: function (node) {
+				return '';
+			},
+			targetEachCategory: function (node) {
+				return 'Facebook';
+			},
+			targetEachImage: function (node) {
+				var image = node.getElementsByTagName('media:content')[0];
+
+				if (image && image.getAttribute('url')) {
+					return image.getAttribute('url');
+				}
+
+				return '';
+			},
+			next: function (err, extractData, fetchedData) {
+				next(null, extractData);
+			}
+		});
+	}
+
+	function coupCritique(next) {
+		exploitRssContent({
+			website: 'Coup Critique',
+			protocol: 'https',
+			url: 'https://fetchrss.com/rss/5baa33198a93f86a678b4567287176457.xml',
+			websiteUrl: 'https://www.facebook.com/CoupEspritCritique/',
+			image: 'https://www.coup-critique.com/media/images/more.jpg',
+			imageProtocol: 'https',
+			limit: 8,
+			targetEachDescription: function (node) {
+				return node.getElementsByTagName('description')[0].innerHTML
+							.replace(/<!--\[CDATA\[/g, '<p>')
+							.replace(/<[/ -]*br[/ -]*>/g, '')
+							.replace(/<img src=(.*)>/g, '')
+							.replace(/<span style="font-size:12px; color: gray;">(.+)]]&gt;/g, '</p>');
+			},
+			targetEachLink: function (node) {
+				return node.getElementsByTagName('guid')[0].innerHTML;
+			},
+			targetEachComment: function (node) {
+				return '';
+			},
+			targetEachCategory: function (node) {
+				return 'Facebook';
+			},
+			targetEachImage: function (node) {
+				var image = node.getElementsByTagName('media:content')[0];
+
+				if (image && image.getAttribute('url')) {
+					return image.getAttribute('url');
+				}
+
+				return '';
 			},
 			next: function (err, extractData, fetchedData) {
 				next(null, extractData);
@@ -474,9 +770,6 @@ module.exports = function () {
 			targetEachCategory: function (node) {
 				return 'Zététique';
 			},
-			targetEachContentImage: function (globalDom) {
-				return globalDom.window.document.querySelector('.featured-media img');
-			},
 			next: function (err, extractData, fetchedData) {
 				next(null, extractData);
 			}
@@ -549,6 +842,34 @@ module.exports = function () {
 			callback(null, entries);
 		});
 	}, function (callback) {
+		mondeRiant(function (err, entries) {
+			callback(null, entries);
+		});
+	}, function (callback) {
+		troncheBiais(function (err, entries) {
+			callback(null, entries);
+		});
+	}, function (callback) {
+		defakator(function (err, entries) {
+			callback(null, entries);
+		});
+	}, function (callback) {
+		hygieneMentale(function (err, entries) {
+			callback(null, entries);
+		});
+	}, function (callback) {
+		mrSamTV(function (err, entries) {
+			callback(null, entries);
+		});
+	}, function (callback) {
+		coupCritique(function (err, entries) {
+			callback(null, entries);
+		});
+	}, function (callback) {
+		ebbh(function (err, entries) {
+			callback(null, entries);
+		});
+	}, function (callback) {
 		curiologie(function (err, entries) {
 			callback(null, entries);
 		});
@@ -588,7 +909,7 @@ module.exports = function () {
 		bunkerD(function (err, entries) {
 			callback(null, entries);
 		});
-	},function (callback) {
+	}, function (callback) {
 		hoaxBuster(function (err, entries) {
 			callback(null, entries);
 		});
