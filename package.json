@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Orchard-ID/Orchard-Website.git"
+    "url": "git+https://github.com/Haeresis/zetetique-vue-ssr.git"
   },
   "keywords": [
     "orchard id",
@@ -19,21 +19,13 @@
   "author": "Bruno Lesieur",
   "contributors": [
     {
-      "name": "Alban Allée",
-      "email": "a.allee@orchard-id.com"
-    },
-    {
       "name": "Bruno Lesieur",
       "email": "b.lesieur@orchard-id.com"
-    },
-    {
-      "name": "Romain Laurier",
-      "email": "r.laurier@orchard-id.com"
     }
   ],
   "license": "GPL-2.0",
   "bugs": {
-    "url": "https://github.com/Orchard-ID/Orchard-Website/issues"
+    "url": "https://github.com/Haeresis/zetetique-vue-ssr/issues"
   },
   "dependencies": {
     "ckeditor": "4.6.x",

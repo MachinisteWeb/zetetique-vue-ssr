@@ -251,6 +251,49 @@ module.exports = function () {
 		});
 	}
 
+	function albertChat(next) {
+		exploitRssContent({
+			website: 'La statistique expliquée à mon chat',
+			protocol: 'https',
+			url: 'https://www.youtube.com/feeds/videos.xml?channel_id=UCWty1tzwZW_ZNSp5GVGteaA',
+			websiteUrl: 'https://www.youtube.com/channel/UCWty1tzwZW_ZNSp5GVGteaA/featured',
+			image: 'https://yt3.ggpht.com/KnuhDBdo9zq00YPeneTR8jtnim3iFe13PczNaB66hda8cXOGvYTkxDActWCUsVARrPbdvyGF8w=w2560-fcrop64=1,00005a57ffffa5a8-nd-c0xffffffff-rj-k-no',
+			imageProtocol: 'https',
+			limit: 8,
+			targetAllItems: function (globalDom) {
+				return globalDom.window.document.getElementsByTagName('entry');
+			},
+			targetEachDate: function (node) {
+				return new Date(node.getElementsByTagName('published')[0].innerHTML);
+			},
+			targetEachDescription: function (node) {
+				var content = node.getElementsByTagName('media:description')[0].innerHTML.split(/\r|\n/g)[0] || node.getElementsByTagName('media:description')[0].innerHTM;
+				return content;
+			},
+			targetEachLink: function (node) {
+				return node.getElementsByTagName('link')[0].getAttribute('href');
+			},
+			targetEachComment: function (node) {
+				return node.getElementsByTagName('link')[0].getAttribute('href');
+			},
+			targetEachCategory: function (node) {
+				return 'Youtube';
+			},
+			targetEachImage: function (node) {
+				var image = node.getElementsByTagName('media:thumbnail')[0];
+
+				if (image && image.getAttribute('url')) {
+					return image.getAttribute('url');
+				}
+
+				return '';
+			},
+			next: function (err, extractData, fetchedData) {
+				next(null, extractData);
+			}
+		});
+	}
+
 	function troncheBiais(next) {
 		exploitRssContent({
 			website: 'La Tronche en Biais',
@@ -839,6 +882,10 @@ module.exports = function () {
 
 	async.parallel([function (callback) {
 		menaceTheoriste(function (err, entries) {
+			callback(null, entries);
+		});
+	}, function (callback) {
+		albertChat(function (err, entries) {
 			callback(null, entries);
 		});
 	}, function (callback) {
