@@ -187,20 +187,301 @@ module.exports = function () {
 		});
 	}
 
-	function menaceTheoriste(next) {
+	// Vidéos
+	function science4All(next) {
 		exploitRssContent({
-			website: 'La Menace Théoriste',
-			url: 'http://menace-theoriste.fr/feed/',
-			websiteUrl: 'http://menace-theoriste.fr/',
-			image: 'https://s1-ssl.dmcdn.net/K0ejw/x1080-Mf5.jpg',
-			imageAttribute: 'content',
-			limit: 8,
+			website: 'Science4All',
+			protocol: 'https',
+			url: 'https://www.youtube.com/feeds/videos.xml?channel_id=UC0NCbj8CxzeCGIF6sODJ-7A',
+			websiteUrl: 'https://www.youtube.com/channel/UC0NCbj8CxzeCGIF6sODJ-7A/featured',
+			image: 'https://yt3.ggpht.com/zhDNZmboFR6zRS7x69ZqQWQm38XXQi7NMXT9q-x3ys00YZHP6AmQDN0P86_97ShCi7VZuL4t2DU=w2560-fcrop64=1,00005a57ffffa5a8-nd-c0xffffffff-rj-k-no',
+			imageProtocol: 'https',
+			limit: 3,
+			targetAllItems: function (globalDom) {
+				return globalDom.window.document.getElementsByTagName('entry');
+			},
+			targetEachDate: function (node) {
+				return new Date(node.getElementsByTagName('published')[0].innerHTML);
+			},
 			targetEachDescription: function (node) {
-				return node.getElementsByTagName('description')[0].innerHTML
-							.replace(/<!--\[CDATA\[<p-->/g, '<p>')
-							.replace(/\n]]&gt;/g, '')
-							.replace(/<p><\/p>/g, '')
-							.replace(/<p>Cet article(.+)est apparu en premier sur(.+)<\/p>/g, '</p>');
+				var content = node.getElementsByTagName('media:description')[0].innerHTML.split(/\r|\n/g)[0] || node.getElementsByTagName('media:description')[0].innerHTM;
+				return content;
+			},
+			targetEachLink: function (node) {
+				return node.getElementsByTagName('link')[0].getAttribute('href');
+			},
+			targetEachComment: function (node) {
+				return node.getElementsByTagName('link')[0].getAttribute('href');
+			},
+			targetEachCategory: function (node) {
+				return 'Youtube';
+			},
+			targetEachImage: function (node) {
+				var image = node.getElementsByTagName('media:thumbnail')[0];
+
+				if (image && image.getAttribute('url')) {
+					return image.getAttribute('url');
+				}
+
+				return '';
+			},
+			next: function (err, extractData, fetchedData) {
+				next(null, extractData);
+			}
+		});
+	}
+
+	function reveilleur(next) {
+		exploitRssContent({
+			website: 'Le Réveilleur',
+			protocol: 'https',
+			url: 'https://www.youtube.com/feeds/videos.xml?channel_id=UC1EacOJoqsKaYxaDomTCTEQ',
+			websiteUrl: 'https://www.youtube.com/channel/UC1EacOJoqsKaYxaDomTCTEQ/featured',
+			image: 'https://yt3.ggpht.com/zf47Pb6SPw7sXPUULITgyIx8tF80nTemCE5RrCfbXqETX3rLOETY0lhGwwol711fzN7SUUB4=w2560-fcrop64=1,00005a57ffffa5a8-nd-c0xffffffff-rj-k-no',
+			imageProtocol: 'https',
+			limit: 3,
+			targetAllItems: function (globalDom) {
+				return globalDom.window.document.getElementsByTagName('entry');
+			},
+			targetEachDate: function (node) {
+				return new Date(node.getElementsByTagName('published')[0].innerHTML);
+			},
+			targetEachDescription: function (node) {
+				var content = node.getElementsByTagName('media:description')[0].innerHTML.split(/\r|\n/g)[0] || node.getElementsByTagName('media:description')[0].innerHTM;
+				return content;
+			},
+			targetEachLink: function (node) {
+				return node.getElementsByTagName('link')[0].getAttribute('href');
+			},
+			targetEachComment: function (node) {
+				return node.getElementsByTagName('link')[0].getAttribute('href');
+			},
+			targetEachCategory: function (node) {
+				return 'Youtube';
+			},
+			targetEachImage: function (node) {
+				var image = node.getElementsByTagName('media:thumbnail')[0];
+
+				if (image && image.getAttribute('url')) {
+					return image.getAttribute('url');
+				}
+
+				return '';
+			},
+			next: function (err, extractData, fetchedData) {
+				next(null, extractData);
+			}
+		});
+	}
+
+	function matadon(next) {
+		exploitRssContent({
+			website: 'Matadon',
+			protocol: 'https',
+			url: 'https://www.youtube.com/feeds/videos.xml?channel_id=UCljzenfKIP4yauZGpK4TTAw',
+			websiteUrl: 'https://www.youtube.com/user/TheMightyMatadon/featured',
+			image: 'https://yt3.ggpht.com/zf47Pb6SPw7sXPUULITgyIx8tF80nTemCE5RrCfbXqETX3rLOETY0lhGwwol711fzN7SUUB4=w2560-fcrop64=1,00005a57ffffa5a8-nd-c0xffffffff-rj-k-no',
+			imageProtocol: 'https',
+			limit: 3,
+			targetAllItems: function (globalDom) {
+				return globalDom.window.document.getElementsByTagName('entry');
+			},
+			targetEachDate: function (node) {
+				return new Date(node.getElementsByTagName('published')[0].innerHTML);
+			},
+			targetEachDescription: function (node) {
+				var content = node.getElementsByTagName('media:description')[0].innerHTML.split(/\r|\n/g)[0] || node.getElementsByTagName('media:description')[0].innerHTM;
+				return content;
+			},
+			targetEachLink: function (node) {
+				return node.getElementsByTagName('link')[0].getAttribute('href');
+			},
+			targetEachComment: function (node) {
+				return node.getElementsByTagName('link')[0].getAttribute('href');
+			},
+			targetEachCategory: function (node) {
+				return 'Youtube';
+			},
+			targetEachImage: function (node) {
+				var image = node.getElementsByTagName('media:thumbnail')[0];
+
+				if (image && image.getAttribute('url')) {
+					return image.getAttribute('url');
+				}
+
+				return '';
+			},
+			next: function (err, extractData, fetchedData) {
+				next(null, extractData);
+			}
+		});
+	}
+
+	function risqueAlpha(next) {
+		exploitRssContent({
+			website: 'Risque Alpha',
+			protocol: 'https',
+			url: 'https://www.youtube.com/feeds/videos.xml?channel_id=UCJ7_Ld2cIVY5MM3NcKW3D8A',
+			websiteUrl: 'https://www.youtube.com/channel/UCJ7_Ld2cIVY5MM3NcKW3D8A/featured',
+			image: 'https://yt3.ggpht.com/4Ps5g_ptW4JsqVuTWQgBKLjoTDppbuGlxWwO30odyGP2lzWaFVhb8yfIPtaQ_SPP_Tc3u1Vitg=w2560-fcrop64=1,00005a57ffffa5a8-nd-c0xffffffff-rj-k-no',
+			imageProtocol: 'https',
+			limit: 3,
+			targetAllItems: function (globalDom) {
+				return globalDom.window.document.getElementsByTagName('entry');
+			},
+			targetEachDate: function (node) {
+				return new Date(node.getElementsByTagName('published')[0].innerHTML);
+			},
+			targetEachDescription: function (node) {
+				var content = node.getElementsByTagName('media:description')[0].innerHTML.split(/\r|\n/g)[0] || node.getElementsByTagName('media:description')[0].innerHTM;
+				return content;
+			},
+			targetEachLink: function (node) {
+				return node.getElementsByTagName('link')[0].getAttribute('href');
+			},
+			targetEachComment: function (node) {
+				return node.getElementsByTagName('link')[0].getAttribute('href');
+			},
+			targetEachCategory: function (node) {
+				return 'Youtube';
+			},
+			targetEachImage: function (node) {
+				var image = node.getElementsByTagName('media:thumbnail')[0];
+
+				if (image && image.getAttribute('url')) {
+					return image.getAttribute('url');
+				}
+
+				return '';
+			},
+			next: function (err, extractData, fetchedData) {
+				next(null, extractData);
+			}
+		});
+	}
+
+	function medifact(next) {
+		exploitRssContent({
+			website: 'Medifact',
+			protocol: 'https',
+			url: 'https://www.youtube.com/feeds/videos.xml?channel_id=UCOhW7sWI8IeAi0ZYe-P3qRg',
+			websiteUrl: 'https://www.youtube.com/channel/UCOhW7sWI8IeAi0ZYe-P3qRg/featured',
+			image: 'https://yt3.ggpht.com/FuoPODH2-vsDC2nvpRKgKCNsmlyl9QDlMS_Kbp6-CLdgg8v4mUmOwTTCE1haNmyPa8N95xkM=w2560-fcrop64=1,00005a57ffffa5a8-nd-c0xffffffff-rj-k-no',
+			imageProtocol: 'https',
+			limit: 3,
+			targetAllItems: function (globalDom) {
+				return globalDom.window.document.getElementsByTagName('entry');
+			},
+			targetEachDate: function (node) {
+				return new Date(node.getElementsByTagName('published')[0].innerHTML);
+			},
+			targetEachDescription: function (node) {
+				var content = node.getElementsByTagName('media:description')[0].innerHTML.split(/\r|\n/g)[0] || node.getElementsByTagName('media:description')[0].innerHTM;
+				return content;
+			},
+			targetEachLink: function (node) {
+				return node.getElementsByTagName('link')[0].getAttribute('href');
+			},
+			targetEachComment: function (node) {
+				return node.getElementsByTagName('link')[0].getAttribute('href');
+			},
+			targetEachCategory: function (node) {
+				return 'Youtube';
+			},
+			targetEachImage: function (node) {
+				var image = node.getElementsByTagName('media:thumbnail')[0];
+
+				if (image && image.getAttribute('url')) {
+					return image.getAttribute('url');
+				}
+
+				return '';
+			},
+			next: function (err, extractData, fetchedData) {
+				next(null, extractData);
+			}
+		});
+	}
+
+	function mrPhi(next) {
+		exploitRssContent({
+			website: 'Monsieur Phi',
+			protocol: 'https',
+			url: 'https://www.youtube.com/feeds/videos.xml?channel_id=UCqA8H22FwgBVcF3GJpp0MQw',
+			websiteUrl: 'https://www.youtube.com/channel/UCqA8H22FwgBVcF3GJpp0MQw/featured',
+			image: 'https://yt3.ggpht.com/Hzm10g4imhPhaZVJCmx2SjWTLgY2b3KRhqa2h2qAtlHzITPBQ3Ofmx9fkHrepss-znFvLSEO4xI=w2560-fcrop64=1,00005a57ffffa5a8-nd-c0xffffffff-rj-k-no',
+			imageProtocol: 'https',
+			limit: 3,
+			targetAllItems: function (globalDom) {
+				return globalDom.window.document.getElementsByTagName('entry');
+			},
+			targetEachDate: function (node) {
+				return new Date(node.getElementsByTagName('published')[0].innerHTML);
+			},
+			targetEachDescription: function (node) {
+				var content = node.getElementsByTagName('media:description')[0].innerHTML.split(/\r|\n/g)[0] || node.getElementsByTagName('media:description')[0].innerHTM;
+				return content;
+			},
+			targetEachLink: function (node) {
+				return node.getElementsByTagName('link')[0].getAttribute('href');
+			},
+			targetEachComment: function (node) {
+				return node.getElementsByTagName('link')[0].getAttribute('href');
+			},
+			targetEachCategory: function (node) {
+				return 'Youtube';
+			},
+			targetEachImage: function (node) {
+				var image = node.getElementsByTagName('media:thumbnail')[0];
+
+				if (image && image.getAttribute('url')) {
+					return image.getAttribute('url');
+				}
+
+				return '';
+			},
+			next: function (err, extractData, fetchedData) {
+				next(null, extractData);
+			}
+		});
+	}
+
+	function astronogeek(next) {
+		exploitRssContent({
+			website: 'AstronoGeek',
+			protocol: 'https',
+			url: 'https://www.youtube.com/feeds/videos.xml?channel_id=UC5X4e8ScZI2AFd_vkjSoyoQ',
+			websiteUrl: 'https://www.youtube.com/channel/UC5X4e8ScZI2AFd_vkjSoyoQ/featured',
+			image: 'https://yt3.ggpht.com/sy50eDTsgSVfFMIyRGEy0yVsAN8GWQAO0wzy2mWfcFAJ6Sworn8VuDAx7LqiP4ABnw1wuHJ48A=w2560-fcrop64=1,00005a57ffffa5a8-nd-c0xffffffff-rj-k-no',
+			imageProtocol: 'https',
+			limit: 3,
+			targetAllItems: function (globalDom) {
+				return globalDom.window.document.getElementsByTagName('entry');
+			},
+			targetEachDate: function (node) {
+				return new Date(node.getElementsByTagName('published')[0].innerHTML);
+			},
+			targetEachDescription: function (node) {
+				var content = node.getElementsByTagName('media:description')[0].innerHTML.split(/\r|\n/g)[0] || node.getElementsByTagName('media:description')[0].innerHTM;
+				return content;
+			},
+			targetEachLink: function (node) {
+				return node.getElementsByTagName('link')[0].getAttribute('href');
+			},
+			targetEachComment: function (node) {
+				return node.getElementsByTagName('link')[0].getAttribute('href');
+			},
+			targetEachCategory: function (node) {
+				return 'Youtube';
+			},
+			targetEachImage: function (node) {
+				var image = node.getElementsByTagName('media:thumbnail')[0];
+
+				if (image && image.getAttribute('url')) {
+					return image.getAttribute('url');
+				}
+
+				return '';
 			},
 			next: function (err, extractData, fetchedData) {
 				next(null, extractData);
@@ -216,7 +497,7 @@ module.exports = function () {
 			websiteUrl: 'https://www.youtube.com/user/UCU0FhLr6fr7U9GOn6OiQHpQ/featured',
 			image: 'https://yt3.ggpht.com/Dcc5cOZuKONGJGd6YUW0-NOhUjvJ55S6cT3ONO4wh9gcHU22_vFYqo9qnKuIWObCSnpMEov5jMg=w2560-fcrop64=1,00005a57ffffa5a8-nd-c0xffffffff-rj-k-no',
 			imageProtocol: 'https',
-			limit: 8,
+			limit: 3,
 			targetAllItems: function (globalDom) {
 				return globalDom.window.document.getElementsByTagName('entry');
 			},
@@ -259,7 +540,7 @@ module.exports = function () {
 			websiteUrl: 'https://www.youtube.com/channel/UCWty1tzwZW_ZNSp5GVGteaA/featured',
 			image: 'https://yt3.ggpht.com/KnuhDBdo9zq00YPeneTR8jtnim3iFe13PczNaB66hda8cXOGvYTkxDActWCUsVARrPbdvyGF8w=w2560-fcrop64=1,00005a57ffffa5a8-nd-c0xffffffff-rj-k-no',
 			imageProtocol: 'https',
-			limit: 8,
+			limit: 3,
 			targetAllItems: function (globalDom) {
 				return globalDom.window.document.getElementsByTagName('entry');
 			},
@@ -302,7 +583,7 @@ module.exports = function () {
 			websiteUrl: 'https://www.youtube.com/user/TroncheEnBiais/featured',
 			image: 'https://yt3.ggpht.com/R9lPriy76OEsNoI0f7RJ7tjLnastZpHNW2MB3DcNFkCCjI0ZgUOF2bvU4g1tCkEp9j095ROb=w2560-fcrop64=1,00005a57ffffa5a8-nd-c0xffffffff-rj-k-no',
 			imageProtocol: 'https',
-			limit: 8,
+			limit: 3,
 			targetAllItems: function (globalDom) {
 				return globalDom.window.document.getElementsByTagName('entry');
 			},
@@ -345,7 +626,7 @@ module.exports = function () {
 			websiteUrl: 'https://www.youtube.com/user/TheBigpeha/featured',
 			image: 'https://yt3.ggpht.com/6awNwD9iUneQdWcfAmJ2Cv61OAyZWYfrOZptmu2pnghXEaxued5EldeeJ2ANukBP5ur6OHsG=w2560-fcrop64=1,00005a57ffffa5a8-nd-c0xffffffff-rj-k-no',
 			imageProtocol: 'https',
-			limit: 8,
+			limit: 3,
 			targetAllItems: function (globalDom) {
 				return globalDom.window.document.getElementsByTagName('entry');
 			},
@@ -388,7 +669,7 @@ module.exports = function () {
 			websiteUrl: 'https://www.youtube.com/user/fauxsceptique/featured',
 			image: 'https://yt3.ggpht.com/s1FBgYGVHYhWtMjeMpmIax0-El4OawhPpEyZG7962v-RWPvATgkRxSq7j6xBMlzy9vXX3GoWqK4=w2560-fcrop64=1,00005a57ffffa5a8-nd-c0xffffffff-rj-k-no',
 			imageProtocol: 'https',
-			limit: 8,
+			limit: 3,
 			targetAllItems: function (globalDom) {
 				return globalDom.window.document.getElementsByTagName('entry');
 			},
@@ -431,7 +712,7 @@ module.exports = function () {
 			websiteUrl: 'https://www.youtube.com/user/SamuelBuisseret/featured',
 			image: 'https://yt3.ggpht.com/Yq-5ofi9GzxYjQNb-SlKY_dWFHbId-K9QlaHUApxA7qL6QVZZVLVomobCPK3XzVuLC3se4Tu=w2560-fcrop64=1,00005a57ffffa5a8-nd-c0xffffffff-rj-k-no',
 			imageProtocol: 'https',
-			limit: 8,
+			limit: 3,
 			targetAllItems: function (globalDom) {
 				return globalDom.window.document.getElementsByTagName('entry');
 			},
@@ -466,6 +747,7 @@ module.exports = function () {
 		});
 	}
 
+	// Images
 	function ebbh(next) {
 		exploitRssContent({
 			website: 'Evidence Based Bonne Humeur',
@@ -474,7 +756,7 @@ module.exports = function () {
 			websiteUrl: 'https://www.facebook.com/RoMEBBH/',
 			image: 'https://i.pinimg.com/564x/ca/c2/de/cac2defef244980e06aa6144f5875940.jpg',
 			imageProtocol: 'https',
-			limit: 8,
+			limit: 5,
 			targetEachDescription: function (node) {
 				return node.getElementsByTagName('description')[0].innerHTML
 							.replace(/<!--\[CDATA\[/g, '<p>')
@@ -514,7 +796,7 @@ module.exports = function () {
 			websiteUrl: 'https://www.facebook.com/CoupEspritCritique/',
 			image: 'https://www.coup-critique.com/media/images/more.jpg',
 			imageProtocol: 'https',
-			limit: 8,
+			limit: 5,
 			targetEachDescription: function (node) {
 				return node.getElementsByTagName('description')[0].innerHTML
 							.replace(/<!--\[CDATA\[/g, '<p>')
@@ -546,12 +828,34 @@ module.exports = function () {
 		});
 	}
 
+	// Articles
+	function menaceTheoriste(next) {
+		exploitRssContent({
+			website: 'La Menace Théoriste',
+			url: 'http://menace-theoriste.fr/feed/',
+			websiteUrl: 'http://menace-theoriste.fr/',
+			image: 'https://s1-ssl.dmcdn.net/K0ejw/x1080-Mf5.jpg',
+			imageAttribute: 'content',
+			limit: 5,
+			targetEachDescription: function (node) {
+				return node.getElementsByTagName('description')[0].innerHTML
+							.replace(/<!--\[CDATA\[<p-->/g, '<p>')
+							.replace(/\n]]&gt;/g, '')
+							.replace(/<p><\/p>/g, '')
+							.replace(/<p>Cet article(.+)est apparu en premier sur(.+)<\/p>/g, '</p>');
+			},
+			next: function (err, extractData, fetchedData) {
+				next(null, extractData);
+			}
+		});
+	}
+
 	function curiologie(next) {
 		exploitRssContent({
 			website: 'curiologie',
 			url: 'http://curiologie.fr/feed/',
 			websiteUrl: 'http://curiologie.fr/',
-			limit: 8,
+			limit: 5,
 			targetEachImage: function (node) {
 				return node.getElementsByTagName('description')[0].innerHTML
 					.replace(/<!--\[CDATA\[<img width="[0-9]+" height="[0-9]+" src="/g, '')
@@ -575,7 +879,7 @@ module.exports = function () {
 			websiteUrl: 'https://www.esprit-critique.org/',
 			image: 'https://www.esprit-critique.org/wp-content/uploads/2016/05/cropped-cropped-cropped-fond1-2-2-3.jpg',
 			protocol: 'https',
-			limit: 8,
+			limit: 5,
 			targetEachImage: function (node) {
 				return '';
 			},
@@ -598,7 +902,7 @@ module.exports = function () {
 			url: 'http://charlatans.info/news/spip.php?page=backend',
 			websiteUrl: 'http://charlatans.info/',
 			imagePrefix: 'http://charlatans.info/news/',
-			limit: 8,
+			limit: 5,
 			targetEachDescription: function (node) {
 				return '<p>' + node.getElementsByTagName('description')[0].innerHTML
 					.replace(/&lt;/g, '<')
@@ -632,7 +936,7 @@ module.exports = function () {
 			protocol: 'https',
 			image: 'https://astroscept.files.wordpress.com/2017/04/cropped-astroscept-facebook.jpg',
 			websiteUrl: 'https://astroscept.com/',
-			limit: 8,
+			limit: 5,
 			targetEachDescription: function (node) {
 				return node.getElementsByTagName('description')[0].innerHTML
 					.replace(/<!--\[CDATA\[/g, '<p>')
@@ -668,7 +972,7 @@ module.exports = function () {
 			protocol: 'https',
 			websiteUrl: 'https://sciencetonnante.wordpress.com/',
 			image: 'https://www.tipeee.com/api/v1.0/images/986125',
-			limit: 8,
+			limit: 5,
 			targetEachDescription: function (node) {
 				return node.getElementsByTagName('description')[0].innerHTML
 					.replace(/<!--\[CDATA\[/g, '<p>')
@@ -702,7 +1006,7 @@ module.exports = function () {
 			protocol: 'https',
 			websiteUrl: 'https://cortecs.org/',
 			imageProtocol: 'https',
-			limit: 8,
+			limit: 5,
 			targetEachDescription: function (node) {
 				return node.getElementsByTagName('description')[0].innerHTML
 					.replace(/<!--\[CDATA\[/g, '<p>')
@@ -731,7 +1035,7 @@ module.exports = function () {
 			url: 'https://sciencepop.fr/feed/',
 			protocol: 'https',
 			websiteUrl: 'https://sciencepop.fr/',
-			limit: 8,
+			limit: 5,
 			targetEachDescription: function (node) {
 				return node.getElementsByTagName('description')[0].innerHTML
 					.replace(/<!--\[CDATA\[.+ssl=1">/g, '<p>')
@@ -758,7 +1062,7 @@ module.exports = function () {
 			protocol: 'https',
 			imageProtocol: 'https',
 			websiteUrl: 'https://www.penser-critique.be/',
-			limit: 8,
+			limit: 5,
 			targetEachDescription: function (node) {
 				return node.getElementsByTagName('description')[0].innerHTML
 					.replace(/<!--\[CDATA\[/g, '<p>')
@@ -782,7 +1086,7 @@ module.exports = function () {
 			imageProtocol: 'https',
 			imageAttribute: 'content',
 			websiteUrl: 'https://theierecosmique.com/',
-			limit: 8,
+			limit: 5,
 			targetEachDescription: function (node) {
 				return node.getElementsByTagName('description')[0].innerHTML
 					.replace(/<!--\[CDATA\[/g, '<p>')
@@ -802,7 +1106,7 @@ module.exports = function () {
 			url: 'http://www.bunkerd.fr/feed/',
 			imageAttribute: 'content',
 			websiteUrl: 'http://www.bunkerd.fr/',
-			limit: 8,
+			limit: 5,
 			targetEachDescription: function (node) {
 				return node.getElementsByTagName('description')[0].innerHTML
 					.replace(/<!--\[CDATA\[/g, '<p>')
@@ -825,7 +1129,7 @@ module.exports = function () {
 			url: 'http://www.hoaxbuster.com/rss.xml',
 			websiteUrl: 'http://www.hoaxbuster.com/',
 			imageAttribute: 'content',
-			limit: 8,
+			limit: 5,
 			targetEachDescription: function (node) {
 				return node.getElementsByTagName('description')[0].innerHTML
 					.replace(/&lt;/g, '<').replace(/&gt;/g, '>')
@@ -880,8 +1184,28 @@ module.exports = function () {
 		}
 	}
 
-	async.parallel([function (callback) {
-		menaceTheoriste(function (err, entries) {
+	async.parallel([/*function (callback) {
+		coupCritique(function (err, entries) {
+			callback(null, entries);
+		});
+	}, function (callback) {
+		ebbh(function (err, entries) {
+			callback(null, entries);
+		});
+	}, */function (callback) {
+		science4All(function (err, entries) {
+			callback(null, entries);
+		});
+	}, function (callback) {
+		reveilleur(function (err, entries) {
+			callback(null, entries);
+		});
+	}, function (callback) {
+		mrPhi(function (err, entries) {
+			callback(null, entries);
+		});
+	}, function (callback) {
+		astronogeek(function (err, entries) {
 			callback(null, entries);
 		});
 	}, function (callback) {
@@ -909,11 +1233,19 @@ module.exports = function () {
 			callback(null, entries);
 		});
 	}, function (callback) {
-		coupCritique(function (err, entries) {
+		matadon(function (err, entries) {
 			callback(null, entries);
 		});
 	}, function (callback) {
-		ebbh(function (err, entries) {
+		risqueAlpha(function (err, entries) {
+			callback(null, entries);
+		});
+	},function (callback) {
+		medifact(function (err, entries) {
+			callback(null, entries);
+		});
+	}, function (callback) {
+		menaceTheoriste(function (err, entries) {
 			callback(null, entries);
 		});
 	}, function (callback) {

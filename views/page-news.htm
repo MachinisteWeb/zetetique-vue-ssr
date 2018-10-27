@@ -21,7 +21,7 @@
 					:data-fetch-news="JSON.stringify(global.news)">
 					<ul class="page-news--content--outer">
 						<li class="page-news--content--news--item"
-							v-for="(news, index) in global.news"
+							v-for="(news, index) in newsFilter"
 							:key="news.title">
 							<h3 @click="goTo(index)">
 								<small>par <strong>{{ news.website }}</strong>
@@ -78,8 +78,11 @@
 						:global="global" />
 				</h2>
 				<ul>
+					<li>
+						<span class="a" @click="filter = false">Toutes les sources</span>
+					</li>
 					<li v-for="(source, index) in sources">
-						<a :href="source.links.website" target="_blank">{{ source.website }}</a>
+						<span class="a" @click="filter = source.links.website" v-text="source.website"></span> <a :href="source.links.website" target="_blank">🗗</a>
 					</li>
 				</ul>
 			</nav>
