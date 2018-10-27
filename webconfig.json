@@ -6,7 +6,6 @@
 	"socketServerOptions": {
 		"transports": ["polling"]
 	},
-	"optimizations": "optimizations.json",
 	"httpSecure": true,
 	"httpPort": 7776,
 	"urlPort": 443,
