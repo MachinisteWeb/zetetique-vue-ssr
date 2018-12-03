@@ -54,8 +54,8 @@ module.exports = function (template, specific, mixin, options) {
 		},
 		methods: {
 			padLeft: function (value) {
-			var str = "" + value,
-				pad = "00";
+				var str = "" + value,
+					pad = "00";
 
 				return pad.substring(0, pad.length - str.length) + str;
 			},
