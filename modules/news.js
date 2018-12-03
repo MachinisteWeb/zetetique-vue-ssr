@@ -188,6 +188,49 @@ module.exports = function () {
 	}
 
 	// Vidéos
+	function espritCritique(next) {
+		exploitRssContent({
+			website: 'Esprit Critique',
+			protocol: 'https',
+			url: 'https://www.youtube.com/feeds/videos.xml?channel_id=UC0yPCUmdMZIGtnxSnx5_ifA',
+			websiteUrl: 'https://www.youtube.com/channel/UC0yPCUmdMZIGtnxSnx5_ifA/featured',
+			image: 'https://yt3.ggpht.com/qAPDHe_R3PnrXgE4ODA8U_eXGmw-ygEGL3A79iorYB37kevxGcP0LmyisUBxmJL65EtOl_I=w2560-fcrop64=1,00005a57ffffa5a8-nd-c0xffffffff-rj-k-no',
+			imageProtocol: 'https',
+			limit: 3,
+			targetAllItems: function (globalDom) {
+				return globalDom.window.document.getElementsByTagName('entry');
+			},
+			targetEachDate: function (node) {
+				return new Date(node.getElementsByTagName('published')[0].innerHTML);
+			},
+			targetEachDescription: function (node) {
+				var content = node.getElementsByTagName('media:description')[0].innerHTML.split(/\r|\n/g)[0] || node.getElementsByTagName('media:description')[0].innerHTM;
+				return content;
+			},
+			targetEachLink: function (node) {
+				return node.getElementsByTagName('link')[0].getAttribute('href');
+			},
+			targetEachComment: function (node) {
+				return node.getElementsByTagName('link')[0].getAttribute('href');
+			},
+			targetEachCategory: function (node) {
+				return 'Youtube';
+			},
+			targetEachImage: function (node) {
+				var image = node.getElementsByTagName('media:thumbnail')[0];
+
+				if (image && image.getAttribute('url')) {
+					return image.getAttribute('url');
+				}
+
+				return '';
+			},
+			next: function (err, extractData, fetchedData) {
+				next(null, extractData);
+			}
+		});
+	}
+
 	function science4All(next) {
 		exploitRssContent({
 			website: 'Science4All',
@@ -829,7 +872,7 @@ module.exports = function () {
 		});
 	}
 
-	function espritCritique(next) {
+	function astec(next) {
 		exploitRssContent({
 			website: 'A·S·T·E·C',
 			url: 'https://www.esprit-critique.org/feed/',
@@ -1150,6 +1193,10 @@ module.exports = function () {
 			callback(null, entries);
 		});
 	}, */function (callback) {
+		espritCritique(function (err, entries) {
+			callback(null, entries);
+		});
+	}, function (callback) {
 		science4All(function (err, entries) {
 			callback(null, entries);
 		});
@@ -1206,7 +1253,7 @@ module.exports = function () {
 			callback(null, entries);
 		});
 	}, function (callback) {
-		espritCritique(function (err, entries) {
+		astec(function (err, entries) {
 			callback(null, entries);
 		});
 	}, function (callback) {
