@@ -79,10 +79,10 @@
 				</h2>
 				<ul>
 					<li>
-						<span class="a" @click="filter = false">Toutes les sources</span>
+						<span class="a" @click="changeSource(false)">Toutes les sources</span>
 					</li>
 					<li v-for="(source, index) in sources">
-						<span class="a" @click="filter = source.links.website" v-text="source.website"></span> <a :href="source.links.website" target="_blank">🗗</a>
+						<span class="a" @click="changeSource(source)" v-text="source.website"></span> <a :href="source.links.website" target="_blank">🗗</a>
 					</li>
 				</ul>
 			</nav>

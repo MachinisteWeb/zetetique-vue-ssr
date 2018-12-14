@@ -20,7 +20,7 @@ module.exports = function (template, specific, mixin, options) {
 				this.formatNews();
 				if (this.filter) {
 					return this.global.news.filter(function (item) {
-						if (item.links.website === vm.filter) {
+						if (item.name === vm.filter) {
 							return true;
 						}
 					});
@@ -49,8 +49,16 @@ module.exports = function (template, specific, mixin, options) {
 				});
 			}
 		},
-		beforeMount: function () {
+		watch: {
+			'$route': function (to) {
+				this.filter = to.query.source || undefined;
+			}
+		},
+		beforeMount: function (to, form) {
 			this.getNews();
+		},
+		mounted: function () {
+			this.filter = (this.$route.query.source) ? this.$route.query.source : false;
 		},
 		methods: {
 			padLeft: function (value) {
@@ -77,6 +85,13 @@ module.exports = function (template, specific, mixin, options) {
 			goTo: function (index) {
 				var win = window.open(this.global.news[index].links.link, '_blank');
 				win.focus();
+			},
+			changeSource: function (source) {
+				this.$router.push({
+					query: {
+						source: (source) ? source.name : undefined
+					}
+				});
 			},
 			formatNews: function () {
 				var vm = this;

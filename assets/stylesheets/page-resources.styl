@@ -14,7 +14,7 @@
 		padding 24px 16px
 		font-size 1.2rem
 		top 0
-		right 0
+		right 20px
 		z-index 3
 
 	&--breadcrumb
@@ -82,9 +82,8 @@
 			background-color $highlightLinkColor
 			height 1px
 			border 0
-			margin 0 auto 0 0
+			margin 24px auto 24px 0
 			width 24px
-			margin 24px 0
 
 		&--outer
 			position absolute
@@ -190,9 +189,8 @@
 		background-color $highlightTextColor
 		height 1px
 		border 0
-		margin 0 auto 0 0
+		margin 24px auto 24px 0
 		width 24px
-		margin 24px 0
 
 	&--content
 		overflow-y auto
@@ -212,7 +210,7 @@
 		&--header
 			padding 24px 24px 0
 			background-color #fff
-			width 100%
+			width calc(100% - 20px)
 			top 0
 			left 0
 			@media (min-width 768px)
