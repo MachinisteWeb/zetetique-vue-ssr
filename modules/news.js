@@ -237,7 +237,7 @@ module.exports = function () {
 	function parLeDebut(next) {
 		exploitRssContent({
 			website: 'Par Le Début',
-			name: 'par-le-début',
+			name: 'par-le-debut',
 			protocol: 'https',
 			url: 'https://www.youtube.com/feeds/videos.xml?channel_id=UCDvU86s09gZEQUHJLKE9GKA',
 			websiteUrl: 'https://www.youtube.com/channel/UCDvU86s09gZEQUHJLKE9GKA/featured',
