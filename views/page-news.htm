@@ -22,7 +22,7 @@
 					<ul class="page-news--content--outer">
 						<li class="page-news--content--news--item"
 							v-for="(news, index) in newsFilter"
-							:key="news.title">
+							:key="news.links.link">
 							<h3 @click="goTo(index)">
 								<small>par <strong>{{ news.website }}</strong>
 								le <strong>{{ padLeft(new Date(news.publish.date).getDate()) }}/{{ padLeft(new Date(news.publish.date).getMonth() + 1) }}/{{ new Date(news.publish.date).getFullYear() }}</strong></small>
@@ -81,7 +81,8 @@
 					<li>
 						<span class="a" @click="changeSource(false)">Toutes les sources</span>
 					</li>
-					<li v-for="(source, index) in sources">
+					<li v-for="(source, index) in sources"
+						:key="source.links.link">
 						<span class="a" @click="changeSource(source)" v-text="source.website"></span> <a :href="source.links.website" target="_blank">🗗</a>
 					</li>
 				</ul>
