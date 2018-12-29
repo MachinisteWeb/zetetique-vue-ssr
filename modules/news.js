@@ -185,7 +185,7 @@ module.exports = function () {
 			});
 
 		}).on("error", function (error) {
-			if (error.code === 'ETIMEDOUT') {
+			if (error.code === 'ETIMEDOUT' || error.code === 'ECONNREFUSED') {
 				options.next(null, options.entries, fetchedData);
 			} else {
 				throw error;
