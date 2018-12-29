@@ -185,7 +185,11 @@ module.exports = function () {
 			});
 
 		}).on("error", function (error) {
-			throw error;
+			if (error.code === 'ETIMEDOUT') {
+				options.next(null, options.entries, fetchedData);
+			} else {
+				throw error;
+			}
 		});
 	}
 
@@ -1349,7 +1353,7 @@ module.exports = function () {
 		cortecs(function (err, entries) {
 			callback(null, entries);
 		});
-	}, function (callback) {
+	},function (callback) {
 		sciencePop(function (err, entries) {
 			callback(null, entries);
 		});
@@ -1357,7 +1361,7 @@ module.exports = function () {
 		penserCritique(function (err, entries) {
 			callback(null, entries);
 		});
-	}, function (callback) {
+	} , function (callback) {
 		theiereCosmique(function (err, entries) {
 			callback(null, entries);
 		});
