@@ -1,7 +1,7 @@
 <div class="page-card">
 	<article class="page-card--article"
 		v-html="global.card.html"></article>
-	<aside class="page-card--aside">
+	<!--<aside class="page-card--aside">
 		<strong>
 			<edit-inline
 				v-model="specific.title"
@@ -16,10 +16,11 @@
 		:class="{ 'is-loaded': isLoaded }"></iframe>
 	<aside class="page-card--controls">
 		<a href=""></a>
-	</aside>
+	</aside>-->
 	<aside class="page-card--next"
 		@click="backToCards">
-		<div class="page-card--next--title">
+		<span class="page-card--next--title"><span class="fa fa-times"></span></span>
+		<!--<div class="page-card--next--title">
 			<span class="page-card--next--title--rotate">
 				<span class="a">
 					{{ global.card.title }}
@@ -37,10 +38,10 @@
 					{{ category }} #{{ number }}
 				</span>
 			</span>
-		</div>
+		</div>-->
 	</aside>
-	<aside class="page-card--share-buttons"
-		v-if="isLoaded">
+	<aside class="page-card--share-buttons">
+		<!--v-if="isLoaded"-->
 		<a class="share-btn share-btn-branded share-btn-twitter" target="_blank" :href="'https://www.twitter.com/intent/tweet?text=' + global.card.title + ' — ' + category + ' %23' + number + ' — par @CoupCritic sur&amp;url=https%3A%2F%2Fwww.coup-critique.com%2Ffiches%2F' + path + '%2F' + number + '%2F&amp;via=ZetesEthique'" title="Partager sur Twitter">
 			<span class="fa fa-twitter"></span>
 			<span class="share-btn-text">Twitter</span>

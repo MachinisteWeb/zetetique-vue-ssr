@@ -133,12 +133,12 @@ exports.setModules = function () {
 
 	NA.modules.emailManager = require('./modules/email-manager.js')(NA);
 	NA.modules.edit = require('./modules/edit.js');
-	NA.modules.chat = require('./modules/chat.js');
+	//NA.modules.chat = require('./modules/chat.js');
 
 	NA.models = {};
 	NA.models.User = require('../models/connectors/user.js');
 	NA.models.Edit = require('../models/connectors/edit.js');
-	NA.models.Chat = require('../models/connectors/chat.js');
+	//NA.models.Chat = require('../models/connectors/chat.js');
 
 	NA.modules.Vue.use(NA.modules.VueRouter);
 
@@ -194,8 +194,8 @@ exports.setRoutes = function (next) {
 exports.setSockets = function () {
 	var NA = this,
 		io = NA.io,
-		edit = NA.modules.edit,
-		chat = NA.modules.chat;
+		edit = NA.modules.edit/*,
+		chat = NA.modules.chat*/;
 
 	io.on('connection', function (socket) {
 		var session = socket.request.session,
@@ -208,7 +208,7 @@ exports.setSockets = function () {
 	});
 
 	edit.setSockets.call(NA);
-	chat.setSockets.call(NA);
+	//chat.setSockets.call(NA);
 };
 
 exports.changeDom = function (next, locals, request, response) {

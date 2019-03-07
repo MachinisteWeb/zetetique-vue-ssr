@@ -37,7 +37,7 @@ exports.changeVariations = function (next, locals) {
 		};
 
 		locals.specific.meta.title = locals.global.card.title + ' — ' + choices[locals.params.category] + ' #' + locals.global.card.number;
-		locals.specific.meta.image = 'https://images.weserv.nl/?url=' + encodeURIComponent(locals.global.card.image.replace(/https:\/\//g, ''));
+		locals.specific.meta.image = /*'https://images.weserv.nl/?url=' + encodeURIComponent(*/locals.global.card.image/*.replace(/https:\/\//g, ''))*/;
 		locals.specific.meta.description = locals.global.card.description;
 		next(locals);
 	});

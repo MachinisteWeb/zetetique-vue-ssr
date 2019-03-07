@@ -1,5 +1,5 @@
 <div class="layout"
-	:class="{ 'as-loaded-page': global.isClient && !global.isWaiting }">
+	:class="{ 'as-loaded-page': global.isClient && !global.isWaiting, 'as-invisible-menu': $route.name === 'card' }">
 	<div class="main-content">
 		<transition :name="global.routerTransition">
 			<router-view

@@ -1062,7 +1062,8 @@ module.exports = function () {
 			targetEachLink: function (node) {
 				return node.getElementsByTagName('description')[0].innerHTML
 					.replace(/<!--\[CDATA\[.+&#8230; <a href="/g, '')
-					.replace(/" class="more-link">Lire.+]]&gt;/g, '');
+					.replace(/" class="more-link">Lire.+]]&gt;/g, '')
+					.replace(/" class="more-link"-->Lire.+]]&gt;/g, '');
 			},
 			next: function (err, extractData, fetchedData) {
 				next(null, extractData);
@@ -1141,7 +1142,8 @@ module.exports = function () {
 				return node.getElementsByTagName('description')[0].innerHTML
 					.replace(/<!--\[CDATA\[/g, '<p>')
 					.replace(/<a class(.*)]]&gt;/g, '</p>')
-					.replace(/&#160;]]-->/g, '</p>');
+					.replace(/&#160;]]-->/g, '</p>')
+					.replace(/]]-->/g, '</p>');
 			},
 			targetEachContentImage: function (globalDom) {
 				return globalDom.window.document.querySelector('.featured-media img');

@@ -1,217 +1,507 @@
 .page-card
-	&--aside
-		position absolute
-		top 50%
-		left 50%
-		transform translate(-50%, -50%)
-		strong
-			font-size 4rem
-			font-weight normal
-			font-family Regular, Arial, sans-serif
-		p
-			font-size 2rem
-			padding-bottom 24px
+	background-color #000
+	height 100%;
+	width 100%
 
-	iframe
-		opacity 0
-		transition opacity 1s ease
-		z-index 10
-		position fixed
-		width calc(100% - 48px)
-		@media (min-width 768px)
-			width calc(100% - 96px)
-		height calc(100% + 62px)
-		top -62px
-		@media (min-width 449px)
-			height calc(100% + 70px)
-			top -70px
-		left 48px
-		&.is-loaded
+	&--next
+		position absolute
+		top 10px
+		left 50%
+		width 5vmin
+		height 5vmin
+		border-radius 50% 50%
+		background-color #202328
+		cursor pointer
+		transform translateX(-50%)
+		z-index 12
+		transition opacity .5s ease
+		opacity .7
+
+		&:hover
 			opacity 1
+
+		&--title
+			color $backgroundColor
+			position absolute
+			top 50%
+			left 50%
+			transform translate(-50%, -50%)
 
 	&--article
 		position absolute
-		top -7777px
-
-	&--next
-		display none
-		position absolute
-		top 0
-		right 0
-		width 49px
 		height 100%
-		border-left 1px solid $borderColor
-		background-color $backgroundColor
-		flex-direction column
-		flex-wrap wrap
-		justify-content space-between
-		overflow hidden
-		cursor pointer
-		z-index 12
+		width 100%
+		position absolute
 
-		display none
-		@media (min-width 768px)
-			display flex
+	&--share-buttons
+		position fixed
+		right 10px;
+		bottom 0
+		z-index 11
 
-		&--title
-			padding 24px 0
-			font-size 1.2rem
-			color $linkColor
-			overflow hidden
-			display flex
-			flex-direction column
-			flex 0 1 200px
-
-			&--rotate
-				color $highlightLinkColor
-				display inline-block
-				overflow hidden
-				text-align right
-				width 400px
-				line-height 1
-				margin-left 30px
-				transform rotate(-90deg) translateX(calc(-100% + 10px))
-				transform-origin: bottom left;
-
-		&--menu
-			padding 24px 0
+		.fa
+			width 20px
+			display inline-block
 			text-align center
-			width 100%
 
-			&--rotate img
-				transform rotate(-90deg)
-				transform-origin center center
+		a
+			margin 8px
+			display block
+			position relative
+			left 0
 
-		&--location
-			padding 24px 0
-			font-size 1.2rem
-			color $linkColor
-			overflow hidden
-			display flex
-			flex-direction column-reverse
-			flex 0 1 200px
-
-			&--rotate
-				color $highlightLinkColor
+			&.share-btn:visited
+			&.share-btn
+				margin 0
+				box-sizing border-box
+				position relative
 				display inline-block
-				overflow hidden
-				width 150px
-				line-height 1
-				margin-left 30px
-				transform rotate(-90deg)
-				transform-origin: bottom left
+				font-family sans-serif
+				color #333
+				padding 4px
+				text-transform none
+				background-color #F3F3F3
+				border 0
+				border-top-left-radius .5em
+				border-top-right-radius .5em
+				font-family sans-serif
+				font-size 1.2rem
+				letter-spacing 1px
+				transition all .3s ease
 
-.page-card--share-buttons {
-	position: fixed;
-	right: 10px;
-	bottom: 0;
-	z-index 11
-}
-.page-card--share-buttons a {
-	margin: 8px;
-	display: block;
-	position: relative;
-	left: 0;
-}
-.page-card--share-buttons .share-btn-email,
-.page-card--share-buttons .share-btn-branded {
-	display: none;
-}
+				&:focus
+				&:active
+				&:hover
+					color #333
+					background-color #fff
+					box-shadow 0 0 10px 2px #e0e0e0
 
-.page-card--share-buttons .fa {
-	width: 20px;
-	display: inline-block;
-	text-align: center;
-}
+				&.share-btn-branded
+					display none
+					&.share-btn-twitter:hover
+						color #fff
+						background #55acee
 
-a.share-btn:visited,
-a.share-btn {
-	margin: 0;
-	box-sizing: border-box;
-	position: relative;
-	display: inline-block;
-	font-family: sans-serif;
-	color: #333;
-	padding: 4px;
-	text-transform: none;
-	background-color: #F3F3F3;
-	border: 0;
-	border-top-left-radius: .5em;
-	border-top-right-radius: .5em;
-	font-family: sans-serif;
-	font-size: 1.2rem;
-	letter-spacing: 1px;
-	-webkit-transition: all .3s ease;
-	transition: all .3s ease;
-}
-a.share-btn:focus,
-a.share-btn:active,
-a.share-btn:hover {
-	color: #333;
-	background-color: #fff;
-	-moz-box-shadow: 0 0 10px 2px #e0e0e0;
-		 box-shadow: 0 0 10px 2px #e0e0e0;
-}
+					&.share-btn-facebook:hover
+						color #fff
+						background #3b5998
 
-a.share-btn.share-btn-branded.share-btn-twitter:hover {
-	color: #fff;
-	background: #55acee;
-}
-a.share-btn.share-btn-branded.share-btn-facebook:hover {
-	color: #fff;
-	background: #3b5998;
-}
-a.share-btn.share-btn-branded.share-btn-googleplus:hover {
-	color: #fff;
-	background: #d73925;
-}
-a.share-btn.share-btn-branded.share-btn-viadeo:hover {
-	color: #fff;
-	background: #F4982B;
-}
-a.share-btn.share-btn-branded.share-btn-linkedin:hover {
-	color: #fff;
-	background: #0976b4;
-}
-a.share-btn.share-btn-branded.share-btn-pinterest:hover {
-	color: #fff;
-	background: #b61d23;
-}
-a.share-btn.share-btn-email:hover {
-	color: #fff;
-	background: #FFCC00;
-}
+					&.share-btn-googleplus:hover
+						color #fff
+						background #d73925
 
-@media (min-width: 768px) {
-	.page-card--share-buttons {
-		right: -20px;
-		top: 50%;
-		bottom: auto;
-		-webkit-transform: translateY(-50%);
-		   -moz-transform: translateY(-50%);
-			-ms-transform: translateY(-50%);
-			 -o-transform: translateY(-50%);
-				transform: translateY(-50%);
-	}
+					&.share-btn-viadeo:hover
+						color #fff
+						background #F4982B
 
-	a.share-btn {
-		display: block;
-		margin-top: 10px;
-		margin-bottom: 10px;
-		-webkit-border-top-right-radius: 0;
-				border-top-right-radius: 0;
-		-webkit-border-top-left-radius: .5em;
-				border-top-left-radius: .5em;
-		-webkit-border-bottom-left-radius: .5em;
-				border-bottom-left-radius: .5em;
-	}
+					&.share-btn-linkedin:hover
+						color #fff
+						background #0976b4
 
-	.page-card--share-buttons a:hover {
-		left: -68px;
-	}
+					&.share-btn-pinterest:hover
+						color #fff
+						background #b61d23
 
-	.page-card--share-buttons .share-btn-email,
-	.page-card--share-buttons .share-btn-branded {
-		display: block;
-	}
-}
+				&.share-btn-email
+					display none
+					&:hover
+						color #fff
+						background #FFCC00
+
+		@media (min-width 768px)
+			right -64px
+			top 50%
+			bottom auto
+			transform translateY(-50%)
+
+			a
+				&.share-btn
+					display block
+					margin-top 10px
+					margin-bottom 10px
+					border-top-right-radius 0
+					border-top-left-radius .5em
+					border-bottom-left-radius .5em
+
+					&:hover
+						left -64px
+
+					&.share-btn-email
+					&.share-btn-branded
+						display block
+
+.as-invisible-menu
+	.the-header
+		opacity 0.1
+		&.is-opened
+		&:hover
+			opacity 1
+	.the-navigation
+		opacity 0.1
+		&.is-opened
+			opacity 1
+	.main-content
+		left 0
+		width 100%
+
+.card
+	line-height 1.15
+	position absolute
+	color #fff
+	height 100%
+	width 100%
+
+	strong
+		font-style italic
+
+		^[0].card-cc ^[1..1]
+			color #ff00fb
+
+		^[0].card-mcem ^[1..1]
+			color #04fdff
+
+		^[0].card-aqtc ^[1..1]
+			color #07f40f
+
+		^[0].card-lmdj ^[1..1]
+			color #ffdd40
+
+	ul
+		margin 0
+		padding 0
+		list-style-type none
+
+	&__wrapper
+		overflow-y scroll
+		height 100%
+		width 100%
+
+	&__aside
+	&__content
+	&__header
+	&__footer
+		font-family 'Open Sans', Arial, sans-serif
+		max-width 100vmin
+		margin-left auto
+		margin-right auto
+
+	&__content
+	&__header
+	&__footer
+		position relative
+		z-index 2
+
+	a
+		text-decoration none
+		&:hover
+			text-decoration underline
+
+		^[0].card-cc ^[1..1]
+			color #ff00fb
+
+		^[0].card-mcem ^[1..1]
+			color #04fdff
+
+		^[0].card-aqtc ^[1..1]
+			color #07f40f
+
+		^[0].card-lmdj ^[1..1]
+			color #ffdd40
+
+	&__aside
+		display flex
+		justify-content space-between
+		order 1
+
+		&__parent-title
+			cursor pointer
+			order 2
+			margin 1.2vmin 1.6vmin
+
+		&__category
+			font-size 2.2vmin
+			margin 1.6vmin
+			text-transform uppercase
+			order 1
+			font-family Destroy
+			text-shadow 0.1vmin 0.1vmin 0.1vmin #444, -0.1vmin 0.1vmin 0.1vmin #444, 0.1vmin -0.1vmin 0.1vmin #444, -0.1vmin -0.1vmin 0.1vmin #444
+
+		&__logo
+			position absolute
+			top 50%
+			left 50%
+			z-index 1
+			transform translate(-50%, -50%)
+			opacity 0.2
+			width 70vmin
+
+		&__title
+			text-transform uppercase
+			font-size 2.2vmin
+			text-shadow 0.1vmin 0.1vmin 0.1vmin #d26769, -0.1vmin 0.1vmin 0.1vmin #d26769, 0.1vmin -0.1vmin 0.1vmin #d26769, -0.1vmin -0.1vmin 0.1vmin #d26769
+			color #fff
+			font-family Destroy
+
+			&__logo
+				background-position center -0.5vmin;
+				background-size 4vmin
+				background-image url('https://www.coup-critique.com/media/images/logo_white.png')
+				width 2.6vmin
+				height 2.6vmin
+				vertical-align middle
+				display inline-block
+
+				&__inner
+					display none
+
+			&__second
+				display block
+				margin-left 2vmin
+
+	&__footer
+		display flex
+		justify-content space-between
+		order 4
+		margin-top 24px
+
+		h2
+			margin .1vmin 0
+			font-size 1.6vmin
+
+		li
+			margin .1vmin 0
+			font-size 1.2vmin
+
+		&__credit
+			margin 0 1.6vmin 1.6vmin 1.6vmin
+
+		&__about
+			margin 0 1.6vmin 1.6vmin 1.6vmin
+			text-align right
+
+	&__header
+		h1
+			text-align center
+			font-size 6.2vmin
+			text-transform uppercase
+			color #fff
+			font-weight normal
+			font-style normal
+			font-family Destroy
+			margin 3.2vmin 1.6vmin
+
+			^[0].card-cc ^[0..2]
+				text-shadow 0.1vmin 0.1vmin 0.1vmin #ff00fb, -0.1vmin 0.1vmin 0.1vmin #ff00fb, 0.1vmin -0.1vmin 0.1vmin #ff00fb, -0.1vmin -0.1vmin 0.1vmin #ff00fb
+
+			^[0].card-mcem ^[0..2]
+				text-shadow 0.1vmin 0.1vmin 0.1vmin #04fdff, -0.1vmin 0.1vmin 0.1vmin #04fdff, 0.1vmin -0.1vmin 0.1vmin #04fdff, -0.1vmin -0.1vmin 0.1vmin #04fdff
+
+			^[0].card-aqtc ^[0..2]
+				text-shadow 0.1vmin 0.1vmin 0.1vmin #07f40f, -0.1vmin 0.1vmin 0.1vmin #07f40f, 0.1vmin -0.1vmin 0.1vmin #07f40f, -0.1vmin -0.1vmin 0.1vmin #07f40f
+
+			^[0].card-lmdj ^[0..2]
+				text-shadow 0.1vmin 0.1vmin 0.1vmin #ffdd40, -0.1vmin 0.1vmin 0.1vmin #ffdd40, 0.1vmin -0.1vmin 0.1vmin #ffdd40, -0.1vmin -0.1vmin 0.1vmin #ffdd40
+
+			^[0].card-mcem.card-001 ^[0..2]
+				text-align left
+				margin: 3.2vmin 5vmin;
+
+				span
+					display block
+					margin-left 20vmin
+
+	&__content
+		margin 0 auto
+
+		h2
+			font-size 3.2vmin
+			margin 0.8vmin 1.6vmin
+			font-style italic
+			font-weight bold
+
+			^[0].card-cc ^[0..2]
+				color #ff00fb
+
+			^[0].card-mcem ^[0..2]
+				color #04fdff
+
+			^[0].card-aqtc ^[0..2]
+				color #07f40f
+
+			^[0].card-lmdj ^[0..2]
+				color #ffdd40
+
+		h3
+			font-size 2.8vmin
+			margin 0.8vmin 1.6vmin
+			font-style italic
+			font-weight bold
+
+			^[0].card-cc ^[0..2]
+				color #ff00fb
+
+			^[0].card-mcem ^[0..2]
+				color #04fdff
+
+			^[0].card-aqtc ^[0..2]
+				color #07f40f
+
+			^[0].card-lmdj ^[0..2]
+				color #ffdd40
+
+		h4
+			font-size 2.4vmin
+			margin 0.8vmin 1.6vmin
+			font-style italic
+			font-weight bold
+
+		small
+			font-size 70%
+			display inline-block
+
+			^[0].card-mcem.card-001 ^[0..2]
+				font-style italic
+
+		p
+			font-size 2.8vmin
+			margin 0.8vmin 1.6vmin
+			text-align justify
+
+		.is-center
+			text-align center
+
+			^[0].card-lmdj.card-001 ^[0..2]
+				margin 2.4vmin 3.2vmin
+				text-align-last center
+
+		.is-far
+			margin-top 3.2vmin
+
+		.is-near
+			margin-top -.8vmin
+			line-height 1.30
+
+			^[0].card-cc.card-001 ^[0..2]
+				margin-top -1vmin
+
+			^[0].card-aqtc.card-001 ^[0..2]
+				margin-bottom 2vmin
+
+		.is-right
+			float right
+
+			^[0].card-lmdj.card-001 ^[0..2]
+				img
+					height 19vmin
+
+		&__lead
+			h2
+				^[0].card-lmdj.card-001 ^[0..3]
+					margin-top 3.2vmin
+					margin-bottom 3.2vmin
+					font-size 5vmin
+					text-align center
+					text-transform uppercase
+
+			p
+				^[0].card-cc.card-001 ^[0..3]
+					text-align center
+
+			ul
+				^[0].card-lmdj.card-001 ^[0..3]
+					margin 2.4vmin 4vmin
+					font-size 3.2vmin
+
+				strong
+					display inline-block
+					width 19vmin
+
+			.is-important
+				margin-bottom 2.4vmin
+				font-size 3.6vmin
+
+		&__list
+
+			^[0].card-cc.card-001 ^[0..2]
+				display flex
+				flex-wrap wrap
+				justify-content space-around
+
+			^[0].card-lmdj.card-001 ^[0..2]
+				border-top 1px solid #ffdd40
+				border-bottom 1px solid #ffdd40
+				display flex
+				flex-wrap wrap
+				justify-content space-between
+				margin 0
+				margin-bottom 2.4vmin
+				padding 0
+				list-style-type none
+
+			.is-important
+				font-size 2.6vmin
+
+				^[0].card-cc.card-001 ^[0..3]
+					margin-top 1vmin
+
+			h2
+				^[0].card-mcem.card-001 ^[0..3]
+					margin 3.2vmin 1.6vmin -0.8vmin 4.8vmin
+					text-transform uppercase
+
+				^[0].card-aqtc.card-001 ^[0..3]
+					display inline-block
+					text-transform uppercase
+					margin 0.8vmin 1.6vmin 0.8vmin 20vmin
+					width 17vmin
+
+			p
+				^[0].card-cc.card-001 ^[0..3]
+					font-size 1.92vmin
+					margin 0.8vmin 3.2vmin
+					text-align-last center
+
+				^[0].card-aqtc.card-001 ^[0..3]
+					display inline-block
+					font-size 3.2vmin
+					margin 1.6vmin
+					font-weight bold
+					font-style italic
+
+			&__item
+				^[0].card-cc.card-001 ^[0..3]
+					text-align center
+					width 42vmin
+
+				^[0].card-lmdj.card-001 ^[0..3]
+					text-align left
+					margin-top 2vmin
+					margin-bottom 2vmin
+
+					&:nth-child(1)
+						width 5%
+
+					&:nth-child(2)
+					&:nth-child(3)
+						width 45%
+
+					p
+						font-size 2vmin
+						text-align left
+
+					h2
+						transform rotate(-90deg)
+						white-space nowrap
+						margin-left 0
+						margin-top 25vmin
+						font-size 3.6vmin
+
+					h3
+						margin 0 1.6vmin 0.8vmin
+
+		&__conclusion
+
+			p
+				^[0].card-cc.card-001 ^[0..3]
+					margin 0.8vmin 3.2vmin
+					text-align-last center

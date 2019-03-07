@@ -44,7 +44,7 @@ module.exports = function (template, specific, mixin, options) {
 		beforeMount: function () {
 			this.getCard();
 		},
-		beforeRouteEnter: function (to, from, next) {
+		/*beforeRouteEnter: function (to, from, next) {
 			next(function (vm) {
 				vm.displayIframe();
 			});
@@ -53,9 +53,9 @@ module.exports = function (template, specific, mixin, options) {
 			next(function (vm) {
 				vm.displayIframe();
 			});
-		},
+		},*/
 		methods: {
-			displayIframe: function () {
+			/*displayIframe: function () {
 				var vm = this;
 
 				setTimeout(function () {
@@ -65,6 +65,12 @@ module.exports = function (template, specific, mixin, options) {
 						document.title = vm.global.card.title + ' — ' + vm.category + ' #' + vm.number + ' — ' + 'Coup Critique';
 					}
 				}, 300);
+			},*/
+			transformAccent: function (value) {
+				return value
+					.replace(/(<h1>.*)(é)(.*<\/h1>)/g, '$1e$3')
+					.replace(/(<span class="card__aside__category__title">.*)(é)(.*<\/span>)/g, '$1e$3')
+					.replace(/(<span class="card__aside__category__title">.*)(À)(.*<\/span>)/g, '$1A$3');
 			},
 			getCard: function () {
 				var vm = this,
@@ -74,15 +80,14 @@ module.exports = function (template, specific, mixin, options) {
 
 				if (data) {
 					this.global.card = JSON.parse(data.getAttribute('data-fetch-card'));
+					this.global.card.html = this.transformAccent(this.global.card.html);
 				} else {
 					NA.socket.emit('page-card--iframe', this.number, this.path);
 					NA.socket.once('page-card--iframe', function (data) {
 						vm.global.card = data;
+						vm.global.card.html = vm.transformAccent(vm.global.card.html);
 					});
 				}
-			},
-			backToSubCards: function (e) {
-				this.$router.push({ path: '/fiches/' + this.path + '/' });
 			},
 			backToCards: function (e) {
 				this.$router.push({ path: '/fiches/' + this.path + '/' });
