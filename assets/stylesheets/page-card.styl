@@ -306,6 +306,10 @@
 				text-align left
 				margin: 3.2vmin 5vmin;
 
+			^[0].card-cc.card-002 ^[0..2]
+				text-align left
+				margin: 3.2vmin 7vmin;
+
 				span
 					display block
 					margin-left 20vmin
@@ -330,6 +334,10 @@
 
 			^[0].card-lmdj ^[0..2]
 				color #ffdd40
+
+			^[0].card-cc.card-002 ^[0..2]
+				margin-top 2.4vmin
+				margin-bottom 0
 
 		h3
 			font-size 2.8vmin
@@ -405,6 +413,7 @@
 
 			p
 				^[0].card-cc.card-001 ^[0..3]
+				^[0].card-cc.card-002 ^[0..3]
 					text-align center
 
 			ul
@@ -420,14 +429,22 @@
 				margin-bottom 2.4vmin
 				font-size 3.6vmin
 
+			.is-spaced
+				margin-bottom 2.4vmin
+
+			.is-img
+				margin 2.4vmin 10vmin
+
 		&__list
 
 			^[0].card-cc.card-001 ^[0..2]
+			^[0].card-cc.card-002 ^[0..2]
 				display flex
 				flex-wrap wrap
 				justify-content space-around
 
 			^[0].card-lmdj.card-001 ^[0..2]
+			^[0].card-lmdj.card-002 ^[0..2]
 				border-top 1px solid #ffdd40
 				border-bottom 1px solid #ffdd40
 				display flex
@@ -445,6 +462,9 @@
 					margin-top 1vmin
 
 			h2
+				^[0].card-cc.card-002 ^[0..3]
+					text-align center
+
 				^[0].card-mcem.card-001 ^[0..3]
 					margin 3.2vmin 1.6vmin -0.8vmin 4.8vmin
 					text-transform uppercase
@@ -461,6 +481,10 @@
 					margin 0.8vmin 3.2vmin
 					text-align-last center
 
+				^[0].card-cc.card-002 ^[0..3]
+					margin 0.8vmin 1.6vmin
+					text-align-last center
+
 				^[0].card-aqtc.card-001 ^[0..3]
 					display inline-block
 					font-size 3.2vmin
@@ -472,6 +496,9 @@
 				^[0].card-cc.card-001 ^[0..3]
 					text-align center
 					width 42vmin
+
+				^[0].card-cc.card-002 ^[0..3]
+					width 46vmin
 
 				^[0].card-lmdj.card-001 ^[0..3]
 					text-align left
@@ -499,9 +526,28 @@
 					h3
 						margin 0 1.6vmin 0.8vmin
 
+				.is-center
+					text-align center
+
 		&__conclusion
 
 			p
 				^[0].card-cc.card-001 ^[0..3]
 					margin 0.8vmin 3.2vmin
 					text-align-last center
+
+				^[0].card-cc.card-002 ^[0..3]
+					font-size: 2.4vmin;
+					text-align center
+
+			.is-left
+				float left
+
+			.is-right
+				float right
+
+			.is-huge
+				font-size 3vmin
+
+			^[0].card-cc.card-002 ^[0..2]
+				margin 5.6vmin 4vmin 2.4vmin

@@ -15,7 +15,7 @@
 					<ul class="page-cards--content--outer">
 						<li class="page-cards--content--cards--item"
 							v-for="(card, index) in specific[routeName].cards"
-							v-if="card.number === '001'">
+							v-if="card.number === '001' || card.number === '002'">
 							<h2 @click="goTo(card.number)">#<edit-inline
 									v-model="specific[routeName].cards[index].number"
 									:global="global" /> —

@@ -130,7 +130,8 @@ Promise.all([
 						if (window.lockDirty) {
 							window.lockDirty = false;
 						} else {
-							this.options.dirty = true;
+							vm.$refs.router.options.dirty = true;
+							//this.options.dirty = true;
 						}
 						if (active && active.indexOf('cke') !== -1) {
 							vm.$refs.router.$refs.edit.updateJSON(vm.$refs.router.meta, vm.$refs.router.specific);
