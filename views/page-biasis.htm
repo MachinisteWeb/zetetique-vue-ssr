@@ -1,0 +1,101 @@
+<section class="page-biasis">
+	<div class="page-biasis--breadcrumb">
+		<nav>
+			<edit-inline
+				v-model="specific.title"
+				:global="global" />
+		</nav>
+	</div>
+	<div class="page-biasis--content">
+		<header class="page-biasis--content--header">
+			<h1>
+				<edit-inline
+					v-model="specific.title"
+					:global="global" />
+			</h1>
+			<hr>
+		</header>
+		<div class="page-biasis--content--inner">
+			<div class="page-biasis--content--codex">
+
+
+				<div class="page-biasis--content--codex--level level-0 codex-main"
+					:class="{ 'is-masked': level > 0 }">
+					<div class="page-biasis--content--codex--level--background"></div>
+					<div class="page-biasis--content--codex--level--content"
+						@click.self="open('codex-main', 0)">
+						<div class="page-biasis--content--codex--level--content--title"
+							@click.self="open('codex-main', 0)">
+							{{ specific.details.title }}
+						</div>
+
+
+
+						<div class="page-biasis--content--codex--level level-1"
+							v-for="(biasis1, index) in biasisEnhanced"
+							:key="biasis1.code"
+							:class="['is-circular-' + biasisEnhanced.length, biasis1.code, { 'is-top': biasis1.degree === 270, 'is-bottom': biasis1.degree  === 90, 'is-left': biasis1.degree > 90 && biasis1.degree < 270, 'is-masked': level > 1 }]">
+							<div class="page-biasis--content--codex--level--background"></div>
+							<div class="page-biasis--content--codex--level--content"
+								@click.self="open(biasis1.code, 1)">
+								<div class="page-biasis--content--codex--level--content--title"
+									@click.self="open(biasis1.code, 1)">
+									{{ biasis1.name }}
+								</div>
+
+
+
+								<div class="page-biasis--content--codex--level level-2"
+									v-for="(biasis2, index) in biasis1.biasis"
+									:key="biasis2.code"
+									:class="['is-circular-' + biasis1.biasis.length, biasis2.code, { 'is-top': biasis2.degree === 270, 'is-bottom': biasis2.degree  === 90, 'is-left': biasis2.degree > 90 && biasis2.degree < 270, 'is-masked': level > 2 }]">
+									<div class="page-biasis--content--codex--level--background"></div>
+									<div class="page-biasis--content--codex--level--content"
+										@click.self="open(biasis2.code, 2)">
+										<div class="page-biasis--content--codex--level--content--title"
+										@click.self="open(biasis2.code, 2)">
+											{{ biasis2.name }}
+										</div>
+
+
+
+									</div>
+								</div>
+
+
+
+							</div>
+						</div>
+
+
+					</div>
+				</div>
+
+
+
+			</div>
+			<nav class="page-biasis--content--nav">
+				<edit-block
+					v-model="specific.description"
+					:global="global" />
+				<hr>
+				<h2>
+					<edit-inline
+						v-model="specific.details.title"
+						:global="global" />
+				</h2>
+				<p>Ici</p>
+			</nav>
+		</div>
+	</div>
+	<edit-global
+		v-if="global.isClient && global.me.id"
+		ref="edit"
+		v-bind:global="global"
+		v-bind:common="common"
+		v-bind:file="$options.name.replace(/page-/, '')"
+		v-bind:meta="meta"
+		v-bind:body="specific"
+		v-bind:current="common.edit.local"
+		v-bind:options="options"></edit-global>
+</section>

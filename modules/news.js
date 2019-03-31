@@ -1010,12 +1010,11 @@ module.exports = function () {
 			targetEachDescription: function (node) {
 				return node.getElementsByTagName('description')[0].innerHTML
 					.replace(/<!--\[CDATA\[/g, '<p>')
+					.replace(/\]\]-->/g, '</p>')
 					.replace(/&#8230; <a href="https:\/\/astroscept.com\/.+]]&gt;/g, '...</p>');
 			},
 			targetEachLink: function (node) {
-				return node.getElementsByTagName('description')[0].innerHTML
-					.replace(/<!--\[CDATA\[.+&#8230; <a href="/g, '')
-					.replace(/"-->Lire.+]]&gt;/g, '');
+				return node.getElementsByTagName('guid')[0].innerHTML;
 			},
 			targetEachComment: function (node) {
 				return '';
