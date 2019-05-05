@@ -1,6 +1,6 @@
 {
   "name": "coup-critique-website",
-  "version": "0.21.0",
+  "version": "0.22.0",
   "description": "Site web de la pensée critique",
   "main": "server.js",
   "scripts": {
@@ -30,11 +30,11 @@
     "url": "https://github.com/Haeresis/zetetique-vue-ssr/issues"
   },
   "dependencies": {
-    "ckeditor": "4.6.x",
+    "ckeditor": "4.11.x",
     "connect-redis": "3.3.x",
-    "jquery": "3.2.x",
+    "jquery": "3.4.x",
     "jshashes": "1.0.x",
-    "node-atlas": "2.0.x",
+    "node-atlas": "2.0.6",
     "nodemailer": "4.0.x",
     "socket.io": "2.0.x",
     "underscore": "1.8.x",
