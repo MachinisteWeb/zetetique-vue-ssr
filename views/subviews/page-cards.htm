@@ -15,7 +15,7 @@
 					<ul class="page-cards--content--outer">
 						<li class="page-cards--content--cards--item"
 							v-for="(card, index) in specific[routeName].cards"
-							v-if="card.number === '001' || card.number === '002'">
+							v-if="card.number === '001'">
 							<h2 @click="goTo(card.number)">#<edit-inline
 									v-model="specific[routeName].cards[index].number"
 									:global="global" /> —
@@ -24,7 +24,7 @@
 									:global="global" /></h2>
 							<div class="page-cards--content--cards--item--detail"
 								@click="goTo(card.number)">
-								<img :src="card.image" width="250" :height="card.height" :title="card.title" :style="{ width: '250', height: card.height + 'px' }">
+								<img :src="miniImage(card.image)" width="250" :height="card.height" :title="card.title" :style="{ width: '250', height: card.height + 'px' }">
 								<!--<iframe  width="217px" height="217px" :src="card.url" frameborder="0"></iframe>-->
 							</div>
 							<div class="page-cards--content--cards--item--inner">

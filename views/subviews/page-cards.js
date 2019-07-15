@@ -46,6 +46,9 @@ module.exports = function (template, mixin) {
 			}
 		},
 		methods: {
+			miniImage: function (image) {
+				return image && image.replace(/cc-/g, 'mini-cc-').replace(/mcem-/g, 'mini-mcem-').replace(/aqtc-/g, 'mini-aqtc-').replace(/aqtc-/g, 'mini-lmdj-');
+			},
 			goTo: function (index) {
 				if (!this.global.isEditable) {
 					this.$router.push({ path: '../..' + this.path + index + '/' });
