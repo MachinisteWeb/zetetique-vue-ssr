@@ -4,11 +4,6 @@
 		"view": "page-home",
 		"variation": "home.json"
 	},
-	"biasis_fr-fr": {
-		"url": "/biais-cognitifs/",
-		"view": "page-biasis",
-		"variation": "biasis.json"
-	},
 	"news_fr-fr": {
 		"url": "/actualites/",
 		"view": "page-news",

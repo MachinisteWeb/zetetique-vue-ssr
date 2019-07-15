@@ -3108,7 +3108,8 @@ div.jsoneditor.jsoneditor {
 }
 .card.card-lmdj.card-001 .card__content .is-center {
   margin: 2.4vmin 3.2vmin;
-  text-align-last: center;
+  -moz-text-align-last: center;
+       text-align-last: center;
 }
 .card__content .is-far {
   margin-top: 3.2vmin;
@@ -3207,11 +3208,13 @@ div.jsoneditor.jsoneditor {
 .card.card-cc.card-001 .card__content__list p {
   font-size: 1.92vmin;
   margin: 0.8vmin 3.2vmin;
-  text-align-last: center;
+  -moz-text-align-last: center;
+       text-align-last: center;
 }
 .card.card-cc.card-002 .card__content__list p {
   margin: 0.8vmin 1.6vmin;
-  text-align-last: center;
+  -moz-text-align-last: center;
+       text-align-last: center;
 }
 .card.card-aqtc.card-001 .card__content__list p {
   display: inline-block;
@@ -3259,7 +3262,8 @@ div.jsoneditor.jsoneditor {
 }
 .card.card-cc.card-001 .card__content__conclusion p {
   margin: 0.8vmin 3.2vmin;
-  text-align-last: center;
+  -moz-text-align-last: center;
+       text-align-last: center;
 }
 .card.card-cc.card-002 .card__content__conclusion p {
   font-size: 2.4vmin;

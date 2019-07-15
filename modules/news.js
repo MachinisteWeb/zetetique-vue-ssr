@@ -1034,6 +1034,33 @@ module.exports = function () {
 		});
 	}
 
+	function lepharmachien(next) {
+		exploitRssContent({
+			website: 'Le Pharmachien',
+			name: 'le-pharmachien',
+			url: 'http://lepharmachien.com/feed/',
+			protocol: 'http',
+			image: 'https://i0.wp.com/lepharmachien.com/wp-content/uploads/2012/09/apropos_moi_2015.png',
+			websiteUrl: 'http://lepharmachien.com/',
+			limit: 5,
+			targetEachDescription: function (node) {
+				return node.getElementsByTagName('description')[0].innerHTML
+					.replace(/<!--\[CDATA\[/g, '<p>')
+					.replace(/\]\]-->/g, '</p>')
+					.replace(/&#8230; <a href="https:\/\/lepharmachien.com\/.+]]&gt;/g, '...</p>');
+			},
+			targetEachLink: function (node) {
+				return node.getElementsByTagName('guid')[0].innerHTML;
+			},
+			targetEachComment: function (node) {
+				return (node.getElementsByTagName('comments')[0]) ? node.getElementsByTagName('comments')[0].innerHTML : '';
+			},
+			next: function (err, extractData, fetchedData) {
+				next(null, extractData);
+			}
+		});
+	}
+
 	function sciencetonnante(next) {
 		exploitRssContent({
 			website: 'Science Étonnante',
@@ -1344,6 +1371,10 @@ module.exports = function () {
 		});
 	}, function (callback) {
 		astroscept(function (err, entries) {
+			callback(null, entries);
+		});
+	}, function (callback) {
+		lepharmachien(function (err, entries) {
 			callback(null, entries);
 		});
 	}, function (callback) {

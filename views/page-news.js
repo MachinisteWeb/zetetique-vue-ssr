@@ -82,8 +82,8 @@ module.exports = function (template, specific, mixin, options) {
 					});
 				}
 			},
-			goTo: function (index) {
-				var win = window.open(this.global.news[index].links.link, '_blank');
+			goTo: function (url) {
+				var win = window.open(url, '_blank');
 				win.focus();
 			},
 			changeSource: function (source) {

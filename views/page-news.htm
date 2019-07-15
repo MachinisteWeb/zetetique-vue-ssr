@@ -23,18 +23,18 @@
 						<li class="page-news--content--news--item"
 							v-for="(news, index) in newsFilter"
 							:key="news.links.link">
-							<h3 @click="goTo(index)">
+							<h3 @click="goTo(news.links.link)">
 								<small>par <strong>{{ news.website }}</strong>
 								le <strong>{{ padLeft(new Date(news.publish.date).getDate()) }}/{{ padLeft(new Date(news.publish.date).getMonth() + 1) }}/{{ new Date(news.publish.date).getFullYear() }}</strong></small>
 							</h3>
-							<h2 @click="goTo(index)">{{ news.title }}</h2>
+							<h2 @click="goTo(news.links.link)">{{ news.title }}</h2>
 							<div class="page-news--content--news--item--detail"
 								v-if="news.image"
-								@click="goTo(index)">
+								@click="goTo(news.links.link)">
 								<img :src="news.image" :alt="news.title">
 							</div>
 							<p class="page-news--content--news--tag"
-							 	@click="goTo(index)">
+							 	@click="goTo(news.links.link)">
 								<small>
 									<strong>
 										<edit-inline
@@ -46,7 +46,7 @@
 							<div class="page-news--content--news--item--inner">
 								<div class="page-news--content--news--description"
 									v-html="news.description"
-							 		@click="goTo(index)"></div>
+							 		@click="goTo(news.links.link)"></div>
 								<p class="page-news--content--news--go-to">
 									<a class="button" :href="news.links.link" target="_blank">
 										<edit-inline
