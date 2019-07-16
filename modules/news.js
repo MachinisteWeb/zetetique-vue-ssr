@@ -326,6 +326,94 @@ module.exports = function () {
 		});
 	}
 
+	function alexandreTechnoprog(next) {
+		exploitRssContent({
+			website: 'Alexandre Technoprog',
+			name: 'alexandre-technoprog',
+			protocol: 'https',
+			url: 'https://www.youtube.com/feeds/videos.xml?channel_id=UCZ3-PmXGBBFv-lZ6yYDlUbQ',
+			websiteUrl: 'https://www.youtube.com/channel/UCZ3-PmXGBBFv-lZ6yYDlUbQ/featured',
+			image: 'https://yt3.ggpht.com/eWqoIKne6vAoPR-gbNenxNYZGdqV5h6R8hpziFpzdQkLcBd5uQRO8PZWN1PGdz3LU_KNh5do=w2560-fcrop64=1,00005a57ffffa5a8-nd-c0xffffffff-rj-k-no',
+			imageProtocol: 'https',
+			limit: 3,
+			targetAllItems: function (globalDom) {
+				return globalDom.window.document.getElementsByTagName('entry');
+			},
+			targetEachDate: function (node) {
+				return new Date(node.getElementsByTagName('published')[0].innerHTML);
+			},
+			targetEachDescription: function (node) {
+				var content = node.getElementsByTagName('media:description')[0].innerHTML.split(/\r|\n/g)[0] || node.getElementsByTagName('media:description')[0].innerHTM;
+				return content;
+			},
+			targetEachLink: function (node) {
+				return node.getElementsByTagName('link')[0].getAttribute('href');
+			},
+			targetEachComment: function (node) {
+				return node.getElementsByTagName('link')[0].getAttribute('href');
+			},
+			targetEachCategory: function (node) {
+				return 'Youtube';
+			},
+			targetEachImage: function (node) {
+				var image = node.getElementsByTagName('media:thumbnail')[0];
+
+				if (image && image.getAttribute('url')) {
+					return image.getAttribute('url');
+				}
+
+				return '';
+			},
+			next: function (err, extractData, fetchedData) {
+				next(null, extractData);
+			}
+		});
+	}
+
+	function fouloscopie(next) {
+		exploitRssContent({
+			website: 'Fouloscopie',
+			name: 'fouloscopie',
+			protocol: 'https',
+			url: 'https://www.youtube.com/feeds/videos.xml?channel_id=UCLXDNUOO3EQ80VmD9nQBHPg',
+			websiteUrl: 'https://www.youtube.com/channel/UCLXDNUOO3EQ80VmD9nQBHPg/featured',
+			image: 'https://yt3.ggpht.com/b5sYQYVnABhtEEqnTJZaXKjyMi61xVqBMiYGk_h-lEvXjBOrXCR7Fa9pjDH650R0_Q6itNOX1T0=w2560-fcrop64=1,00005a57ffffa5a8-nd-c0xffffffff-rj-k-no',
+			imageProtocol: 'https',
+			limit: 3,
+			targetAllItems: function (globalDom) {
+				return globalDom.window.document.getElementsByTagName('entry');
+			},
+			targetEachDate: function (node) {
+				return new Date(node.getElementsByTagName('published')[0].innerHTML);
+			},
+			targetEachDescription: function (node) {
+				var content = node.getElementsByTagName('media:description')[0].innerHTML.split(/\r|\n/g)[0] || node.getElementsByTagName('media:description')[0].innerHTM;
+				return content;
+			},
+			targetEachLink: function (node) {
+				return node.getElementsByTagName('link')[0].getAttribute('href');
+			},
+			targetEachComment: function (node) {
+				return node.getElementsByTagName('link')[0].getAttribute('href');
+			},
+			targetEachCategory: function (node) {
+				return 'Youtube';
+			},
+			targetEachImage: function (node) {
+				var image = node.getElementsByTagName('media:thumbnail')[0];
+
+				if (image && image.getAttribute('url')) {
+					return image.getAttribute('url');
+				}
+
+				return '';
+			},
+			next: function (err, extractData, fetchedData) {
+				next(null, extractData);
+			}
+		});
+	}
+
 	function reveilleur(next) {
 		exploitRssContent({
 			website: 'Le Réveilleur',
@@ -1047,7 +1135,37 @@ module.exports = function () {
 				return node.getElementsByTagName('description')[0].innerHTML
 					.replace(/<!--\[CDATA\[/g, '<p>')
 					.replace(/\]\]-->/g, '</p>')
-					.replace(/&#8230; <a href="https:\/\/lepharmachien.com\/.+]]&gt;/g, '...</p>');
+					.replace(/&#8230; <a href="http:\/\/lepharmachien.com\/.+]]&gt;/g, '...</p>');
+			},
+			targetEachLink: function (node) {
+				return node.getElementsByTagName('guid')[0].innerHTML;
+			},
+			targetEachComment: function (node) {
+				return (node.getElementsByTagName('comments')[0]) ? node.getElementsByTagName('comments')[0].innerHTML : '';
+			},
+			next: function (err, extractData, fetchedData) {
+				next(null, extractData);
+			}
+		});
+	}
+
+	function scepticismeScientifique(next) {
+		exploitRssContent({
+			website: 'Scepticisme Scientifique',
+			name: 'scepticisme-scientifique',
+			url: 'https://www.scepticisme-scientifique.com/feed/',
+			protocol: 'https',
+			image: 'https://www.scepticisme-scientifique.com/wp-content/uploads/2015/07/logo1-300x213.png',
+			websiteUrl: 'https://www.scepticisme-scientifique.com/',
+			limit: 5,
+			targetEachDescription: function (node) {
+				return node.getElementsByTagName('description')[0].innerHTML
+					.replace(/<!--\[CDATA\[/g, '<p>')
+					.replace(/\]\]-->/g, '</p>')
+					.replace(/&#8230; <a href="https:\/\/scepticisme-scientifique.com\/.+]]&gt;/g, '...</p>');
+			},
+			targetEachImage: function (node) {
+				return node.getElementsByTagName('itunes:image')[0].getAttribute('href');
 			},
 			targetEachLink: function (node) {
 				return node.getElementsByTagName('guid')[0].innerHTML;
@@ -1346,6 +1464,10 @@ module.exports = function () {
 			callback(null, entries);
 		});
 	}, function (callback) {
+		scepticismeScientifique(function (err, entries) {
+			callback(null, entries);
+		});
+	}, function (callback) {
 		risqueAlpha(function (err, entries) {
 			callback(null, entries);
 		});
@@ -1367,6 +1489,14 @@ module.exports = function () {
 		});
 	}, function (callback) {
 		charlatans(function (err, entries) {
+			callback(null, entries);
+		});
+	}, function (callback) {
+		alexandreTechnoprog(function (err, entries) {
+			callback(null, entries);
+		});
+	}, function (callback) {
+		fouloscopie(function (err, entries) {
 			callback(null, entries);
 		});
 	}, function (callback) {
