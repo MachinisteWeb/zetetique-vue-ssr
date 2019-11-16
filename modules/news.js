@@ -185,7 +185,7 @@ module.exports = function () {
 			});
 
 		}).on("error", function (error) {
-			if (error.code === 'ETIMEDOUT' || error.code === 'ECONNREFUSED') {
+			if (error.code === 'ETIMEDOUT' || error.code === 'ECONNREFUSED' || error.code === 'ENOTFOUND') {
 				options.next(null, options.entries, fetchedData);
 			} else {
 				throw error;
@@ -1321,6 +1321,29 @@ module.exports = function () {
 		});
 	}
 
+	/*function zetEthique(next) {
+		exploitRssContent({
+			website: 'Zet Ethique',
+			name: 'zet-ethique',
+			url: 'http://zet-ethique.fr/',
+			protocol: 'http',
+			imageProtocol: 'http',
+			imageAttribute: 'content',
+			websiteUrl: 'http://zet-ethique.fr/',
+			limit: 5,
+			targetEachDescription: function (node) {
+				return node.getElementsByTagName('description')[0].innerHTML
+					.replace(/<!--\[CDATA\[/g, '<p>')
+					.replace(/<a href(.+)]]&gt;/g, '</p>')
+					.replace(/]]&gt;/g, '</p>')
+					.replace(/]]-->/g, '');
+			},
+			next: function (err, extractData, fetchedData) {
+				next(null, extractData);
+			}
+		});
+	}*/
+
 	function bunkerD(next) {
 		exploitRssContent({
 			website: 'Bunker D',
@@ -1523,11 +1546,15 @@ module.exports = function () {
 		penserCritique(function (err, entries) {
 			callback(null, entries);
 		});
-	} , function (callback) {
+	}, function (callback) {
 		theiereCosmique(function (err, entries) {
 			callback(null, entries);
 		});
-	}, function (callback) {
+	}/*, function (callback) {
+		zetEthique(function (err, entries) {
+			callback(null, entries);
+		});
+	} */, function (callback) {
 		bunkerD(function (err, entries) {
 			callback(null, entries);
 		});
