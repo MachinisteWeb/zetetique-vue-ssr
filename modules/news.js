@@ -28,7 +28,6 @@ module.exports = function () {
 			throw options.url;
 		}
 
-
 		fetcher.get(options.url, function (res) {
 			var imageContent = '';
 
@@ -138,7 +137,7 @@ module.exports = function () {
 								website: options.websiteUrl
 							},
 							comments: {
-								link: options.targetEachComment ? options.targetEachComment(nodeItem) : nodeItem.getElementsByTagName('comments')[0].innerHTML
+								link: options.targetEachComment ? options.targetEachComment(nodeItem) : (nodeItem.getElementsByTagName('comments')[0] ? nodeItem.getElementsByTagName('comments')[0].innerHTML : '')
 							}
 						};
 
@@ -148,7 +147,7 @@ module.exports = function () {
 						}
 
 						// Case image was not in https
-						if (entry.image && entry.image.indexOf('http://') !== -1) {
+						if (entry.image && typeof entry.image === 'string' && entry.image.indexOf('http://') !== -1) {
 							entry.image = 'https://images.weserv.nl/?url=' + encodeURIComponent(entry.image.replace(/http:\/\//g, ''));
 						}
 
@@ -988,7 +987,7 @@ module.exports = function () {
 			name: 'la-menace-theoriste',
 			url: 'http://menace-theoriste.fr/feed/',
 			websiteUrl: 'http://menace-theoriste.fr/',
-			image: 'https://s1-ssl.dmcdn.net/K0ejw/x1080-Mf5.jpg',
+			image: 'https://images.weserv.nl/?url=http://menace-theoriste.fr/wp-content/uploads/2015/08/menace_theo2-300x145.png',
 			imageAttribute: 'content',
 			limit: 5,
 			targetEachDescription: function (node) {
@@ -1138,10 +1137,10 @@ module.exports = function () {
 					.replace(/&#8230; <a href="http:\/\/lepharmachien.com\/.+]]&gt;/g, '...</p>');
 			},
 			targetEachLink: function (node) {
-				return node.getElementsByTagName('guid')[0].innerHTML;
+				return node.innerHTML.split('<pubdate>')[0].split('<comments>')[0].split('<link>')[1];
 			},
-			targetEachComment: function (node) {
-				return (node.getElementsByTagName('comments')[0]) ? node.getElementsByTagName('comments')[0].innerHTML : '';
+			targetEachContentImage: function (globalDom) {
+				return globalDom.window.document.querySelector('.post-thumbnail-ctn img');
 			},
 			next: function (err, extractData, fetchedData) {
 				next(null, extractData);
@@ -1169,9 +1168,6 @@ module.exports = function () {
 			},
 			targetEachLink: function (node) {
 				return node.getElementsByTagName('guid')[0].innerHTML;
-			},
-			targetEachComment: function (node) {
-				return (node.getElementsByTagName('comments')[0]) ? node.getElementsByTagName('comments')[0].innerHTML : '';
 			},
 			next: function (err, extractData, fetchedData) {
 				next(null, extractData);
@@ -1223,6 +1219,7 @@ module.exports = function () {
 			protocol: 'https',
 			websiteUrl: 'https://cortecs.org/',
 			imageProtocol: 'https',
+			image: 'https://cortecs.org/wp-content/uploads/2013/05/cropped-cortecs_logo_long1.png',
 			limit: 5,
 			targetEachDescription: function (node) {
 				return node.getElementsByTagName('description')[0].innerHTML
@@ -1321,15 +1318,15 @@ module.exports = function () {
 		});
 	}
 
-	/*function zetEthique(next) {
+	function zetEthique(next) {
+		var i = 0;
 		exploitRssContent({
 			website: 'Zet Ethique',
 			name: 'zet-ethique',
-			url: 'http://zet-ethique.fr/',
-			protocol: 'http',
-			imageProtocol: 'http',
-			imageAttribute: 'content',
+			url: 'http://zet-ethique.fr/feed/',
 			websiteUrl: 'http://zet-ethique.fr/',
+			image: 'https://scontent-cdg2-1.xx.fbcdn.net/v/t1.0-9/66736128_2228973764031743_5085801363674234880_n.jpg?_nc_cat=100&_nc_oc=AQkaajwPu2D2-TM-DAlhcXceXZGgju5aLthZLDhnWH5lS7he90XDv6S8Eus0L6CX4cM&_nc_ht=scontent-cdg2-1.xx&oh=86163d1629b99a15b62c426f1e83cce2&oe=5E54DFC3',
+			imageAttribute: 'src',
 			limit: 5,
 			targetEachDescription: function (node) {
 				return node.getElementsByTagName('description')[0].innerHTML
@@ -1338,11 +1335,17 @@ module.exports = function () {
 					.replace(/]]&gt;/g, '</p>')
 					.replace(/]]-->/g, '');
 			},
+			targetEachLink: function (node) {
+				return node.innerHTML.split('<pubdate>')[0].split('<comments>')[0].split('<link>')[1];
+			},
+			targetEachContentImage: function (globalDom) {
+				return globalDom.window.document.querySelector('.post-image img') || globalDom.window.document.querySelector('img[data-attachment-id]');
+			},
 			next: function (err, extractData, fetchedData) {
 				next(null, extractData);
 			}
 		});
-	}*/
+	}
 
 	function bunkerD(next) {
 		exploitRssContent({
@@ -1538,7 +1541,7 @@ module.exports = function () {
 		cortecs(function (err, entries) {
 			callback(null, entries);
 		});
-	},function (callback) {
+	}, function (callback) {
 		sciencePop(function (err, entries) {
 			callback(null, entries);
 		});
@@ -1550,11 +1553,11 @@ module.exports = function () {
 		theiereCosmique(function (err, entries) {
 			callback(null, entries);
 		});
-	}/*, function (callback) {
+	}, function (callback) {
 		zetEthique(function (err, entries) {
 			callback(null, entries);
 		});
-	} */, function (callback) {
+	}, function (callback) {
 		bunkerD(function (err, entries) {
 			callback(null, entries);
 		});
