@@ -36,7 +36,7 @@
     "jshashes": "1.0.x",
     "node-atlas": "2.0.6",
     "nodemailer": "4.0.x",
-    "socket.io": "2.0.x",
+    "socket.io": "2.4.x",
     "underscore": "1.8.x",
     "velocity-animate": "1.5.x",
     "vue": "2.3.x",
