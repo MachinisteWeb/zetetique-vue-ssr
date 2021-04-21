@@ -44,11 +44,31 @@ module.exports = function (template, specific, mixin, options) {
 		beforeMount: function () {
 			this.getCard();
 		},
+		/*beforeRouteEnter: function (to, from, next) {
+			next(function (vm) {
+				vm.displayIframe();
+			});
+		},
+		beforeRouteUpdate: function (to, from, next) {
+			next(function (vm) {
+				vm.displayIframe();
+			});
+		},*/
 		methods: {
+			/*displayIframe: function () {
+				var vm = this;
+
+				setTimeout(function () {
+					vm.isLoaded = true;
+
+					if (vm.global.isClient && vm.global.card.title) {
+						document.title = vm.global.card.title + ' — ' + vm.category + ' #' + vm.number + ' — ' + 'Coup Critique';
+					}
+				}, 300);
+			},*/
 			transformAccent: function (value) {
 				return value
 					.replace(/(<h1>.*)(É)(.*<\/h1>)/g, '$1E$3')
-					.replace(/(<h1>.*)(é)(.*<\/h1>)/g, '$1e$3')
 					.replace(/(<h1>.*)(é)(.*<\/h1>)/g, '$1e$3')
 					.replace(/(<span class="card__aside__category__title">.*)(é)(.*<\/span>)/g, '$1e$3')
 					.replace(/(<span class="card__aside__category__title">.*)(À)(.*<\/span>)/g, '$1A$3');

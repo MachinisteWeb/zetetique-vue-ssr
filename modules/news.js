@@ -1537,11 +1537,11 @@ module.exports = function () {
 		sciencetonnante(function (err, entries) {
 			callback(null, entries);
 		});
-	}, function (callback) {
+	}/*, function (callback) {
 		cortecs(function (err, entries) {
 			callback(null, entries);
 		});
-	}, function (callback) {
+	}*/, function (callback) {
 		sciencePop(function (err, entries) {
 			callback(null, entries);
 		});

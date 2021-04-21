@@ -7,8 +7,8 @@ fs.readFile('../../data/zetetique/variations/fr-fr/resources.json', 'utf-8', fun
 	var data = JSON.parse(content);
 
 	(async function () {
-		var type = 'brain';
-		var number = '002';
+		var type = 'word';
+		var number = '001';
 		var browser = await puppeteer.launch({ ignoreHTTPSErrors: true });
 		var page = await browser.newPage();
 		var card = data.body[type].cards[number - 1];

@@ -12,20 +12,19 @@
 		<meta name="description" content="<?- routeParameters._parent ? specific.meta.subdescriptions[routeKey.split('_')[0]] : specific.meta.description ?>">
 		<meta name="robots" content="<?= webconfig._robots ?>" />
 
-		<meta name="twitter:card" content="summary_large_image">
-		<meta name="twitter:site" content="@CoupCritic">
-		<meta name="twitter:title" content="<?- routeParameters._parent ? specific.meta.subtitles[routeKey.split('_')[0]] : specific.meta.title ?> — <?- common.meta.title ?>">
-		<meta name="twitter:description" content="<?- routeParameters._parent ? specific.meta.subdescriptions[routeKey.split('_')[0]] : specific.meta.description ?>">
-		<meta name="twitter:creator" content="@CoupCritic">
-		<meta name="twitter:image" content="<?= urlBasePath + '/' ?><?- routeParameters._parent ? specific.meta.subimages[routeKey.split('_')[0]] : specific.meta.image ?>">
-		<meta name="twitter:domain" content="<?= urlBasePath ?>">
+		<meta property="article:author" content="<?= common.meta.author ?>" />
 
-		<meta property="og:author" content="<?= common.meta.author ?>" />
 		<meta property="og:locale" content="<?= (languageCode) ? languageCode : 'fr-fr' ?>">
 		<meta property="og:type" content="website">
 		<meta property="og:title" content="<?- routeParameters._parent ? specific.meta.subtitles[routeKey.split('_')[0]] : specific.meta.title ?> — <?- common.meta.title ?>">
 		<meta property="og:description" content="<?- routeParameters._parent ? specific.meta.subdescriptions[routeKey.split('_')[0]] : specific.meta.description ?>">
 		<meta property="og:image" content="<?= urlBasePath + '/' ?><?- routeParameters._parent ? specific.meta.subimages[routeKey.split('_')[0]] : specific.meta.image ?>">
+
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:site" content="@CoupCritic" />
+		<meta name="twitter:title" content="<?- routeParameters._parent ? specific.meta.subtitles[routeKey.split('_')[0]] : specific.meta.title ?> — <?- common.meta.title ?>" />
+		<meta name="twitter:description" content="<?- routeParameters._parent ? specific.meta.subdescriptions[routeKey.split('_')[0]] : specific.meta.description ?>" />
+		<meta name="twitter:image" content="<?= urlBasePath + '/' ?><?- routeParameters._parent ? specific.meta.subimages[routeKey.split('_')[0]] : specific.meta.image ?>" />
 
 		<meta name="viewport" content="initial-scale=1.0" />
 
