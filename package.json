@@ -37,7 +37,7 @@
     "node-atlas": "2.0.6",
     "nodemailer": "4.0.x",
     "socket.io": "2.0.x",
-    "underscore": "1.8.x",
+    "underscore": "1.12.x",
     "velocity-animate": "1.5.x",
     "vue": "2.3.x",
     "vue-router": "2.7.x",
