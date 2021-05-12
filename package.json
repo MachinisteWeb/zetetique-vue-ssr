@@ -35,7 +35,7 @@
     "jquery": "3.4.x",
     "jshashes": "1.0.x",
     "node-atlas": "2.0.6",
-    "nodemailer": "4.0.x",
+    "nodemailer": "6.4.x",
     "socket.io": "2.0.x",
     "underscore": "1.8.x",
     "velocity-animate": "1.5.x",
