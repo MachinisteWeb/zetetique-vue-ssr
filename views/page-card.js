@@ -22,8 +22,8 @@ module.exports = function (template, specific, mixin, options) {
 			};
 		},
 		computed: {
-			number: function () {
-				return (this.global.webconfig.params) ? this.global.webconfig.params.number : this.$route.params.number;
+			slug: function () {
+				return (this.global.webconfig.params) ? this.global.webconfig.params.slug : this.$route.params.slug;
 			},
 			path: function () {
 				return (this.global.webconfig.params) ? this.global.webconfig.params.category : this.$route.params.category;
@@ -70,6 +70,8 @@ module.exports = function (template, specific, mixin, options) {
 				return value
 					.replace(/(<h1>.*)(É)(.*<\/h1>)/g, '$1E$3')
 					.replace(/(<h1>.*)(é)(.*<\/h1>)/g, '$1e$3')
+					.replace(/(<h1>.*)(È)(.*<\/h1>)/g, '$1E$3')
+					.replace(/(<h1>.*)(è)(.*<\/h1>)/g, '$1e$3')
 					.replace(/(<span class="card__aside__category__title">.*)(é)(.*<\/span>)/g, '$1e$3')
 					.replace(/(<span class="card__aside__category__title">.*)(À)(.*<\/span>)/g, '$1A$3');
 			},
@@ -83,7 +85,7 @@ module.exports = function (template, specific, mixin, options) {
 					this.global.card = JSON.parse(data.getAttribute('data-fetch-card'));
 					this.global.card.html = this.transformAccent(this.global.card.html);
 				} else {
-					NA.socket.emit('page-card--iframe', this.number, this.path);
+					NA.socket.emit('page-card--iframe', this.slug, this.path);
 					NA.socket.once('page-card--iframe', function (data) {
 						vm.global.card = data;
 						vm.global.card.html = vm.transformAccent(vm.global.card.html);

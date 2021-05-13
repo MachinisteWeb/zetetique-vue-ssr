@@ -32,7 +32,7 @@
 		}]
 	},
 	"card_fr-fr": {
-		"url": "/fiches/:category/:number/",
+		"url": "/fiches/:category/:slug/",
 		"view": "page-card",
 		"controller": "card.js",
 		"variation": "card.json"

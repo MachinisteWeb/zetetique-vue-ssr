@@ -21,7 +21,12 @@ function getCard(locals, params, next) {
 
 		data = JSON.parse(result);
 
-		locals.global.card = data.body[group].cards[+params.number - 1];
+		locals.global.card = {};
+		for (var i = 0; i < data.body[group].cards.length; i++) {
+			if (data.body[group].cards[i].slug === params.slug) {
+				locals.global.card = data.body[group].cards[i];
+			}
+		}
 
 		next(locals);
 	});
@@ -48,9 +53,9 @@ exports.setSockets = function () {
 		io = NA.io;
 
 	io.on('connection', function (socket) {
-		socket.on('page-card--iframe', function (number, category) {
+		socket.on('page-card--iframe', function (slug, category) {
 			getCard({}, {
-				number: number,
+				slug: slug,
 				category: category
 			}, function (locals) {
 				socket.emit('page-card--iframe', locals.global.card);

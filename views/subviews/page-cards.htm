@@ -15,7 +15,7 @@
 					<ul class="page-cards--content--outer">
 						<li class="page-cards--content--cards--item"
 							v-for="(card, index) in specific[routeName].cards"
-							v-if="card.number === '001' || (card.number === '002' && path === '/fiches/cafe-critique/')">
+							v-if="card.number === '001' || card.number === '002'">
 							<h2 @click="goTo(card.number)">#<edit-inline
 									v-model="specific[routeName].cards[index].number"
 									:global="global" /> —
@@ -36,7 +36,7 @@
 								<div class="page-cards--content--cards--go-to">
 									<edit-wrapper-attr :global="global">
 										<router-link class="button"
-											:to="'../..' + path + card.number + '/'">{{ specific.cardMain }}</router-link>
+											:to="'../..' + path + card.slug + '/'">{{ specific.cardMain }}</router-link>
 										<template slot="attrs">
 											<edit-attr
 												v-model="specific.cardMain"
@@ -93,9 +93,9 @@
 				</h2>
 				<ul>
 					<li v-for="(card, index) in specific[routeName].cards"
-						v-if="card.number === '001' || (card.number === '002' && path === '/fiches/cafe-critique/')">
+						v-if="card.number === '001' || card.number === '002'">
 						<router-link
-							:to="'../..' + path + card.number + '/'">#<edit-inline
+							:to="'../..' + path + card.slug + '/'">#<edit-inline
 							v-model="specific[routeName].cards[index].number"
 							:global="global" /> —
 						<edit-inline
