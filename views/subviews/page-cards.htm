@@ -15,20 +15,20 @@
 					<ul class="page-cards--content--outer">
 						<li class="page-cards--content--cards--item"
 							v-for="(card, index) in specific[routeName].cards"
-							v-if="card.number === '001' || card.number === '002'">
-							<h2 @click="goTo(card.number)">#<edit-inline
+							v-if="card.number === '001' || card.number === '002' || card.number === '003' || card.number === '004'">
+							<h2 @click="goTo(card.slug)">#<edit-inline
 									v-model="specific[routeName].cards[index].number"
 									:global="global" /> —
 								<edit-inline
 									v-model="specific[routeName].cards[index].title"
 									:global="global" /></h2>
 							<div class="page-cards--content--cards--item--detail"
-								@click="goTo(card.number)">
-								<img :src="miniImage(card.image)" width="250" :height="card.height" :title="card.title" :style="{ width: '250', height: card.height + 'px' }">
+								@click="goTo(card.slug)">
+								<img :src="miniImage(card.image)" width="250" :height="card.height" :title="card.title" :style="{ width: '250px', height: card.height + 'px' }">
 							</div>
 							<div class="page-cards--content--cards--item--inner">
 								<p class="page-cards--content--cards--description"
-									@click="goTo(card.number)">
+									@click="goTo(card.slug)">
 									<edit-inline
 											v-model="specific[routeName].cards[index].description"
 											:global="global" />
@@ -93,7 +93,7 @@
 				</h2>
 				<ul>
 					<li v-for="(card, index) in specific[routeName].cards"
-						v-if="card.number === '001' || card.number === '002'">
+						v-if="card.number === '001' || card.number === '002' || card.number === '003' || card.number === '004'">
 						<router-link
 							:to="'../..' + path + card.slug + '/'">#<edit-inline
 							v-model="specific[routeName].cards[index].number"
