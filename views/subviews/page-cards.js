@@ -28,6 +28,17 @@ module.exports = function (template, mixin) {
 		beforeMount: function () {
 			this.formatCards();
 		},
+		mounted: function () {
+			setTimeout(() => {
+				this.formatCards();
+				console.log('test2');
+			}, 1200);
+		},
+		watch: {
+			$route: function (to, from) {
+				console.log('$route');
+			}
+		},
 		data: function () {
 			return {};
 		},

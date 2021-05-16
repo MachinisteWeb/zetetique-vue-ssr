@@ -207,6 +207,10 @@
 
 		^[0].card-lmdj ^[1..1]
 			color #ffdd40
+			
+	small
+		^[0].card-lmdj.card-004 ^[1..1]
+			font-size 80%
 
 	&__aside
 		display flex
@@ -329,6 +333,22 @@
 			^[0].card-cc.card-003 ^[0..2]
 				margin 3.2vmin 0
 					
+			^[0].card-mcem.card-004 ^[0..2]
+				margin 3.2vmin 5vmin 1.6vmin
+				text-align left
+				
+				span
+					display block
+					margin-left 20vmin
+					
+			^[0].card-aqtc.card-004 ^[0..2]
+				margin 1.6vmin 16vmin
+				text-align left
+
+				span
+					display block
+					margin-left 16vmin
+					
 		p
 			font-size 2.8vmin
 			margin 0.8vmin 1.6vmin
@@ -360,6 +380,18 @@
 				
 				^[0].card-mcem.card-003 ^[0..3]
 					height 16vmin
+					
+		.is-center // mcem 4
+			text-align center
+			
+		.is-small
+			^[0].card-mcem.card-004 ^[0..2]
+				margin-top -0.8vmin
+				margin-bottom -0.8vmin
+				margin-left 8vmin
+				
+			^[0].card-aqtc.card-004 ^[0..2]
+				margin-top -0.8vmin
 
 		.is-spaced
 			^[0].card-cc.card-003 ^[0..2]
@@ -369,6 +401,7 @@
 				margin 2.4vmin
 				
 			^[0].card-cc.card-004 ^[0..2]
+			^[0].card-mcem.card-004 ^[0..2]
 				margin-top 2.4vmin
 				margin-bottom 2.4vmin
 
@@ -383,6 +416,17 @@
 
 			^[0].card-aqtc.card-003 ^[0..2]
 				font-size 4.6vmin
+				text-align center
+				
+			^[0].card-mcem.card-004 ^[0..2]
+				text-align center
+				margin-bottom 2.4vmin
+				font-size 3.6vmin
+
+			^[0].card-aqtc.card-004 ^[0..2]
+				margin-top 2.4vmin
+				margin-bottom 2.4vmin
+				font-size 5vmin
 				text-align center
 
 		^[0].card-mcem.card-002 ^[0..1]
@@ -436,7 +480,7 @@
 				font-size 5vmin
 				margin 1.6vmin
 				text-align center
-			
+
 			^[0].card-lmdj.card-002 ^[0..2]
 				color #fff
 				font-size 3.8vmin
@@ -444,8 +488,15 @@
 				font-style normal
 				text-align center
 				font-weight normal
-				
+
 			^[0].card-lmdj.card-003 ^[0..2]
+				font-size 6vmin
+				margin 2.4vmin
+				font-style normal
+				text-align center
+				font-weight normal
+
+			^[0].card-lmdj.card-004 ^[0..2]
 				font-size 6vmin
 				margin 2.4vmin
 				font-style normal
@@ -472,6 +523,7 @@
 				margin-top -2.4vmin
 				
 			^[0].card-lmdj.card-003 ^[0..2]
+			^[0].card-lmdj.card-004 ^[0..2]
 				margin-top -0.8vmin
 				margin-bottom 2.4vmin
 				
@@ -519,6 +571,7 @@
 				font-size 2.3vmin
 				
 			^[0].card-lmdj.card-003 ^[0..2]
+			^[0].card-mcem.card-004 ^[0..2]
 				font-size 80%
 
 		p
@@ -527,6 +580,7 @@
 			text-align justify
 			
 			^[0].card-mcem.card-003 ^[0..2]
+			^[0].card-mcem.card-004 ^[0..2]
 				font-size 2.6vmin
 				margin 2.4vmin 1.6vmin
 
@@ -561,8 +615,12 @@
 				img
 					height 19vmin
 					
-		.is-spaced // aqtc 2
-			margin-top 4vmin
+		.is-spaced
+			^[0].card-aqtc.card-002 ^[0..2]
+				margin-top 4vmin
+			
+			^[0].card-lmdj.card-004 ^[0..2]
+				margin-top 3.2vmin
 
 		&__lead
 			h2
@@ -783,13 +841,30 @@
 				
 				img
 					height 16vmin
-			
+
+		^[0].card-aqtc.card-004 ^[0..1]
+			display flex
+			flex-wrap wrap
+			justify-content center
+
+			p:nth-child(3)
+				text-align center
+
+		^[0].card-lmdj.card-004 ^[0..1]
+			margin-bottom 2.4vmin
+			padding-left 4vmin
+
 	&__item
 		^[0].card-cc.card-003 ^[0..1]
 			text-align justify
 		
 		^[0].card-lmdj.card-002 ^[0..1]
 			text-align left
+
+		^[0].card-aqtc.card-004 ^[0..1]
+			margin-top 3.2vmin
+			text-align justify
+			width calc(50%)
 			
 		p
 			font-size 2.8vmin // lmdj 2
@@ -805,6 +880,12 @@
 			small
 				font-size 80%
 				display block
+				
+		^[0].card-lmdj.card-004 ^[0..1]
+			&:nth-child(1)
+			&:nth-child(3)
+				p
+					text-align-last center
 
 	&__conclusion
 		^[0].card-aqtc.card-002 ^[0..1]
@@ -834,6 +915,16 @@
 			font-size 3vmin
 			text-align justify
 			text-align-last center
+			
+		^[0].card-mcem.card-004 ^[0..1]
+			.is-img
+				text-align center
+				
+				img
+					margin 0 4vmin
+					height 20vmin
+					box-shadow 0.2vmin 0.2vmin 2vmin #04fdff, -0.2vmin 0.2vmin 2vmin #04fdff, 0.2vmin -0.2vmin 2vmin #04fdff, -0.2vmin -0.2vmin 2vmin #04fdff
+			
 			
 		p
 			margin 0.8vmin 1.6vmin
