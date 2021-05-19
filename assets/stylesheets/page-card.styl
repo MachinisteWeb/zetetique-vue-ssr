@@ -332,6 +332,14 @@
 
 			^[0].card-cc.card-003 ^[0..2]
 				margin 3.2vmin 0
+				
+			^[0].card-cc.card-005 ^[0..2]
+				text-align justify
+				margin 3.2vmin 11vmin 1.6vmin
+
+				span
+					display block
+					margin-left 16vmin
 					
 			^[0].card-mcem.card-004 ^[0..2]
 				margin 3.2vmin 5vmin 1.6vmin
@@ -355,6 +363,9 @@
 			
 			^[0].card-mcem.card-003 ^[0..2]
 				text-align justify
+				
+			^[0].card-cc.card-005 ^[0..2]
+				font-size 3.6vmin
 			
 		^[0].card-cc.card-003 ^[0..1]
 			&__lead
@@ -439,6 +450,7 @@
 					margin-bottom 1vmin
 					
 		^[0].card-cc.card-004 ^[0..1]
+		^[0].card-cc.card-005 ^[0..1]
 			text-align center
 
 		small
@@ -621,6 +633,36 @@
 			
 			^[0].card-lmdj.card-004 ^[0..2]
 				margin-top 3.2vmin
+				
+		.wrap-arrow // cc 5
+			position absolute
+			margin-top 5vmin
+
+		.arrow-inner // cc 5
+			text-transform uppercase
+			transform rotate(-90deg)
+			transform-origin 0 0
+			position absolute
+			top 90vmin
+
+			p
+				font-size 6vmin
+				margin-top 2vmin
+				text-align center
+
+			.direction
+				position relative
+				top 2vmin
+				background-color #ff00fb
+				height 2vmin
+				width 95vmin
+				&::before
+					position absolute
+					content ''
+					top -2vmin
+					left -6vmin
+					border 3vmin solid transparent
+					border-right 3vmin solid #ff00fb
 
 		&__lead
 			h2
@@ -790,6 +832,11 @@
 			padding 0
 			list-style-type none
 			
+		^[0].card-cc.card-005 ^[0..1]
+			margin-top -0.1vmin
+			padding 0 0 0 13vmin
+			margin-bottom 6vmin
+			
 		h2 // aqtc 2
 			text-transform uppercase
 			font-size 4vmin
@@ -805,6 +852,13 @@
 			^[0].card-aqtc.card-003 ^[0..2]
 				margin 3.2vmin 1.6vmin 0.8vmin
 				text-transform none
+				
+
+			^[0].card-cc.card-005 ^[0..2]
+				font-size 3.2vmin
+				text-transform none
+				margin 2.4vmin 1.6vmin 0.8vmin
+
 		h3 // lmdj
 			display inline-block
 			text-transform none
@@ -832,15 +886,27 @@
 			^[0].card-cc.card-004 ^[0..2]
 				img
 					height 43vmin
+					
+			^[0].card-cc.card-005 ^[0..2]
+				margin 0 1.6vmin 0 6vmin
+				
+				img
+					height 15vmin
 				
 		.is-left // cc 3
 			float left
 
 			^[0].card-cc.card-003 ^[0..2]
 				margin 0 5vmin
-				
+
 				img
 					height 16vmin
+
+			^[0].card-cc.card-005 ^[0..2]
+				margin 0 6vmin 0 1.6vmin
+
+				img
+					height 15vmin
 
 		^[0].card-aqtc.card-004 ^[0..1]
 			display flex
@@ -872,6 +938,9 @@
 			
 			^[0].card-lmdj.card-002 ^[0..2]
 				display inline-block
+				
+			^[0].card-cc.card-005 ^[0..2]
+				font-size 2.6vmin
 		
 		^[0].card-cc.card-003 ^[0..1]
 			h2
@@ -893,6 +962,13 @@
 		
 		.is-alternative
 			font-size 3.2vmin
+			
+		^[0].card-cc.card-005 ^[0..1]
+			.is-alternative
+				font-size 3vmin
+				margin 0.8vmin 1.6vmin
+				text-align justify
+				text-align-last center
 			
 		^[0].card-mcem.card-003 ^[0..1]
 		^[0].card-aqtc.card-002 ^[0..1]
