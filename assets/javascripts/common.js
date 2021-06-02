@@ -70,6 +70,7 @@ Promise.all([
 	var common = results[0],
 		files = eval(results[1]),
 		webconfig = {
+			urlRootPath: document.getElementsByTagName('body')[0].getAttribute('data-url-root-path'),
 			routes: JSON.parse(files.routes),
 			languageCode: document.getElementsByTagName('html')[0].getAttribute('lang')
 		},
@@ -238,6 +239,8 @@ Promise.all([
 			});
 		};
 
+		// console.log(route)
+
 		// ...and pass some props
 		route.props = ['common', 'global'];
 
@@ -271,6 +274,8 @@ Promise.all([
 						resolve(eval(model)(template, mixin(true)));
 					});
 				};
+
+				// console.log(subroute)
 
 				route.children.push(subroute);
 			});

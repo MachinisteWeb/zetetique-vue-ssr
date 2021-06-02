@@ -26,6 +26,11 @@ module.exports = function (template, mixin) {
 				resourcesItemIndex: 0
 			};
 		},
+		computed: {
+			routeName: function () {
+				return this.global.webconfig.routeName || this.$route.name;
+			}
+		},
 		methods: {
 			goTo: function (to) {
 				var url = this.global.webconfig.routes[to + '_' + this.global.webconfig.languageCode].url;

@@ -25,6 +25,15 @@ module.exports = function (template, specific, mixin, options) {
 			slug: function () {
 				return (this.global.webconfig.params) ? this.global.webconfig.params.slug : this.$route.params.slug;
 			},
+			routeName: function () {
+				return this.global.webconfig.routeName || this.$route.name;
+			},
+			name: function () {
+				var languageCode = this.global.webconfig.languageCode,
+					path = this.global.webconfig.routes[this.routeName + '_' + languageCode].url;
+
+				return path.split('/')[1];
+			},
 			path: function () {
 				return (this.global.webconfig.params) ? this.global.webconfig.params.category : this.$route.params.category;
 			},
@@ -36,7 +45,11 @@ module.exports = function (template, specific, mixin, options) {
 					'cafe-critique': 'Café critique',
 					'mon-cerveau-et-moi': 'Mon Cerveau et Moi',
 					'a-qui-tu-causes': 'À Qui tu Causes ?',
-					'le-mot-du-jour': 'Le Mot du Jour'
+					'le-mot-du-jour': 'Le Mot du Jour',
+					'hygiene-mentale': 'Hygiene Mentale',
+					'methode-z': 'Méthode Z',
+					'minute-sapiens': 'Minute Sapiens',
+					'science-clic': 'ScienceClic'
 				};
 				return choices[this.path];
 			}
@@ -44,7 +57,7 @@ module.exports = function (template, specific, mixin, options) {
 		beforeMount: function () {
 			this.getCard();
 		},
-		/*beforeRouteEnter: function (to, from, next) {
+		beforeRouteEnter: function (to, from, next) {
 			next(function (vm) {
 				vm.displayIframe();
 			});
@@ -53,27 +66,30 @@ module.exports = function (template, specific, mixin, options) {
 			next(function (vm) {
 				vm.displayIframe();
 			});
-		},*/
+		},
 		methods: {
-			/*displayIframe: function () {
+			displayIframe: function () {
 				var vm = this;
 
 				setTimeout(function () {
 					vm.isLoaded = true;
 
 					if (vm.global.isClient && vm.global.card.title) {
-						document.title = vm.global.card.title + ' — ' + vm.category + ' #' + vm.number + ' — ' + 'Coup Critique';
+						document.title = vm.global.card.title + ' — ' + vm.global.card.number + ' | ' + vm.category;
 					}
-				}, 300);
-			},*/
+				}, 200);
+			},
 			transformAccent: function (value) {
 				return value
 					.replace(/(<h1>.*)(É)(.*<\/h1>)/g, '$1E$3')
 					.replace(/(<h1>.*)(é)(.*<\/h1>)/g, '$1e$3')
 					.replace(/(<h1>.*)(é)(.*<\/h1>)/g, '$1e$3')
+					.replace(/(<h1>.*)(é)(.*<\/h1>)/g, '$1e$3')
 					.replace(/(<h1>.*)(È)(.*<\/h1>)/g, '$1E$3')
 					.replace(/(<h1>.*)(è)(.*<\/h1>)/g, '$1e$3')
+					.replace(/(<h1>.*)(à)(.*<\/h1>)/g, '$1a$3')
 					.replace(/(<span class="card__aside__category__title">.*)(é)(.*<\/span>)/g, '$1e$3')
+					.replace(/(<span class="card__aside__category__title">.*)(è)(.*<\/span>)/g, '$1e$3')
 					.replace(/(<span class="card__aside__category__title">.*)(À)(.*<\/span>)/g, '$1A$3');
 			},
 			getCard: function () {
@@ -94,7 +110,7 @@ module.exports = function (template, specific, mixin, options) {
 				}
 			},
 			backToCards: function (e) {
-				this.$router.push({ path: '/fiches/' + this.path + '/' });
+				this.$router.push({ path: '/' + this.name + '/' + this.path + '/' });
 			}
 		},
 		template: template

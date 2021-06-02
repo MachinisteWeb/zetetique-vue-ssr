@@ -1,20 +1,28 @@
 <div class="page-resources">
 	<div class="page-resources--breadcrumb">
 		<nav>
-			<span
-				:class="{ 'is-selected': $route.name === 'resources' }"
-				@click="goTo('resources')">
-				<edit-inline
-					v-model="specific.overview.title"
-					:global="global" />
-			</span>
+			<edit-wrapper-attr :global="global">
+				<router-link
+					:to="goTo(specific.overview.name)" exact>
+						<edit-inline
+							v-model="specific.overview.title"
+							:global="global" />
+					</router-link>
+				<template slot="attrs">
+					<edit-attr
+						v-model="specific.overview.name"
+						:label="'Name: '"
+						:global="global" />
+				</template>
+			</edit-wrapper-attr>
 			<ul>
 				<li v-for="(item, index) in specific.overview.main"
 					:class="{ 'is-selected': $route.name === breadcrumb[index] }"
 					@click="goTo(breadcrumb[index])">
-					<edit-inline
-						v-model="specific.overview.main[index].title"
-						:global="global" />
+					<router-link
+						:to="goTo(breadcrumb[index])" exact><edit-inline
+							v-model="specific.overview.main[index].title"
+							:global="global" /></router-link>
 				</li>
 			</ul>
 		</nav>

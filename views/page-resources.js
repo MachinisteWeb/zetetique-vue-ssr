@@ -21,10 +21,10 @@ module.exports = function (template, specific, mixin, options) {
 				meta: specific.meta,
 				specific: specific.body,
 				breadcrumb: [
-					'cafe',
-					'brain',
-					'speak',
-					'word'
+					specific.body.overview.main[0].key,
+					specific.body.overview.main[1].key,
+					specific.body.overview.main[2].key,
+					specific.body.overview.main[3].key
 				]
 			};
 		},
@@ -42,7 +42,7 @@ module.exports = function (template, specific, mixin, options) {
 		methods: {
 			goTo: function (to) {
 				var url = this.global.webconfig.routes[to + '_' + this.global.webconfig.languageCode].url;
-				this.$router.push({ path: url });
+				return { path: url };
 			}
 		},
 		template: template

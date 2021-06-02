@@ -1,11 +1,11 @@
 <div class="page-resources--content" :class="{ 'is-displayed': global.isClient }">
 	<div class="page-resources--content--outer">
 		<div class="page-resources--content--inner">
-			<div class="page-resources--content--cafe"
-				@click="goTo('cafe')">
-				<div class="page-resources--content--cafe--image"></div>
-				<div class="page-resources--content--cafe--content">
-					<div class="page-resources--content--cafe--content--inner">
+			<div :class="'page-resources--content--' + specific.overview.main[0].key"
+				@click="goTo(specific.overview.main[0].key)">
+				<div :class="'page-resources--content--' + specific.overview.main[0].key + '--image'"></div>
+				<div :class="'page-resources--content--' + specific.overview.main[0].key + '--content'">
+					<div :class="'page-resources--content--' + specific.overview.main[0].key + '--content--inner'">
 						<h2>
 							<edit-inline
 								v-model="specific.overview.main[0].title"
@@ -18,11 +18,11 @@
 					</div>
 				</div>
 			</div>
-			<div class="page-resources--content--brain"
-				@click="goTo('brain')">
-				<div class="page-resources--content--brain--image"></div>
-				<div class="page-resources--content--brain--content">
-					<div class="page-resources--content--brain--content--inner">
+			<div :class="'page-resources--content--' + specific.overview.main[1].key"
+				@click="goTo(specific.overview.main[1].key)">
+				<div :class="'page-resources--content--' + specific.overview.main[1].key + '--image'"></div>
+				<div :class="'page-resources--content--' + specific.overview.main[1].key + '--content'">
+					<div :class="'page-resources--content--' + specific.overview.main[1].key + '--content--inner'">
 						<h2>
 							<edit-inline
 								v-model="specific.overview.main[1].title"
@@ -35,11 +35,11 @@
 					</div>
 				</div>
 			</div>
-			<div class="page-resources--content--speak"
-				@click="goTo('speak')">
-				<div class="page-resources--content--speak--image"></div>
-				<div class="page-resources--content--speak--content">
-					<div class="page-resources--content--speak--content--inner">
+			<div :class="'page-resources--content--' + specific.overview.main[2].key"
+				@click="goTo(specific.overview.main[2].key)">
+				<div :class="'page-resources--content--' + specific.overview.main[2].key + '--image'"></div>
+				<div :class="'page-resources--content--' + specific.overview.main[2].key + '--content'">
+					<div :class="'page-resources--content--' + specific.overview.main[2].key + '--content--inner'">
 						<h2>
 							<edit-inline
 								v-model="specific.overview.main[2].title"
@@ -52,11 +52,11 @@
 					</div>
 				</div>
 			</div>
-			<div class="page-resources--content--word"
-				@click="goTo('word')">
-				<div class="page-resources--content--word--image"></div>
-				<div class="page-resources--content--word--content">
-					<div class="page-resources--content--word--content--inner">
+			<div :class="'page-resources--content--' + specific.overview.main[3].key"
+				@click="goTo(specific.overview.main[3].key)">
+				<div :class="'page-resources--content--' + specific.overview.main[3].key + '--image'"></div>
+				<div :class="'page-resources--content--' + specific.overview.main[3].key + '--content'">
+					<div :class="'page-resources--content--' + specific.overview.main[3].key + '--content--inner'">
 						<h2>
 							<edit-inline
 								v-model="specific.overview.main[3].title"
@@ -73,11 +73,13 @@
 	</div>
 	<div class="page-resources--information">
 		<ul class="page-resources--information--contacts">
-			<li v-for="(contact, index) in common.navigation.information.contacts">
-				<edit-inline
-					v-model="common.navigation.information.contacts[index]"
-					:global="global" />
-			</li>
+			<template>			
+				<li v-for="(contact, index) in common.navigation.information.contacts">
+					<edit-inline
+						v-model="common.navigation.information.contacts[index]"
+						:global="global" />
+				</li>
+			</template>
 		</ul>
 	</div>
 </div>

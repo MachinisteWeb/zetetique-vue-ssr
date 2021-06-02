@@ -35,13 +35,14 @@
 		li span
 			color $linkColor
 
-		.is-selected
-			span
+		.is-selected span
+		a.router-link-exact-active span
 				cursor initial
 				color $textColor
 
 				&:hover
 					letter-spacing .04rem
+					
 
 		li.is-selected
 			position relative
@@ -106,11 +107,17 @@
 					& ^[0..1]--brain
 					& ^[0..1]--speak
 					& ^[0..1]--word
+					& ^[0..1]--hygienementale
+					& ^[0..1]--methodez
+					& ^[0..1]--minutesapiens
+					& ^[0..1]--scienceclic
 						width 23,33333333%
 
 						&:hover
 							width 30%
 
+		&--methodez
+		&--scienceclic
 		&--brain
 		&--word
 			&--image
@@ -122,28 +129,40 @@
 
 		&--cafe
 			&--image
-				background-size cover
-				background-position center center
 				background-image url('../media/images/team.jpg')
 
 		&--brain
 			&--image
-				background-size cover
-				background-position center center
 				background-image url('../media/images/know-how.jpg')
 
 		&--speak
 			&--image
-				background-size cover
-				background-position center center
 				background-image url('../media/images/culture.jpg')
 
 		&--word
 			&--image
-				background-size cover
-				background-position center center
 				background-image url('../media/images/others.jpg')
+				
+		&--hygienementale
+			&--image
+				background-image url('../media/images/hygiene-mentale.jpg')
 
+		&--methodez
+			&--image
+				background-image url('../media/images/methode-z.jpg')
+
+		&--minutesapiens
+			&--image
+				background-image url('../media/images/minute-sapiens.jpg')
+
+		&--scienceclic
+			&--image
+				background-image url('../media/images/science-clic.jpg')
+
+		&--hygienementale
+		&--methodez
+		&--minutesapiens
+		&--scienceclic
 		&--cafe
 		&--brain
 		&--speak
@@ -157,6 +176,8 @@
 				width 25%
 
 			&--image
+				background-size cover
+				background-position center center
 				flex-basis 50%
 
 			&--content
@@ -235,6 +256,25 @@
 
 			&.as-word
 				background-image url('../media/images/others.jpg')
+				
+			&.as-hygienementale
+				background-image url('../media/images/hygiene-mentale.jpg')
+
+			&.as-methodez
+				background-image url('../media/images/methode-z.jpg')
+
+			&.as-minutesapiens
+				background-image url('../media/images/minute-sapiens.jpg')
+
+			&.as-scienceclic
+				background-image url('../media/images/science-clic.jpg')
+				
+			&.as-hygienementale
+			&.as-methodez
+			&.as-minutesapiens
+			&.as-scienceclic
+				& ^[0..1]--cards--item--detail
+					height 140px 
 
 		&--board
 			flex-basis calc(100% - 380px)

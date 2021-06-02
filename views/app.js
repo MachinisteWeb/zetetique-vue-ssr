@@ -28,10 +28,10 @@ module.exports = function (template, router, webconfig, common, specific, extra)
 			$route: function (to, from) {
 				var compare;
 				if (NA.isClient) {
-					if (to.meta.second === undefined || from.meta.second === undefined) {
+					// if (to.meta.second === undefined || from.meta.second === undefined) {
 						compare = to.meta.first - from.meta.first;
 						this.global.routerTransition = (!isNaN(compare) && compare < 0) ? 'vertical-slide-reversed' : 'vertical-slide';
-					}
+					// }
 				}
 			}
 		},

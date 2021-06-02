@@ -10,6 +10,33 @@
 		"controller": "news.js",
 		"variation": "news.json"
 	},
+	"initiations_fr-fr": {
+		"url": "/initiations/",
+		"view": "page-resources",
+		"variation": "initiations.json",
+		"_children": [{
+			"key": false,
+			"view": "page-resources-index"
+		}, {
+			"key": "hygienementale_fr-fr",
+			"view": "page-cards"
+		}, {
+			"key": "methodez_fr-fr",
+			"view": "page-cards"
+		}, {
+			"key": "minutesapiens_fr-fr",
+			"view": "page-cards"
+		}, {
+			"key": "scienceclic_fr-fr",
+			"view": "page-cards"
+		}]
+	},
+	"card_fr-fr": {
+		"url": "/fiches/:category/:slug/",
+		"view": "page-card",
+		"controller": "card.js",
+		"variation": "card.json"
+	},
 	"resources_fr-fr": {
 		"url": "/fiches/",
 		"view": "page-resources",
@@ -31,11 +58,11 @@
 			"view": "page-cards"
 		}]
 	},
-	"card_fr-fr": {
-		"url": "/fiches/:category/:slug/",
+	"clip_fr-fr": {
+		"url": "/initiations/:category/:slug/",
 		"view": "page-card",
 		"controller": "card.js",
-		"variation": "card.json"
+		"variation": "clip.json"
 	},
 	"cafe_fr-fr": {
 		"url": "/fiches/cafe-critique/",
@@ -60,6 +87,30 @@
 		"view": "page-resources",
 		"variation": "resources.json",
 		"_parent": "resources_fr-fr"
+	},
+	"hygienementale_fr-fr": {
+		"url": "/initiations/hygiene-mentale/",
+		"view": "page-resources",
+		"variation": "initiations.json",
+		"_parent": "initiations_fr-fr"
+	},
+	"methodez_fr-fr": {
+		"url": "/initiations/methode-z/",
+		"view": "page-resources",
+		"variation": "initiations.json",
+		"_parent": "initiations_fr-fr"
+	},
+	"minutesapiens_fr-fr": {
+		"url": "/initiations/minute-sapiens/",
+		"view": "page-resources",
+		"variation": "initiations.json",
+		"_parent": "initiations_fr-fr"
+	},
+	"scienceclic_fr-fr": {
+		"url": "/initiations/science-clic/",
+		"view": "page-resources",
+		"variation": "initiations.json",
+		"_parent": "initiations_fr-fr"
 	},
 	"contact_fr-fr": {
 		"url": "/participer/",

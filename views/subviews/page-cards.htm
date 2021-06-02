@@ -13,10 +13,9 @@
 			<div class="page-cards--content--board">
 				<div class="page-cards--content--cards">
 					<ul class="page-cards--content--outer">
-						<li class="page-cards--content--cards--item"
-							v-for="(card, index) in specific[routeName].cards"
-							v-if="card.number === '001' || card.number === '002' || card.number === '003' || card.number === '004' || card.number === '005' && card.slug === 'hierarchie-des-sources'">
-							<h2 @click="goTo(card.slug)">#<edit-inline
+						<li :class="'page-cards--content--cards--item as-' + routeName"
+							v-for="(card, index) in specific[routeName].cards">
+							<h2 @click="goTo(card.slug)"><edit-inline
 									v-model="specific[routeName].cards[index].number"
 									:global="global" /> —
 								<edit-inline
@@ -48,14 +47,16 @@
 								<div class="page-cards--content--cards--image">
 									<edit-wrapper-attr :global="global">
 										{{ specific.cardText }}
-										<a :href="card.image" target="_blank">
+										<a v-if="card.video" :href="card.video" target="_blank">
 											{{ specific.cardImage }}
-										</a>/<a :href="card.url" target="_blank">
+										</a><a v-else :href="card.image" target="_blank">
+											{{ specific.cardImage }}
+										</a><span v-if="card.url">/<a :href="card.url" target="_blank">
 											{{ specific.cardLink }}
-										</a> —
+										</a></span><span v-if="card.facebook"> —
 										<a :href="card.facebook" target="_blank">
 											{{ specific.cardFacebook }}
-										</a>
+										</a></span>
 										<template slot="attrs">
 											<edit-attr
 												v-model="specific.cardText"
@@ -92,10 +93,9 @@
 						:global="global" />
 				</h2>
 				<ul>
-					<li v-for="(card, index) in specific[routeName].cards"
-						v-if="card.number === '001' || card.number === '002' || card.number === '003' || card.number === '004' || card.number === '005' && card.slug === 'hierarchie-des-sources'">
+					<li v-for="(card, index) in specific[routeName].cards">
 						<router-link
-							:to="'../..' + path + card.slug + '/'">#<edit-inline
+							:to="'../..' + path + card.slug + '/'"><edit-inline
 							v-model="specific[routeName].cards[index].number"
 							:global="global" /> —
 						<edit-inline

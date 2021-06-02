@@ -17,8 +17,11 @@
 		</span>
 	</div>
 	<div class="the-header--location">
-		<span class="the-header--location--rotate">
-			<span class="a">{{ specific.title }}</span>
+		<span class="the-header--location--rotate" v-if="isClient">
+			<router-link
+				:to="{ name: name }" @click.native.stop>{{ specific.title }}</router-link>
+		</span>
+		<span class="the-header--location--rotate" v-else>
 		</span>
 	</div>
 </header>

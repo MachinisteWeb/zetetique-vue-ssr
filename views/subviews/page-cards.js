@@ -46,7 +46,11 @@ module.exports = function (template, mixin) {
 					'as-cafe': 'cafe' === this.routeName,
 					'as-brain': 'brain' === this.routeName,
 					'as-speak': 'speak' === this.routeName,
-					'as-word': 'word' === this.routeName
+					'as-word': 'word' === this.routeName,
+					'as-hygienementale': 'hygienementale' === this.routeName,
+					'as-methodez': 'methodez' === this.routeName,
+					'as-minutesapiens': 'minutesapiens' === this.routeName,
+					'as-scienceclic': 'scienceclic' === this.routeName
 				};
 			}
 		},

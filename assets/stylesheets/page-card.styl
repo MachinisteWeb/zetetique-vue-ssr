@@ -150,6 +150,29 @@
 	color #fff
 	height 100%
 	width 100%
+	
+	&.card-video
+		
+		& ^[0]__header
+			h1
+				sup
+					font-size 2vmin
+					top -1.4vmin
+					position relative
+				
+				margin 3.2vmin .8vmin
+				font-size 4vmin
+				
+		& ^[0]__content
+			h2
+				font-size 2vmin
+
+		& ^[0]__content__lead
+			text-align center
+			
+			iframe
+				width 90vmin
+				height 54vmin 
 
 	strong
 		font-style italic
@@ -285,6 +308,11 @@
 
 	&__header
 		h1
+			sup
+				font-size 4vmin
+				top -2vmin
+				position relative
+
 			text-align center
 			font-size 6.2vmin
 			text-transform uppercase
