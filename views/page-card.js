@@ -85,6 +85,7 @@ module.exports = function (template, specific, mixin, options) {
 					.replace(/(<h1>.*)(é)(.*<\/h1>)/g, '$1e$3')
 					.replace(/(<h1>.*)(é)(.*<\/h1>)/g, '$1e$3')
 					.replace(/(<h1>.*)(é)(.*<\/h1>)/g, '$1e$3')
+					.replace(/(<h1>.*)(Ê)(.*<\/h1>)/g, '$1e$3')
 					.replace(/(<h1>.*)(È)(.*<\/h1>)/g, '$1E$3')
 					.replace(/(<h1>.*)(è)(.*<\/h1>)/g, '$1e$3')
 					.replace(/(<h1>.*)(à)(.*<\/h1>)/g, '$1a$3')
