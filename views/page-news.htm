@@ -79,11 +79,17 @@
 				</h2>
 				<ul>
 					<li>
-						<span class="a" @click="changeSource(false)">Toutes les sources</span>
+						<template v-if="$route.query.source">— <span class="a" @click="changeSource(false)">{{ specific.allSources }}</span></template>
+						<span v-else>{{ specific.allSources }}</span>
 					</li>
 					<li v-for="(source, index) in sources"
 						:key="source.links.link">
-						<span class="a" @click="changeSource(source)" v-text="source.website"></span> <a :href="source.links.website" target="_blank">🗗</a>
+						<template v-if="source.name === $route.query.source">
+							— <span class="a" @click="changeSource(false)"> Retour</span>
+						</template>
+						<template v-else>
+							<span class="a" @click="changeSource(source)" v-text="source.website"></span> (<a :href="source.links.website" target="_blank">🗗</a>)
+						</template>
 					</li>
 				</ul>
 			</nav>

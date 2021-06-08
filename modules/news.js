@@ -1953,6 +1953,138 @@ module.exports = function () {
 		});
 	}
 
+	function dirtyBiology(next) {
+		exploitRssContent({
+			website: 'DirtyBiology',
+			name: 'dirty-biology',
+			protocol: 'https',
+			url: 'https://www.youtube.com/feeds/videos.xml?channel_id=UCtqICqGbPSbTN09K1_7VZ3Q',
+			websiteUrl: 'https://www.youtube.com/user/dirtybiology/featured',
+			image: 'https://yt3.ggpht.com/LO6Sp_zmqtv2VFRmiCh6i_PpqyhPkZIJwawumIBrPDVVOBZ1TDQef35qKIcqHYPpPztjwHun9Jw=w2120-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj',
+			imageProtocol: 'https',
+			limit: 4,
+			targetAllItems: function (globalDom) {
+				return globalDom.window.document.getElementsByTagName('entry');
+			},
+			targetEachDate: function (node) {
+				return new Date(node.getElementsByTagName('published')[0].innerHTML);
+			},
+			targetEachDescription: function (node) {
+				var content = node.getElementsByTagName('media:description')[0].innerHTML.split(/\r|\n/g)[0] || node.getElementsByTagName('media:description')[0].innerHTM;
+				return content;
+			},
+			targetEachLink: function (node) {
+				return node.getElementsByTagName('link')[0].getAttribute('href');
+			},
+			targetEachComment: function (node) {
+				return node.getElementsByTagName('link')[0].getAttribute('href');
+			},
+			targetEachCategory: function (node) {
+				return 'Youtube';
+			},
+			targetEachImage: function (node) {
+				var image = node.getElementsByTagName('media:thumbnail')[0];
+
+				if (image && image.getAttribute('url')) {
+					return image.getAttribute('url');
+				}
+
+				return '';
+			},
+			next: function (err, extractData, fetchedData) {
+				next(null, extractData);
+			}
+		});
+	}
+
+	function cyrusNorth(next) {
+		exploitRssContent({
+			website: 'Cyrus North',
+			name: 'cyrus-north',
+			protocol: 'https',
+			url: 'https://www.youtube.com/feeds/videos.xml?channel_id=UCah8C0gmLkdtvsy0b2jrjrw',
+			websiteUrl: 'https://www.youtube.com/user/LeCoupdePhil/featured',
+			image: 'https://yt3.ggpht.com/7DktqYyl4zB7Nj7Bm73Bqvu5ZFtFdn0MP86FcvCZoktNM_4h2SuIDxytpgLif55KNPaYKYa6Pw=w1138-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj',
+			imageProtocol: 'https',
+			limit: 4,
+			targetAllItems: function (globalDom) {
+				return globalDom.window.document.getElementsByTagName('entry');
+			},
+			targetEachDate: function (node) {
+				return new Date(node.getElementsByTagName('published')[0].innerHTML);
+			},
+			targetEachDescription: function (node) {
+				var content = node.getElementsByTagName('media:description')[0].innerHTML.split(/\r|\n/g)[0] || node.getElementsByTagName('media:description')[0].innerHTM;
+				return content;
+			},
+			targetEachLink: function (node) {
+				return node.getElementsByTagName('link')[0].getAttribute('href');
+			},
+			targetEachComment: function (node) {
+				return node.getElementsByTagName('link')[0].getAttribute('href');
+			},
+			targetEachCategory: function (node) {
+				return 'Youtube';
+			},
+			targetEachImage: function (node) {
+				var image = node.getElementsByTagName('media:thumbnail')[0];
+
+				if (image && image.getAttribute('url')) {
+					return image.getAttribute('url');
+				}
+
+				return '';
+			},
+			next: function (err, extractData, fetchedData) {
+				next(null, extractData);
+			}
+		});
+	}
+
+	function scienceEtonnante(next) {
+		exploitRssContent({
+			website: 'ScienceEtonnante',
+			name: 'science-etonnante',
+			protocol: 'https',
+			url: 'https://www.youtube.com/feeds/videos.xml?channel_id=UCaNlbnghtwlsGF-KzAFThqA',
+			websiteUrl: 'https://www.youtube.com/user/ScienceEtonnante/featured',
+			image: 'https://yt3.ggpht.com/sn6Cq01kzb_X0RAI4O2L9hiVtqcMeLFt68ZkRnVvCz5uXTx4YsLxOOkg0qalsAACOFYDuYtD=w1138-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj',
+			imageProtocol: 'https',
+			limit: 4,
+			targetAllItems: function (globalDom) {
+				return globalDom.window.document.getElementsByTagName('entry');
+			},
+			targetEachDate: function (node) {
+				return new Date(node.getElementsByTagName('published')[0].innerHTML);
+			},
+			targetEachDescription: function (node) {
+				var content = node.getElementsByTagName('media:description')[0].innerHTML.split(/\r|\n/g)[0] || node.getElementsByTagName('media:description')[0].innerHTM;
+				return content;
+			},
+			targetEachLink: function (node) {
+				return node.getElementsByTagName('link')[0].getAttribute('href');
+			},
+			targetEachComment: function (node) {
+				return node.getElementsByTagName('link')[0].getAttribute('href');
+			},
+			targetEachCategory: function (node) {
+				return 'Youtube';
+			},
+			targetEachImage: function (node) {
+				var image = node.getElementsByTagName('media:thumbnail')[0];
+
+				if (image && image.getAttribute('url')) {
+					return image.getAttribute('url');
+				}
+
+				return '';
+			},
+			next: function (err, extractData, fetchedData) {
+				next(null, extractData);
+			}
+		});
+	}
+
 	function mrSamTV(next) {
 		exploitRssContent({
 			website: 'Mr. Sam - Point d\'interrogation',
@@ -2279,7 +2411,7 @@ module.exports = function () {
 		});
 	}
 
-	function sciencetonnante(next) {
+	/* function sciencetonnante(next) {
 		exploitRssContent({
 			website: 'Science Étonnante',
 			name: 'science-etonnante',
@@ -2313,7 +2445,7 @@ module.exports = function () {
 				next(null, extractData);
 			}
 		});
-	}
+	} */
 
 	function cortecs(next) {
 		exploitRssContent({
@@ -2742,8 +2874,20 @@ module.exports = function () {
 		lepharmachien(function (err, entries) {
 			callback(null, entries);
 		});
-	}, function (callback) {
+	}/*, function (callback) {
 		sciencetonnante(function (err, entries) {
+			callback(null, entries);
+		});scienceEtonnante
+	}*/, function (callback) {
+		scienceEtonnante(function (err, entries) {
+			callback(null, entries);
+		});
+	}, function (callback) {
+		cyrusNorth(function (err, entries) {
+			callback(null, entries);
+		});
+	}, function (callback) {
+		dirtyBiology(function (err, entries) {
 			callback(null, entries);
 		});
 	}, function (callback) {
