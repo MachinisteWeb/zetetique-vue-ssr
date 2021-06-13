@@ -10,6 +10,7 @@ function getCard(locals, params, next) {
 		'hygiene-mentale': 'initiations',
 		'methode-z': 'initiations',
 		'minute-sapiens': 'initiations',
+		'vite-fait': 'initiations',
 		'science-clic': 'initiations'
 	};
 
@@ -26,6 +27,7 @@ function getCard(locals, params, next) {
 				'hygiene-mentale': 'hygienementale',
 				'methode-z': 'methodez',
 				'minute-sapiens': 'minutesapiens',
+				'vite-fait': 'vitefait',
 				'science-clic': 'scienceclic'
 			};
 			group = choices[params.category];
@@ -59,6 +61,7 @@ exports.changeVariations = function (next, locals) {
 			'hygiene-mentale': 'Hygiene Mentale',
 			'methode-z': 'Méthode Z',
 			'minute-sapiens': 'Minute Sapiens',
+			'vite-fait': 'Vite Fait',
 			'science-clic': 'ScienceClic'
 		};
 

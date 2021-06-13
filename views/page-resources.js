@@ -16,16 +16,19 @@ module.exports = function (template, specific, mixin, options) {
 			}
 		},
 		data: function () {
+			const overviews = []
+
+			specific.body.overview.main.forEach((item, i) => {
+				[
+					overviews.push(item.key),
+				]
+			})
+
 			return {
 				options: options,
 				meta: specific.meta,
 				specific: specific.body,
-				breadcrumb: [
-					specific.body.overview.main[0].key,
-					specific.body.overview.main[1].key,
-					specific.body.overview.main[2].key,
-					specific.body.overview.main[3].key
-				]
+				breadcrumb: overviews
 			};
 		},
 		watch: {

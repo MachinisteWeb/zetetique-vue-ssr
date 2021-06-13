@@ -107,16 +107,23 @@
 					& ^[0..1]--brain
 					& ^[0..1]--speak
 					& ^[0..1]--word
-					& ^[0..1]--hygienementale
-					& ^[0..1]--methodez
-					& ^[0..1]--minutesapiens
-					& ^[0..1]--scienceclic
-						width 23,33333333%
+						width 23.33333333%
 
 						&:hover
 							width 30%
+							
+					& ^[0..1]--hygienementale
+					& ^[0..1]--methodez
+					& ^[0..1]--minutesapiens
+					& ^[0..1]--vitefait
+					& ^[0..1]--scienceclic
+						width 19%
 
-		&--methodez
+						&:hover
+							width 24%
+							
+		&--hygienementale
+		&--minutesapiens
 		&--scienceclic
 		&--brain
 		&--word
@@ -155,25 +162,29 @@
 			&--image
 				background-image url('../media/images/minute-sapiens.jpg')
 
+		&--vitefait
+			&--image
+				background-image url('../media/images/vite-fait.jpg')
+
 		&--scienceclic
 			&--image
 				background-image url('../media/images/science-clic.jpg')
 
-		&--hygienementale
-		&--methodez
-		&--minutesapiens
-		&--scienceclic
 		&--cafe
 		&--brain
 		&--speak
 		&--word
+		&--hygienementale
+		&--methodez
+		&--minutesapiens
+		&--vitefait
+		&--scienceclic
 			cursor pointer
 			display flex
 			justify-content space-between
 			transition width .5s ease
 			@media (min-width 1024px)
 				flex-direction column
-				width 25%
 
 			&--image
 				background-size cover
@@ -194,6 +205,21 @@
 					^[0..1].is-displayed &
 						opacity 1
 						top 0
+						
+		&--cafe
+		&--brain
+		&--speak
+		&--word
+			@media (min-width 1024px)
+				width 25%
+
+		&--hygienementale
+		&--methodez
+		&--minutesapiens
+		&--vitefait
+		&--scienceclic
+			@media (min-width 1024px)
+				width 20%
 
 .page-cards
 	position absolute
@@ -266,15 +292,27 @@
 			&.as-minutesapiens
 				background-image url('../media/images/minute-sapiens.jpg')
 
+			&.as-vitefait
+				background-image url('../media/images/vite-fait.jpg')
+
 			&.as-scienceclic
 				background-image url('../media/images/science-clic.jpg')
 				
 			&.as-hygienementale
 			&.as-methodez
 			&.as-minutesapiens
+			&.as-vitefait
 			&.as-scienceclic
 				& ^[0..1]--cards--item--detail
-					height 140px 
+					height 140px
+					
+			&.as-vitefait
+				& ^[0..1]--cards--item--detail
+					position relative
+					
+					img
+						position absolute
+						top -24px
 
 		&--board
 			flex-basis calc(100% - 380px)

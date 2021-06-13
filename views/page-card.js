@@ -49,6 +49,7 @@ module.exports = function (template, specific, mixin, options) {
 					'hygiene-mentale': 'Hygiene Mentale',
 					'methode-z': 'Méthode Z',
 					'minute-sapiens': 'Minute Sapiens',
+					'vite-fait': 'Vite Fait',
 					'science-clic': 'ScienceClic'
 				};
 				return choices[this.path];

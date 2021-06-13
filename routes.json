@@ -27,6 +27,9 @@
 			"key": "minutesapiens_fr-fr",
 			"view": "page-cards"
 		}, {
+			"key": "vitefait_fr-fr",
+			"view": "page-cards"
+		}, {
 			"key": "scienceclic_fr-fr",
 			"view": "page-cards"
 		}]
@@ -102,6 +105,12 @@
 	},
 	"minutesapiens_fr-fr": {
 		"url": "/initiations/minute-sapiens/",
+		"view": "page-resources",
+		"variation": "initiations.json",
+		"_parent": "initiations_fr-fr"
+	},
+	"vitefait_fr-fr": {
+		"url": "/initiations/vite-fait/",
 		"view": "page-resources",
 		"variation": "initiations.json",
 		"_parent": "initiations_fr-fr"

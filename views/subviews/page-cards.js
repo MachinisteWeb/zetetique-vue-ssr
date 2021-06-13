@@ -50,6 +50,7 @@ module.exports = function (template, mixin) {
 					'as-hygienementale': 'hygienementale' === this.routeName,
 					'as-methodez': 'methodez' === this.routeName,
 					'as-minutesapiens': 'minutesapiens' === this.routeName,
+					'as-vitefait': 'vitefait' === this.routeName,
 					'as-scienceclic': 'scienceclic' === this.routeName
 				};
 			}

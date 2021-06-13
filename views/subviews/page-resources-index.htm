@@ -1,77 +1,27 @@
 <div class="page-resources--content" :class="{ 'is-displayed': global.isClient }">
 	<div class="page-resources--content--outer">
 		<div class="page-resources--content--inner">
-			<div :class="'page-resources--content--' + specific.overview.main[0].key"
-				@click="goTo(specific.overview.main[0].key)">
-				<div :class="'page-resources--content--' + specific.overview.main[0].key + '--image'"></div>
-				<div :class="'page-resources--content--' + specific.overview.main[0].key + '--content'">
-					<div :class="'page-resources--content--' + specific.overview.main[0].key + '--content--inner'">
+			<div v-for="(item, index) in specific.overview.main"
+				:class="'page-resources--content--' + specific.overview.main[index].key"
+				@click="goTo(specific.overview.main[index].key)">
+				<div :class="'page-resources--content--' + specific.overview.main[index].key + '--image'"></div>
+				<div :class="'page-resources--content--' + specific.overview.main[index].key + '--content'">
+					<div :class="'page-resources--content--' + specific.overview.main[index].key + '--content--inner'">
 						<h2>
 							<edit-inline
-								v-model="specific.overview.main[0].title"
+								v-model="specific.overview.main[index].title"
 								:global="global" />
 						</h2>
 						<hr>
 						<edit-block
-							v-model="specific.overview.main[0].content"
-							:global="global" />
-					</div>
-				</div>
-			</div>
-			<div :class="'page-resources--content--' + specific.overview.main[1].key"
-				@click="goTo(specific.overview.main[1].key)">
-				<div :class="'page-resources--content--' + specific.overview.main[1].key + '--image'"></div>
-				<div :class="'page-resources--content--' + specific.overview.main[1].key + '--content'">
-					<div :class="'page-resources--content--' + specific.overview.main[1].key + '--content--inner'">
-						<h2>
-							<edit-inline
-								v-model="specific.overview.main[1].title"
-								:global="global" />
-						</h2>
-						<hr>
-						<edit-block
-							v-model="specific.overview.main[1].content"
-							:global="global" />
-					</div>
-				</div>
-			</div>
-			<div :class="'page-resources--content--' + specific.overview.main[2].key"
-				@click="goTo(specific.overview.main[2].key)">
-				<div :class="'page-resources--content--' + specific.overview.main[2].key + '--image'"></div>
-				<div :class="'page-resources--content--' + specific.overview.main[2].key + '--content'">
-					<div :class="'page-resources--content--' + specific.overview.main[2].key + '--content--inner'">
-						<h2>
-							<edit-inline
-								v-model="specific.overview.main[2].title"
-								:global="global" />
-						</h2>
-						<hr>
-						<edit-block
-							v-model="specific.overview.main[2].content"
-							:global="global" />
-					</div>
-				</div>
-			</div>
-			<div :class="'page-resources--content--' + specific.overview.main[3].key"
-				@click="goTo(specific.overview.main[3].key)">
-				<div :class="'page-resources--content--' + specific.overview.main[3].key + '--image'"></div>
-				<div :class="'page-resources--content--' + specific.overview.main[3].key + '--content'">
-					<div :class="'page-resources--content--' + specific.overview.main[3].key + '--content--inner'">
-						<h2>
-							<edit-inline
-								v-model="specific.overview.main[3].title"
-								:global="global" />
-						</h2>
-						<hr>
-						<edit-block
-							v-model="specific.overview.main[3].content"
+							v-model="specific.overview.main[index].content"
 							:global="global" />
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div class="page-resources--information">
+	<div class="page-resources--information" v-if="specific.overview.main[0].key !== 'hygienementale'">
 		<ul class="page-resources--information--contacts">
 			<template>			
 				<li v-for="(contact, index) in common.navigation.information.contacts">
