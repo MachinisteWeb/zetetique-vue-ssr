@@ -142,10 +142,10 @@ exports.setModules = function () {
 
 	NA.modules.Vue.use(NA.modules.VueRouter);
 
-	news();
+	/* news();
 	setInterval(function () {
 		news();
-	}, 1000 * 60 * 60);
+	}, 1000 * 60 * 60); */
 };
 
 exports.setSessions = function (next) {

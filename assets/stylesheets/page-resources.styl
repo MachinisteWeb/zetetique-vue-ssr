@@ -122,11 +122,19 @@
 						&:hover
 							width 24%
 							
+					& ^[0..1]--zetetiqueautodefense
+					& ^[0..1]--philosophiesciences
+						width 46.66666666%
+
+						&:hover
+							width 60%
+							
 		&--hygienementale
 		&--minutesapiens
 		&--scienceclic
 		&--brain
 		&--word
+		&--philosophiesciences
 			&--image
 				order 2
 
@@ -170,6 +178,14 @@
 			&--image
 				background-image url('../media/images/science-clic.jpg')
 
+		&--zetetiqueautodefense
+			&--image
+				background-image url('../media/images/zetetique-autodefense.jpg')
+
+		&--philosophiesciences
+			&--image
+				background-image url('../media/images/philosophie-sciences.jpg')
+
 		&--cafe
 		&--brain
 		&--speak
@@ -179,6 +195,8 @@
 		&--minutesapiens
 		&--vitefait
 		&--scienceclic
+		&--zetetiqueautodefense
+		&--philosophiesciences
 			cursor pointer
 			display flex
 			justify-content space-between
@@ -220,6 +238,11 @@
 		&--scienceclic
 			@media (min-width 1024px)
 				width 20%
+				
+		&--zetetiqueautodefense
+		&--philosophiesciences
+			@media (min-width 1024px)
+				width 50%
 
 .page-cards
 	position absolute
@@ -297,16 +320,32 @@
 
 			&.as-scienceclic
 				background-image url('../media/images/science-clic.jpg')
+
+			&.as-zetetiqueautodefense
+				background-image url('../media/images/zetetique-autodefense.jpg')
+
+			&.as-philosophiesciences
+				background-image url('../media/images/philosophie-sciences.jpg')
 				
 			&.as-hygienementale
 			&.as-methodez
 			&.as-minutesapiens
 			&.as-vitefait
 			&.as-scienceclic
+			&.as-zetetiqueautodefense
+			&.as-philosophiesciences
 				& ^[0..1]--cards--item--detail
 					height 140px
 					
 			&.as-vitefait
+				& ^[0..1]--cards--item--detail
+					position relative
+					
+					img
+						position absolute
+						top -24px
+						
+			&.as-philosophiesciences
 				& ^[0..1]--cards--item--detail
 					position relative
 					

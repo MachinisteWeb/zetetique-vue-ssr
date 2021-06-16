@@ -11,7 +11,9 @@ function getCard(locals, params, next) {
 		'methode-z': 'initiations',
 		'minute-sapiens': 'initiations',
 		'vite-fait': 'initiations',
-		'science-clic': 'initiations'
+		'science-clic': 'initiations',
+		'zetetique-et-autodefense-intelectuelle': 'courses',
+		'philosophie-des-sciences': 'courses'
 	};
 
 	locals.global = locals.global || {};
@@ -28,7 +30,9 @@ function getCard(locals, params, next) {
 				'methode-z': 'methodez',
 				'minute-sapiens': 'minutesapiens',
 				'vite-fait': 'vitefait',
-				'science-clic': 'scienceclic'
+				'science-clic': 'scienceclic',
+				'zetetique-et-autodefense-intelectuelle': 'zetetiqueautodefense',
+				'philosophie-des-sciences': 'philosophiesciences'
 			};
 			group = choices[params.category];
 
@@ -62,7 +66,9 @@ exports.changeVariations = function (next, locals) {
 			'methode-z': 'Méthode Z',
 			'minute-sapiens': 'Minute Sapiens',
 			'vite-fait': 'Vite Fait',
-			'science-clic': 'ScienceClic'
+			'science-clic': 'ScienceClic',
+			'zetetique-autodefense': 'Zététique et autodéfense intellectuelle',
+			'philosophie-sciences': 'Philosophie des sciences'
 		};
 
 		locals.specific.meta.title = locals.global.card.title + ' — ' + locals.global.card.number + ' | ' + choices[locals.params.category];

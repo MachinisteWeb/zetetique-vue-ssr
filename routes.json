@@ -34,11 +34,11 @@
 			"view": "page-cards"
 		}]
 	},
-	"card_fr-fr": {
-		"url": "/fiches/:category/:slug/",
+	"clip_fr-fr": {
+		"url": "/initiations/:category/:slug/",
 		"view": "page-card",
 		"controller": "card.js",
-		"variation": "card.json"
+		"variation": "clip.json"
 	},
 	"resources_fr-fr": {
 		"url": "/fiches/",
@@ -61,11 +61,32 @@
 			"view": "page-cards"
 		}]
 	},
-	"clip_fr-fr": {
-		"url": "/initiations/:category/:slug/",
+	"card_fr-fr": {
+		"url": "/fiches/:category/:slug/",
 		"view": "page-card",
 		"controller": "card.js",
-		"variation": "clip.json"
+		"variation": "card.json"
+	},
+	"courses_fr-fr": {
+		"url": "/cours/",
+		"view": "page-resources",
+		"variation": "courses.json",
+		"_children": [{
+			"key": false,
+			"view": "page-resources-index"
+		}, {
+			"key": "zetetiqueautodefense_fr-fr",
+			"view": "page-cards"
+		}, {
+			"key": "philosophiesciences_fr-fr",
+			"view": "page-cards"
+		}]
+	},
+	"lesson_fr-fr": {
+		"url": "/cours/:category/:slug/",
+		"view": "page-card",
+		"controller": "card.js",
+		"variation": "lesson.json"
 	},
 	"cafe_fr-fr": {
 		"url": "/fiches/cafe-critique/",
@@ -120,6 +141,18 @@
 		"view": "page-resources",
 		"variation": "initiations.json",
 		"_parent": "initiations_fr-fr"
+	},
+	"zetetiqueautodefense_fr-fr": {
+		"url": "/cours/zetetique-et-autodefense-intelectuelle/",
+		"view": "page-resources",
+		"variation": "courses.json",
+		"_parent": "courses_fr-fr"
+	},
+	"philosophiesciences_fr-fr": {
+		"url": "/cours/philosophie-des-sciences/",
+		"view": "page-resources",
+		"variation": "courses.json",
+		"_parent": "courses_fr-fr"
 	},
 	"contact_fr-fr": {
 		"url": "/participer/",

@@ -91,6 +91,7 @@ module.exports = function (template, specific, mixin, options) {
 					.replace(/(<h1>.*)(è)(.*<\/h1>)/g, '$1e$3')
 					.replace(/(<h1>.*)(à)(.*<\/h1>)/g, '$1a$3')
 					.replace(/(<span class="card__aside__category__title">.*)(é)(.*<\/span>)/g, '$1e$3')
+					.replace(/(<span class="card__aside__category__title">.*)(é)(.*<\/span>)/g, '$1e$3')
 					.replace(/(<span class="card__aside__category__title">.*)(è)(.*<\/span>)/g, '$1e$3')
 					.replace(/(<span class="card__aside__category__title">.*)(À)(.*<\/span>)/g, '$1A$3');
 			},

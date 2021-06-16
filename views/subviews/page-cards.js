@@ -51,7 +51,9 @@ module.exports = function (template, mixin) {
 					'as-methodez': 'methodez' === this.routeName,
 					'as-minutesapiens': 'minutesapiens' === this.routeName,
 					'as-vitefait': 'vitefait' === this.routeName,
-					'as-scienceclic': 'scienceclic' === this.routeName
+					'as-scienceclic': 'scienceclic' === this.routeName,
+					'as-zetetiqueautodefense': 'zetetiqueautodefense' === this.routeName,
+					'as-philosophiesciences': 'philosophiesciences' === this.routeName
 				};
 			}
 		},

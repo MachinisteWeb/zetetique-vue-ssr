@@ -1863,10 +1863,10 @@ div.jsoneditor.jsoneditor {
 .page-home--projects--image--item.as-word,
 .page-home--overview--image--item.as-news,
 .page-home--projects--image--item.as-news,
-.page-home--overview--image--item.as-facebook,
-.page-home--projects--image--item.as-facebook,
-.page-home--overview--image--item.as-web,
-.page-home--projects--image--item.as-web,
+.page-home--overview--image--item.as-initiations,
+.page-home--projects--image--item.as-initiations,
+.page-home--overview--image--item.as-courses,
+.page-home--projects--image--item.as-courses,
 .page-home--overview--image--item.as-credits,
 .page-home--projects--image--item.as-credits {
   background-size: cover;
@@ -1893,13 +1893,13 @@ div.jsoneditor.jsoneditor {
 .page-home--projects--image--item.as-news {
   background-image: url("../media/images/actualites.jpg");
 }
-.page-home--overview--image--item.as-facebook,
-.page-home--projects--image--item.as-facebook {
-  background-image: url("../media/images/facebook.jpg");
+.page-home--overview--image--item.as-courses,
+.page-home--projects--image--item.as-courses {
+  background-image: url("../media/images/courses.jpg");
 }
-.page-home--overview--image--item.as-web,
-.page-home--projects--image--item.as-web {
-  background-image: url("../media/images/more.jpg");
+.page-home--overview--image--item.as-initiations,
+.page-home--projects--image--item.as-initiations {
+  background-image: url("../media/images/initiations.jpg");
 }
 .page-home--overview--image--item.as-credits,
 .page-home--projects--image--item.as-credits {
@@ -2465,12 +2465,21 @@ div.jsoneditor.jsoneditor {
   .page-resources--content--inner:hover .page-resources--content--scienceclic:hover {
     width: 24%;
   }
+  .page-resources--content--inner:hover .page-resources--content--zetetiqueautodefense,
+  .page-resources--content--inner:hover .page-resources--content--philosophiesciences {
+    width: 46.66666666%;
+  }
+  .page-resources--content--inner:hover .page-resources--content--zetetiqueautodefense:hover,
+  .page-resources--content--inner:hover .page-resources--content--philosophiesciences:hover {
+    width: 60%;
+  }
 }
 .page-resources--content--hygienementale--image,
 .page-resources--content--minutesapiens--image,
 .page-resources--content--scienceclic--image,
 .page-resources--content--brain--image,
-.page-resources--content--word--image {
+.page-resources--content--word--image,
+.page-resources--content--philosophiesciences--image {
   -webkit-box-ordinal-group: 3;
       -ms-flex-order: 2;
           order: 2;
@@ -2479,7 +2488,8 @@ div.jsoneditor.jsoneditor {
 .page-resources--content--minutesapiens--content,
 .page-resources--content--scienceclic--content,
 .page-resources--content--brain--content,
-.page-resources--content--word--content {
+.page-resources--content--word--content,
+.page-resources--content--philosophiesciences--content {
   -webkit-box-ordinal-group: 2;
       -ms-flex-order: 1;
           order: 1;
@@ -2514,6 +2524,12 @@ div.jsoneditor.jsoneditor {
 .page-resources--content--scienceclic--image {
   background-image: url("../media/images/science-clic.jpg");
 }
+.page-resources--content--zetetiqueautodefense--image {
+  background-image: url("../media/images/zetetique-autodefense.jpg");
+}
+.page-resources--content--philosophiesciences--image {
+  background-image: url("../media/images/philosophie-sciences.jpg");
+}
 .page-resources--content--cafe,
 .page-resources--content--brain,
 .page-resources--content--speak,
@@ -2522,7 +2538,9 @@ div.jsoneditor.jsoneditor {
 .page-resources--content--methodez,
 .page-resources--content--minutesapiens,
 .page-resources--content--vitefait,
-.page-resources--content--scienceclic {
+.page-resources--content--scienceclic,
+.page-resources--content--zetetiqueautodefense,
+.page-resources--content--philosophiesciences {
   cursor: pointer;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2542,7 +2560,9 @@ div.jsoneditor.jsoneditor {
   .page-resources--content--methodez,
   .page-resources--content--minutesapiens,
   .page-resources--content--vitefait,
-  .page-resources--content--scienceclic {
+  .page-resources--content--scienceclic,
+  .page-resources--content--zetetiqueautodefense,
+  .page-resources--content--philosophiesciences {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -2557,7 +2577,9 @@ div.jsoneditor.jsoneditor {
 .page-resources--content--methodez--image,
 .page-resources--content--minutesapiens--image,
 .page-resources--content--vitefait--image,
-.page-resources--content--scienceclic--image {
+.page-resources--content--scienceclic--image,
+.page-resources--content--zetetiqueautodefense--image,
+.page-resources--content--philosophiesciences--image {
   background-size: cover;
   background-position: center center;
   -ms-flex-preferred-size: 50%;
@@ -2571,7 +2593,9 @@ div.jsoneditor.jsoneditor {
 .page-resources--content--methodez--content,
 .page-resources--content--minutesapiens--content,
 .page-resources--content--vitefait--content,
-.page-resources--content--scienceclic--content {
+.page-resources--content--scienceclic--content,
+.page-resources--content--zetetiqueautodefense--content,
+.page-resources--content--philosophiesciences--content {
   padding: 24px 16px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2591,7 +2615,9 @@ div.jsoneditor.jsoneditor {
 .page-resources--content--methodez--content--inner,
 .page-resources--content--minutesapiens--content--inner,
 .page-resources--content--vitefait--content--inner,
-.page-resources--content--scienceclic--content--inner {
+.page-resources--content--scienceclic--content--inner,
+.page-resources--content--zetetiqueautodefense--content--inner,
+.page-resources--content--philosophiesciences--content--inner {
   position: relative;
   top: -20px;
   opacity: 0;
@@ -2606,7 +2632,9 @@ div.jsoneditor.jsoneditor {
 .page-resources--content.is-displayed .page-resources--content--methodez--content--inner,
 .page-resources--content.is-displayed .page-resources--content--minutesapiens--content--inner,
 .page-resources--content.is-displayed .page-resources--content--vitefait--content--inner,
-.page-resources--content.is-displayed .page-resources--content--scienceclic--content--inner {
+.page-resources--content.is-displayed .page-resources--content--scienceclic--content--inner,
+.page-resources--content.is-displayed .page-resources--content--zetetiqueautodefense--content--inner,
+.page-resources--content.is-displayed .page-resources--content--philosophiesciences--content--inner {
   opacity: 1;
   top: 0;
 }
@@ -2625,6 +2653,12 @@ div.jsoneditor.jsoneditor {
   .page-resources--content--vitefait,
   .page-resources--content--scienceclic {
     width: 20%;
+  }
+}
+@media (min-width: 1024px) {
+  .page-resources--content--zetetiqueautodefense,
+  .page-resources--content--philosophiesciences {
+    width: 50%;
   }
 }
 .page-cards {
@@ -2711,17 +2745,32 @@ div.jsoneditor.jsoneditor {
 .page-cards--content--inner.as-scienceclic {
   background-image: url("../media/images/science-clic.jpg");
 }
+.page-cards--content--inner.as-zetetiqueautodefense {
+  background-image: url("../media/images/zetetique-autodefense.jpg");
+}
+.page-cards--content--inner.as-philosophiesciences {
+  background-image: url("../media/images/philosophie-sciences.jpg");
+}
 .page-cards--content--inner.as-hygienementale .page-cards--content--cards--item--detail,
 .page-cards--content--inner.as-methodez .page-cards--content--cards--item--detail,
 .page-cards--content--inner.as-minutesapiens .page-cards--content--cards--item--detail,
 .page-cards--content--inner.as-vitefait .page-cards--content--cards--item--detail,
-.page-cards--content--inner.as-scienceclic .page-cards--content--cards--item--detail {
+.page-cards--content--inner.as-scienceclic .page-cards--content--cards--item--detail,
+.page-cards--content--inner.as-zetetiqueautodefense .page-cards--content--cards--item--detail,
+.page-cards--content--inner.as-philosophiesciences .page-cards--content--cards--item--detail {
   height: 140px;
 }
 .page-cards--content--inner.as-vitefait .page-cards--content--cards--item--detail {
   position: relative;
 }
 .page-cards--content--inner.as-vitefait .page-cards--content--cards--item--detail img {
+  position: absolute;
+  top: -24px;
+}
+.page-cards--content--inner.as-philosophiesciences .page-cards--content--cards--item--detail {
+  position: relative;
+}
+.page-cards--content--inner.as-philosophiesciences .page-cards--content--cards--item--detail img {
   position: absolute;
   top: -24px;
 }
