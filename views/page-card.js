@@ -50,7 +50,12 @@ module.exports = function (template, specific, mixin, options) {
 					'methode-z': 'Méthode Z',
 					'minute-sapiens': 'Minute Sapiens',
 					'vite-fait': 'Vite Fait',
-					'science-clic': 'ScienceClic'
+					'instant-sceptique': 'Instant Sceptique',
+					'science-clic': 'ScienceClic',
+					'medifact': 'Medifact',
+					'risque-alpha': 'Risque Alpha',
+					'zetetique-autodefense': 'Zététique et autodéfense intellectuelle',
+					'philosophie-sciences': 'Philosophie des sciences'
 				};
 				return choices[this.path];
 			}
@@ -90,6 +95,7 @@ module.exports = function (template, specific, mixin, options) {
 					.replace(/(<h1>.*)(È)(.*<\/h1>)/g, '$1E$3')
 					.replace(/(<h1>.*)(è)(.*<\/h1>)/g, '$1e$3')
 					.replace(/(<h1>.*)(à)(.*<\/h1>)/g, '$1a$3')
+					.replace(/(<span class="card__aside__category__title">.*)(É)(.*<\/span>)/g, '$1E$3')
 					.replace(/(<span class="card__aside__category__title">.*)(é)(.*<\/span>)/g, '$1e$3')
 					.replace(/(<span class="card__aside__category__title">.*)(é)(.*<\/span>)/g, '$1e$3')
 					.replace(/(<span class="card__aside__category__title">.*)(è)(.*<\/span>)/g, '$1e$3')

@@ -11,7 +11,10 @@ function getCard(locals, params, next) {
 		'methode-z': 'initiations',
 		'minute-sapiens': 'initiations',
 		'vite-fait': 'initiations',
-		'science-clic': 'initiations',
+		'instant-sceptique': 'initiations',
+		'science-clic': 'sciences',
+		'medifact': 'sciences',
+		'risque-alpha': 'sciences',
 		'zetetique-et-autodefense-intelectuelle': 'courses',
 		'philosophie-des-sciences': 'courses'
 	};
@@ -30,7 +33,10 @@ function getCard(locals, params, next) {
 				'methode-z': 'methodez',
 				'minute-sapiens': 'minutesapiens',
 				'vite-fait': 'vitefait',
+				'instant-sceptique': 'instantsceptique',
 				'science-clic': 'scienceclic',
+				'medifact': 'medifact',
+				'risque-alpha': 'risquealpha',
 				'zetetique-et-autodefense-intelectuelle': 'zetetiqueautodefense',
 				'philosophie-des-sciences': 'philosophiesciences'
 			};
@@ -66,7 +72,10 @@ exports.changeVariations = function (next, locals) {
 			'methode-z': 'Méthode Z',
 			'minute-sapiens': 'Minute Sapiens',
 			'vite-fait': 'Vite Fait',
+			'instant-sceptique': 'Instant Sceptique',
 			'science-clic': 'ScienceClic',
+			'medifact': 'Medifact',
+			'risque-alpha': 'Risque Alpha',
 			'zetetique-autodefense': 'Zététique et autodéfense intellectuelle',
 			'philosophie-sciences': 'Philosophie des sciences'
 		};

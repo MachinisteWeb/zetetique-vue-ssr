@@ -116,11 +116,19 @@
 					& ^[0..1]--methodez
 					& ^[0..1]--minutesapiens
 					& ^[0..1]--vitefait
-					& ^[0..1]--scienceclic
+					& ^[0..1]--instantsceptique
 						width 19%
 
 						&:hover
 							width 24%
+							
+					& ^[0..1]--scienceclic
+					& ^[0..1]--medifact
+					& ^[0..1]--risquealpha
+						width 30%
+
+						&:hover
+							width 40%
 							
 					& ^[0..1]--zetetiqueautodefense
 					& ^[0..1]--philosophiesciences
@@ -131,10 +139,11 @@
 							
 		&--hygienementale
 		&--minutesapiens
-		&--scienceclic
+		&--instantsceptique
+		&--medifact
+		&--philosophiesciences
 		&--brain
 		&--word
-		&--philosophiesciences
 			&--image
 				order 2
 
@@ -174,9 +183,21 @@
 			&--image
 				background-image url('../media/images/vite-fait.jpg')
 
+		&--instantsceptique
+			&--image
+				background-image url('../media/images/instant-sceptique.jpg')
+				
 		&--scienceclic
 			&--image
 				background-image url('../media/images/science-clic.jpg')
+				
+		&--medifact
+			&--image
+				background-image url('../media/images/medifact.jpg')
+				
+		&--risquealpha
+			&--image
+				background-image url('../media/images/risque-alpha.jpg')
 
 		&--zetetiqueautodefense
 			&--image
@@ -194,7 +215,10 @@
 		&--methodez
 		&--minutesapiens
 		&--vitefait
+		&--instantsceptique
 		&--scienceclic
+		&--medifact
+		&--risquealpha
 		&--zetetiqueautodefense
 		&--philosophiesciences
 			cursor pointer
@@ -235,9 +259,15 @@
 		&--methodez
 		&--minutesapiens
 		&--vitefait
-		&--scienceclic
+		&--instantsceptique
 			@media (min-width 1024px)
 				width 20%
+				
+		&--scienceclic
+		&--medifact
+		&--risquealpha
+			@media (min-width 1024px)
+				width 33.33333333%
 				
 		&--zetetiqueautodefense
 		&--philosophiesciences
@@ -318,8 +348,17 @@
 			&.as-vitefait
 				background-image url('../media/images/vite-fait.jpg')
 
+			&.as-instantsceptique
+				background-image url('../media/images/instant-sceptique.jpg')
+
 			&.as-scienceclic
 				background-image url('../media/images/science-clic.jpg')
+
+			&.as-medifact
+				background-image url('../media/images/medifact.jpg')
+
+			&.as-risquealpha
+				background-image url('../media/images/risque-alpha.jpg')
 
 			&.as-zetetiqueautodefense
 				background-image url('../media/images/zetetique-autodefense.jpg')
@@ -331,20 +370,22 @@
 			&.as-methodez
 			&.as-minutesapiens
 			&.as-vitefait
+			&.as-instantsceptique
 			&.as-scienceclic
+			&.as-medifact
+			&.as-risquealpha
 			&.as-zetetiqueautodefense
 			&.as-philosophiesciences
 				& ^[0..1]--cards--item--detail
 					height 140px
 					
+			&.as-hygienementale
+			&.as-minutesapiens
 			&.as-vitefait
-				& ^[0..1]--cards--item--detail
-					position relative
-					
-					img
-						position absolute
-						top -24px
-						
+			&.as-instantsceptique
+			&.as-scienceclic
+			&.as-risquealpha
+			&.as-zetetiqueautodefense
 			&.as-philosophiesciences
 				& ^[0..1]--cards--item--detail
 					position relative

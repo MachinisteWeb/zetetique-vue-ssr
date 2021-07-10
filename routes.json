@@ -30,7 +30,7 @@
 			"key": "vitefait_fr-fr",
 			"view": "page-cards"
 		}, {
-			"key": "scienceclic_fr-fr",
+			"key": "instantsceptique_fr-fr",
 			"view": "page-cards"
 		}]
 	},
@@ -39,6 +39,51 @@
 		"view": "page-card",
 		"controller": "card.js",
 		"variation": "clip.json"
+	},
+	"courses_fr-fr": {
+		"url": "/cours/",
+		"view": "page-resources",
+		"variation": "courses.json",
+		"_children": [{
+			"key": false,
+			"view": "page-resources-index"
+		}, {
+			"key": "zetetiqueautodefense_fr-fr",
+			"view": "page-cards"
+		}, {
+			"key": "philosophiesciences_fr-fr",
+			"view": "page-cards"
+		}]
+	},
+	"lesson_fr-fr": {
+		"url": "/cours/:category/:slug/",
+		"view": "page-card",
+		"controller": "card.js",
+		"variation": "lesson.json"
+	},
+	"sciences_fr-fr": {
+		"url": "/sciences/",
+		"view": "page-resources",
+		"variation": "sciences.json",
+		"_children": [{
+			"key": false,
+			"view": "page-resources-index"
+		}, {
+			"key": "scienceclic_fr-fr",
+			"view": "page-cards"
+		}, {
+			"key": "medifact_fr-fr",
+			"view": "page-cards"
+		}, {
+			"key": "risquealpha_fr-fr",
+			"view": "page-cards"
+		}]
+	},
+	"knowledge_fr-fr": {
+		"url": "/sciences/:category/:slug/",
+		"view": "page-card",
+		"controller": "card.js",
+		"variation": "knowledge.json"
 	},
 	"resources_fr-fr": {
 		"url": "/fiches/",
@@ -66,27 +111,6 @@
 		"view": "page-card",
 		"controller": "card.js",
 		"variation": "card.json"
-	},
-	"courses_fr-fr": {
-		"url": "/cours/",
-		"view": "page-resources",
-		"variation": "courses.json",
-		"_children": [{
-			"key": false,
-			"view": "page-resources-index"
-		}, {
-			"key": "zetetiqueautodefense_fr-fr",
-			"view": "page-cards"
-		}, {
-			"key": "philosophiesciences_fr-fr",
-			"view": "page-cards"
-		}]
-	},
-	"lesson_fr-fr": {
-		"url": "/cours/:category/:slug/",
-		"view": "page-card",
-		"controller": "card.js",
-		"variation": "lesson.json"
 	},
 	"cafe_fr-fr": {
 		"url": "/fiches/cafe-critique/",
@@ -136,11 +160,29 @@
 		"variation": "initiations.json",
 		"_parent": "initiations_fr-fr"
 	},
-	"scienceclic_fr-fr": {
-		"url": "/initiations/science-clic/",
+	"instantsceptique_fr-fr": {
+		"url": "/initiations/instant-sceptique/",
 		"view": "page-resources",
 		"variation": "initiations.json",
 		"_parent": "initiations_fr-fr"
+	},
+	"scienceclic_fr-fr": {
+		"url": "/sciences/science-clic/",
+		"view": "page-resources",
+		"variation": "sciences.json",
+		"_parent": "sciences_fr-fr"
+	},
+	"medifact_fr-fr": {
+		"url": "/sciences/medifact/",
+		"view": "page-resources",
+		"variation": "sciences.json",
+		"_parent": "sciences_fr-fr"
+	},
+	"risquealpha_fr-fr": {
+		"url": "/sciences/risque-alpha/",
+		"view": "page-resources",
+		"variation": "sciences.json",
+		"_parent": "sciences_fr-fr"
 	},
 	"zetetiqueautodefense_fr-fr": {
 		"url": "/cours/zetetique-et-autodefense-intelectuelle/",
