@@ -129,6 +129,7 @@ exports.setModules = function () {
 	NA.modules.VueServerRenderer = require('vue-server-renderer');
 
 	NA.modules.nodemailer = require('nodemailer');
+	NA.modules.redis = require('redis');
 	NA.modules.RedisStore = require('connect-redis');
 
 	NA.modules.emailManager = require('./modules/email-manager.js')(NA);
@@ -151,9 +152,14 @@ exports.setModules = function () {
 exports.setSessions = function (next) {
 	var NA = this,
 		session = NA.modules.session,
+		redis = NA.modules.redis,
 		RedisStore = NA.modules.RedisStore(session);
 
-	NA.sessionStore = new RedisStore();
+	var redisClient = redis.createClient()
+	redisClient.unref()
+	redisClient.on('error', console.log)
+
+	NA.sessionStore = new RedisStore({ client: redisClient });
 
 	next();
 };
