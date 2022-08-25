@@ -54,8 +54,8 @@ module.exports = function (template, specific, mixin, options) {
 					'science-clic': 'ScienceClic',
 					'medifact': 'Medifact',
 					'risque-alpha': 'Risque Alpha',
-					'zetetique-autodefense': 'Zététique et autodéfense intellectuelle',
-					'philosophie-sciences': 'Philosophie des sciences'
+					'zetetique-et-autodefense-intelectuelle': 'Zététique et autodéfense intellectuelle',
+					'philosophie-des-sciences': 'Philosophie des sciences'
 				};
 				return choices[this.path];
 			}

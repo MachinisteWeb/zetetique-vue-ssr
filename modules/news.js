@@ -2679,6 +2679,10 @@ module.exports = function () {
 			callback(null, entries);
 		});
 	}, function (callback) {
+		hygieneMentale(function (err, entries) {
+			callback(null, entries);
+		});
+	}, function (callback) {
 		ebbh(function (err, entries) {
 			callback(null, entries);
 		});
@@ -2691,18 +2695,6 @@ module.exports = function () {
 			callback(null, entries);
 		});
 	}, function (callback) {
-		science4All(function (err, entries) {
-			callback(null, entries);
-		});
-	}, function (callback) {
-		reveilleur(function (err, entries) {
-			callback(null, entries);
-		});
-	}, function (callback) {
-		mrPhi(function (err, entries) {
-			callback(null, entries);
-		});
-	}, function (callback) {
 		chatSceptique(function (err, entries) {
 			callback(null, entries);
 		});
@@ -2711,19 +2703,7 @@ module.exports = function () {
 			callback(null, entries);
 		});
 	}, function (callback) {
-		heuReka(function (err, entries) {
-			callback(null, entries);
-		});
-	}, function (callback) {
-		troncheBiais(function (err, entries) {
-			callback(null, entries);
-		});
-	}, function (callback) {
 		defakator(function (err, entries) {
-			callback(null, entries);
-		});
-	}, function (callback) {
-		hygieneMentale(function (err, entries) {
 			callback(null, entries);
 		});
 	}, function (callback) {
@@ -2731,11 +2711,60 @@ module.exports = function () {
 			callback(null, entries);
 		});
 	}, function (callback) {
+		scepticismeScientifique(function (err, entries) {
+			callback(null, entries);
+		});
+	}, function (callback) {
+		troncheBiais(function (err, entries) {
+			callback(null, entries);
+		});
+	}, function (callback) {
+		astroscept(function (err, entries) {
+			callback(null, entries);
+		});
+	}
+	, function (callback) {
+		theiereCosmique(function (err, entries) {
+			callback(null, entries);
+		});
+	}
+	, function (callback) {
+		bunkerD(function (err, entries) {
+			callback(null, entries);
+		});
+	}
+	, function (callback) {
+		hoaxBuster(function (err, entries) {
+			callback(null, entries);
+		});
+	},
+	function (callback) {
+		astec(function (err, entries) {
+			callback(null, entries);
+		});
+	}, function (callback) {
+		lepharmachien(function (err, entries) {
+			callback(null, entries);
+		});
+	}, function (callback) {
+		cortecs(function (err, entries) {
+			callback(null, entries);
+		});
+	}
+	/*, function (callback) {
+		science4All(function (err, entries) {
+			callback(null, entries);
+		});
+	}, function (callback) {
+		mrPhi(function (err, entries) {
+			callback(null, entries);
+		});
+	}, function (callback) {
 		matadon(function (err, entries) {
 			callback(null, entries);
 		});
 	}, function (callback) {
-		scepticismeScientifique(function (err, entries) {
+		heuReka(function (err, entries) {
 			callback(null, entries);
 		});
 	}, function (callback) {
@@ -2750,15 +2779,12 @@ module.exports = function () {
 		laMenaceTheoriste(function (err, entries) {
 			callback(null, entries);
 		});
-	}, function (callback) {
+	}*//*, function (callback) {
 		curiologie(function (err, entries) {
 			callback(null, entries);
 		});
-	}, function (callback) {
-		astec(function (err, entries) {
-			callback(null, entries);
-		});
-	}, function (callback) {
+	}*//*
+	function (callback) {
 		charlatans(function (err, entries) {
 			callback(null, entries);
 		});
@@ -2867,18 +2893,15 @@ module.exports = function () {
 			callback(null, entries);
 		});
 	}, function (callback) {
-		astroscept(function (err, entries) {
+		reveilleur(function (err, entries) {
 			callback(null, entries);
 		});
-	}, function (callback) {
-		lepharmachien(function (err, entries) {
-			callback(null, entries);
-		});
-	}/*, function (callback) {
+	}
+	*//*, function (callback) {
 		sciencetonnante(function (err, entries) {
 			callback(null, entries);
 		});scienceEtonnante
-	}*/, function (callback) {
+	}*//*, function (callback) {
 		scienceEtonnante(function (err, entries) {
 			callback(null, entries);
 		});
@@ -2890,35 +2913,22 @@ module.exports = function () {
 		dirtyBiology(function (err, entries) {
 			callback(null, entries);
 		});
-	}, function (callback) {
-		cortecs(function (err, entries) {
-			callback(null, entries);
-		});
-	}/*, function (callback) {
+	}
+	*//*, function (callback) {
 		sciencePop(function (err, entries) {
 			callback(null, entries);
 		});
-	}*/, function (callback) {
+	}*//*, function (callback) {
 		penserCritique(function (err, entries) {
 			callback(null, entries);
 		});
-	}, function (callback) {
-		theiereCosmique(function (err, entries) {
-			callback(null, entries);
-		});
-	}/*, function (callback) {
+	}
+	*//*, function (callback) {
 		zetEthique(function (err, entries) {
 			callback(null, entries);
 		});
-	}*/, function (callback) {
-		bunkerD(function (err, entries) {
-			callback(null, entries);
-		});
-	}, function (callback) {
-		hoaxBuster(function (err, entries) {
-			callback(null, entries);
-		});
-	}], function(err, entries) {
+	}*//*
+	*/], function(err, entries) {
 		var result = entries.reduce(function (a, b) {
 			return a.concat(b);
 		}, []);

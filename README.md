@@ -48,7 +48,7 @@ puis récupérer le dépôt en local sur votre machine :
 
 ```bash
 $ cd </path/to/workspace/>
-$ git clone https://github.com/Haeresis/zetetique-vue-ssr.git
+$ git clone https://github.com/MachinisteWeb/zetetique-vue-ssr.git
 ```
 
 puis initialisez la branche de développement :

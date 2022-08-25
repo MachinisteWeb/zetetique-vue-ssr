@@ -76,8 +76,8 @@ exports.changeVariations = function (next, locals) {
 			'science-clic': 'ScienceClic',
 			'medifact': 'Medifact',
 			'risque-alpha': 'Risque Alpha',
-			'zetetique-autodefense': 'Zététique et autodéfense intellectuelle',
-			'philosophie-sciences': 'Philosophie des sciences'
+			'zetetique-et-autodefense-intelectuelle': 'Zététique et autodéfense intellectuelle',
+			'philosophie-des-sciences': 'Philosophie des sciences'
 		};
 
 		locals.specific.meta.title = locals.global.card.title + ' — ' + locals.global.card.number + ' | ' + choices[locals.params.category];
