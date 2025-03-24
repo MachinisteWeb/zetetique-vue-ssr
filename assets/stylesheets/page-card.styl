@@ -172,7 +172,12 @@
 			
 			iframe
 				width 90vmin
-				height 54vmin 
+				height 54vmin
+
+				&.short
+					width 45vmin
+					height 80vmin
+
 
 	strong
 		font-style italic
@@ -252,6 +257,12 @@
 			order 1
 			font-family Destroy
 			text-shadow 0.1vmin 0.1vmin 0.1vmin #444, -0.1vmin 0.1vmin 0.1vmin #444, 0.1vmin -0.1vmin 0.1vmin #444, -0.1vmin -0.1vmin 0.1vmin #444
+
+			&__title
+				sup
+					font-size 1vmin
+					top -1vmin
+					position relative
 
 		&__logo
 			position absolute

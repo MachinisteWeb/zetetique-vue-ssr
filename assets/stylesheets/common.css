@@ -3099,6 +3099,10 @@ div.jsoneditor.jsoneditor {
   width: 90vmin;
   height: 54vmin;
 }
+.card.card-video .card__content__lead iframe.short {
+  width: 45vmin;
+  height: 80vmin;
+}
 .card strong {
   font-style: italic;
 }
@@ -3187,6 +3191,11 @@ div.jsoneditor.jsoneditor {
           order: 1;
   font-family: Destroy;
   text-shadow: 0.1vmin 0.1vmin 0.1vmin #444, -0.1vmin 0.1vmin 0.1vmin #444, 0.1vmin -0.1vmin 0.1vmin #444, -0.1vmin -0.1vmin 0.1vmin #444;
+}
+.card__aside__category__title sup {
+  font-size: 1vmin;
+  top: -1vmin;
+  position: relative;
 }
 .card__aside__logo {
   position: absolute;

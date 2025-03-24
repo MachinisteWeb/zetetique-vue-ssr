@@ -51,6 +51,8 @@
 											{{ specific.cardImage }}
 										</a><a v-else :href="card.image" target="_blank">
 											{{ specific.cardImage }}
+										</a><a v-if="card.video2" :href="card.video2" target="_blank">
+											({{ specific.cardImageSuite }})
 										</a><span v-if="card.url">/<a :href="card.url" target="_blank">
 											{{ specific.cardLink }}
 										</a></span><span v-if="card.facebook"> —
